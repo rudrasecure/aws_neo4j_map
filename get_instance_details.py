@@ -18,6 +18,7 @@ def get_instance_details(region):
         instance_dict['VPC'] = instance.vpc.id
         instance_dict['State'] = instance.state['Name']
         instance_dict['Subnet ID'] = instance.subnet_id
+        instance_dict['Instance ID'] = instance.instance_id
         # Retrieve Network Security Group details
         security_groups = []
         for group in instance.security_groups:
