@@ -32,12 +32,15 @@ def add_data_to_neo4j(instance_data, security_group_data):
             WITH r, instance
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (v:VPC {id: instance.VPC})
-            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None')})
+            MERGE (su:Subnet {id: instance.`Subnet ID`})
+            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State})
             MERGE (sn)-[:CONTAINS]->(i)
             MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(v)
+            MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
             MERGE (sn)-[:CONTAINS]->(v)
+            MERGE (sn)-[:CONTAINS]->(su)
             WITH sn, i, instance
             UNWIND instance.`Security Groups` AS sg
             MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
@@ -76,13 +79,13 @@ def add_data_to_neo4j(instance_data, security_group_data):
 
 
 try:
-    with open('instances_wed_jun14_2023.json', 'r') as f:
+    with open('instances_15062023.json', 'r') as f:
         instance_data = json.load(f)
-    with open('security_groups_14_june_2023.json') as f:
+    with open('sg_15062023.json') as f:
         security_group_data = json.load(f)
 except json.JSONDecodeError as e:
     print('Error in JSON decoding:', e)
-    faulty_part = open('instances_wed_jun14_2023.json', 'r').read()[e.doc:e.pos]
+    faulty_part = open('instances_15062023.json', 'r').read()[e.doc:e.pos]
     print('Faulty part:', faulty_part)
 
 add_data_to_neo4j(instance_data, security_group_data)
