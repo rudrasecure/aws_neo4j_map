@@ -8,7 +8,7 @@ config = dotenv_values(".env")
 uri = f"neo4j://{config['NEO4J_HOST']}:7687"
 driver = GraphDatabase.driver(uri, auth=(config['NEO4J_USER'], config['NEO4J_PASS']))
 
-def add_data_to_neo4j(instance_data, security_group_data):
+def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data):
     with driver.session() as session:
         # Check for the highest version number in the Snapshot nodes
         highest_version_result = session.run("MATCH (sn:Snapshot) RETURN max(sn.version) AS highest_version")
@@ -33,7 +33,7 @@ def add_data_to_neo4j(instance_data, security_group_data):
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (v:VPC {id: instance.VPC})
             MERGE (su:Subnet {id: instance.`Subnet ID`})
-            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State})
+            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
             MERGE (sn)-[:CONTAINS]->(i)
             MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
@@ -76,18 +76,111 @@ def add_data_to_neo4j(instance_data, security_group_data):
             MERGE (sn)-[:CONTAINS]->(s)
             """, snapshot_id=snapshot_id, region=region, security_groups=security_groups)
 
+#To DO : Make the adding of relation between tg_node and instance conditional. Only if the type is instance should this work. Else this will fail
+        for region, load_balancers in lb_data.items():
+            for lb in load_balancers:
+                session.run("""
+                MERGE (r:Region {name: $region})
+                MERGE (v:VPC {id: $vpc_id})
+                WITH r, v
+                MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
+                MERGE (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name, scheme: $scheme, state: $state, created_time: datetime($created_time)})
+                MERGE (sn)-[:CONTAINS]->(l)
+                MERGE (l)-[:BELONGS_TO]->(v)
+                MERGE (r)-[:CONTAINS]->(l)
+                WITH l, sn
+                UNWIND $security_groups AS sg_id
+                MERGE (sg:SecurityGroup {id: sg_id})
+                MERGE (l)-[:BELONGS_TO]->(sg)
+                MERGE (sn)-[:CONTAINS]->(sg)
+                WITH l, sn
+                UNWIND $target_groups AS tg
+                MERGE (tg_node:TargetGroup {name: tg.TargetGroupName, arn: tg.TargetGroupArn})
+                MERGE (l)-[:CONTAINS]->(tg_node)
+                MERGE (sn)-[:CONTAINS]->(tg_node)
+                WITH tg, tg_node, sn
+                UNWIND tg.Targets AS target
+                MATCH (i:Instance {id: target.Target}) 
+                MERGE (tg_node)-[:CONTAINS]->(i)
+                """, 
+                region=region, 
+                load_balancer_arn=lb['LoadBalancerArn'], 
+                dns_name=lb['DNSName'], 
+                vpc_id=lb['VpcId'], 
+                state=lb['State']['Code'], 
+                scheme=lb['Scheme'], 
+                created_time=lb['CreatedTime'], 
+                security_groups=lb['SecurityGroups'], 
+                target_groups=lb['TargetGroups'], 
+                snapshot_id=snapshot_id, 
+                version=version)
+
+        for region, instances in rds_data.items():
+            session.run("""
+            UNWIND $instances AS instance
+            MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
+            MERGE (r:Region {name: $region})
+            MERGE (db:RDSInstance {
+                DBInstanceIdentifier: instance.DBInstanceIdentifier,
+                DBInstanceStatus: instance.DBInstanceStatus,
+                Engine: instance.Engine,
+                EngineVersion: instance.EngineVersion,
+                DBInstanceClass: instance.DBInstanceClass,
+                MasterUsername: instance.MasterUsername,
+                VPCId: instance.VPCId,
+                MultiAZ: toBoolean(instance.MultiAZ),
+                PubliclyAccessible: toBoolean(instance.PubliclyAccessible),
+                StorageEncrypted: toBoolean(instance.StorageEncrypted),
+                IAMDatabaseAuthenticationEnabled: toBoolean(instance.IAMDatabaseAuthenticationEnabled),
+                Endpoint: instance.Endpoint,
+                Port: instance.Port,
+                BackupRetentionPeriod: instance.BackupRetentionPeriod,
+                DBName: COALESCE(instance.DBName, 'Null')
+            })
+            MERGE (v:VPC {id: instance.VPCId})
+            MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(v)
+            MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(r)
+            MERGE (sn)-[:CONTAINS]->(db)
+            WITH db, instance, sn
+            UNWIND instance.VpcSecurityGroups AS vpc_sg
+            MERGE (sg:SecurityGroup {id: vpc_sg.VpcSecurityGroupId})
+            MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(sg)
+            MERGE (sn)-[:CONTAINS]->(sg)
+            """, snapshot_id=snapshot_id, region=region, instances=instances)
+
+        for connections in peering_data.values():
+            session.run("""
+            UNWIND $connections AS connection
+            MERGE (rv:VPC {id: connection.RequesterVPC})
+            MERGE (av:VPC {id: connection.AccepterVPC})
+            MERGE (rv)-[p:PEERED_TO {id: connection.PeeringConnectionId, status: connection.Status, timestamp: datetime()}]->(av)
+            WITH p, connection
+            UNWIND keys(connection.Tags) AS tag_key
+            SET p.tag_name=tag_key
+            SET p.tag_value=connection.Tags[tag_key]
+            """, connections=connections)
+
+
+
 
 
 try:
-    with open('instances_15062023.json', 'r') as f:
+    with open('instance_15062023.json', 'r') as f:
         instance_data = json.load(f)
     with open('sg_15062023.json') as f:
         security_group_data = json.load(f)
+    with open('albs.json', 'r') as f:
+        lb_data = json.load(f)
+    with open('rds_02072023.json', 'r') as f:
+        rds_data = json.load(f)
+    with open('vpc_peering_02072023.json', 'r') as f:
+        peering_data = json.load(f)
+
 except json.JSONDecodeError as e:
     print('Error in JSON decoding:', e)
     faulty_part = open('instances_15062023.json', 'r').read()[e.doc:e.pos]
     print('Faulty part:', faulty_part)
 
-add_data_to_neo4j(instance_data, security_group_data)
+add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data)
 
 driver.close()
