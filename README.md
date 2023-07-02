@@ -27,6 +27,9 @@ The temporal element is brought in by creating a "Snapshot" Label node. (Snapsho
 * (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.'Internal IP', public_ip: COALESCE(instance.'External IP', 'None'), state: instance.State}): Represents an EC2 instance in AWS.
 * (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName}): Represents a security group in the AWS environment.
 * (t:Tag {name: tag_key, value: instance.Tags[tag_key]}): Represents a tag attached to an instance.
+* (db:RDSInstance {...}): Represents an RDS instance in the AWS environment, characterized by its DBInstanceIdentifier, DBInstanceStatus, Engine, EngineVersion, DBInstanceClass, MasterUsername, VPCId, MultiAZ, PubliclyAccessible, StorageEncrypted, IAMDatabaseAuthenticationEnabled, Endpoint, Port, BackupRetentionPeriod, and DBName properties.
+* (l:LoadBalancer {...}): Represents a load balancer in the AWS environment, characterized by its ARN, DNS name, scheme, state, and creation time properties.
+* (tg_node:TargetGroup {...}): Represents a target group in the AWS environment, characterized by its name and ARN properties. A target group serves the upstream of a load balancer. An instance, or a lambda can belong to a target group. The current code only supports instances being behind a target group
 
 * (i:IPRange {cidr: ip_range.CidrIp, description: COALESCE(ip_range.Description, 'No description available')}): Represents an IP Range in the AWS environment.
 * (o:IPRange {cidr: ip_range.CidrIp, description: COALESCE(ip_range.Description, 'No description available')}): Another representation of an IP Range (for outbound rules) in the AWS environment.
@@ -44,6 +47,7 @@ The temporal element is brought in by creating a "Snapshot" Label node. (Snapsho
 * (sn)-[:CONTAINS]->(s): The snapshot includes the information about the security group.
 * (i)-[:TAGGED {timestamp: datetime()}]->(t): The EC2 instance is tagged with a specific tag at a certain time.
 * (sn)-[:CONTAINS]->(t): The snapshot includes the information about the tag.
+* (rv:VPC)-[:PEERED_TO {timestamp: datetime()}]->(av:VPC): Represents a peering relationship between two VPCs, i.e., the requester VPC (rv:VPC) is peered to the accepter VPC (av:VPC). The timestamp indicates when this relationship was added to the database. Tags will indicate the reason for this peering, or the name - through which the reason should be inferable
 
 
 * (r)-[:HAS_SECURITYGROUP {timestamp: datetime()}]->(s): An AWS region has a specific security group at a particular time.
