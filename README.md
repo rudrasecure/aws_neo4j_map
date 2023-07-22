@@ -3,7 +3,10 @@ Maps AWS topology in Neo4J
 
 ## Goals
 Keeping track of security operations in a large environment demands up to date contextual information at hand, on demand.
-The purpose of this repo is to keep up-to-date context on an AWS environment. This documentation will contain certain sample queries that can be run on neo4j.
+The purpose of this repo is to keep up-to-date context on an AWS environment. This documentation will contain certain sample queries that can be run on neo4j. It can be integrated into any SIEM tooling with a bit of scripting. 
+
+## Access Keys required
+
 
 ## Data capture
 We're using the AWS API's - accessed via the boto3 SDK for python to pull in all the data. Data sources are pulled currently from the following boto3 functions (this could be out of date so please check by referencing the boto3 folder) 
