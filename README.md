@@ -6,10 +6,12 @@ Keeping track of security operations in a large environment demands up to date c
 The purpose of this repo is to keep up-to-date context on an AWS environment. This documentation will contain certain sample queries that can be run on neo4j.
 
 ## Data capture
-There are currently, two sources of data that are brought into this context. 
+We're using the AWS API's - accessed via the boto3 SDK for python to pull in all the data. Data sources are pulled currently from the following boto3 functions (this could be out of date so please check by referencing the boto3 folder) 
 1.  Iterating through regions with  boto3.resource('ec2', region_name=region).instances.all()
 2.  Iterating through regions with  boto3.client('ec2', region_name=region).describe_security_groups()
-
+3.  Iterating through rds instances with RDS.Client.describe_db_instances(**kwargs)
+4.  Enumerating VPC Peering connections with EC2.Client.describe_vpc_peering_connections(**kwargs)
+5.  Enumerating load balancers with the ElasticLoadBalancingv2.Client.describe_load_balancers(**kwargs)
 Separate scripts are run which gather the above details in a JSON response. The Security Group ID is a part of the first response. Using that, we build a connected graph tying in a number of elements
 
 
@@ -48,6 +50,9 @@ The temporal element is brought in by creating a "Snapshot" Label node. (Snapsho
 * (i)-[:TAGGED {timestamp: datetime()}]->(t): The EC2 instance is tagged with a specific tag at a certain time.
 * (sn)-[:CONTAINS]->(t): The snapshot includes the information about the tag.
 * (rv:VPC)-[:PEERED_TO {timestamp: datetime()}]->(av:VPC): Represents a peering relationship between two VPCs, i.e., the requester VPC (rv:VPC) is peered to the accepter VPC (av:VPC). The timestamp indicates when this relationship was added to the database. Tags will indicate the reason for this peering, or the name - through which the reason should be inferable
+* (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name, scheme: $scheme, state: $state, created_time: datetime($created_time)}): Represents a load balancer in the AWS environment. The load balancer is identified by its Amazon Resource Name (ARN), DNS name, scheme (either internet-facing or internal), state (active or inactive), and the time it was created.
+* (tg_node:TargetGroup {name: tg.TargetGroupName, arn: tg.TargetGroupArn}): Represents a target group in the AWS environment. The target group is identified by its name and ARN. A target group is used to route requests to one or more registered targets when using a load balancer.
+
 
 
 * (r)-[:HAS_SECURITYGROUP {timestamp: datetime()}]->(s): An AWS region has a specific security group at a particular time.
@@ -55,6 +60,9 @@ The temporal element is brought in by creating a "Snapshot" Label node. (Snapsho
 * (s)-[:ALLOWED {timestamp: datetime(), protocol: outbound.IpProtocol, fromPort: COALESCE(outbound.FromPort, 'Not specified'), toPort: COALESCE(outbound.ToPort, 'Not specified')}]->(o): A security group allows specific outbound rules to an IP range, which are captured in this relationship, along with a timestamp to know when these rules were in effect.
 The direction of the relationship between IPRanges and SecurityGroups determines whether the rule is for ingress or egress traffic
 In essence, these relationships define how different components in the AWS environment relate to each other and how they evolve over time.
+
+* (rv)-[p:PEERED_TO {id: connection.PeeringConnectionId, status: connection.Status, timestamp: datetime()}]->(av) : This operation establishes a PEERED_TO relationship between the Requester VPC (rv) and the Acceptor VPC (av). The relationship contains properties such as the Peering Connection ID, its status, and the timestamp when the relationship was created or updated. The relationship also has attributes which are essentially 'tags' on the VPC peering connection - these (hopefully) should explain why the peering exists.
+
 
 ## Insights and sample queries
 
@@ -70,21 +78,34 @@ MATCH (i)-[:BELONGS_TO]->(s:SecurityGroup)-[]->(ir:IPRange {cidr:"0.0.0.0/0"})
 WITH i, t
 MATCH (i)-[:TAGGED]-(p:Tag {name:"owner"})   
 RETURN DISTINCT(p.value), i.private_ip, t.value
+
+
+#Find all AWS RDS instances where encryption is off
+MATCH (n:RDSInstance {StorageEncrypted:false}) RETURN n
 ```
 
 ```
 #Find all IP ranges/port/protocol that are allowed egress to a particular instance
-MATCH (i:Instance {private_ip:"192.168.143.68"})-[b]-(sg:SecurityGroup)-[a:ALLOWED]->(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol
+MATCH (i:Instance {private_ip:"192.168.***.***"})-[b]-(sg:SecurityGroup)-[a:ALLOWED]->(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol
 #Same, but shows which security group is the cause of the allowed traffic
-MATCH (i:Instance {private_ip:"192.168.143.68"})-[b]-(sg:SecurityGroup)-[a:ALLOWED]->(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol,sg.name 
+MATCH (i:Instance {private_ip:"192.168.***.***"})-[b]-(sg:SecurityGroup)-[a:ALLOWED]->(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol,sg.name 
 ```
 
 
 ```
 #Find all IP ranges/port/protocol that are allowed ingress to a particular instance
-MATCH (i:Instance {private_ip:"192.168.143.68"})-[b]-(sg:SecurityGroup)<-[a:ALLOWED]-(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol
+MATCH (i:Instance {private_ip:"192.168.***.***"})-[b]-(sg:SecurityGroup)<-[a:ALLOWED]-(ip:IPRange) return ip.cidr,a.fromPort,a.toPort,a.protocol
+```
+
+```
+#Find which load balancer an instance is connected to the internet by
+MATCH (n:Instance {private_ip:'192.168.***.***'})-[]-(t:TargetGroup)-[]-(lb:LoadBalancer) RETURN n,t,lb LIMIT 25
 ```
 
 ### Putting it into practise
 We need to create these queries as a part of a python script that runs as a cron and write to a JSONL file. Wazuh can tail this file and import the logs.
 Shuffler + Wazuh can be combined with this to write complex corelated rules that alert upon a very complex combination of scenarios and gaps that  could be causes for security incidents.
+
+
+### To Do 
+The Target Group at the moment can only contain an EC2 instance - it needs to be expanded to cater for scenarios where a target group is backended by Lambdas or other AWS elements that can serve a Target Group

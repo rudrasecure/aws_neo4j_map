@@ -165,15 +165,15 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
 
 
 try:
-    with open('instance_15062023.json', 'r') as f:
+    with open('instance_data.json', 'r') as f:
         instance_data = json.load(f)
-    with open('sg_15062023.json') as f:
+    with open('security_group_data.json') as f:
         security_group_data = json.load(f)
-    with open('albs.json', 'r') as f:
+    with open('alb_data.json', 'r') as f:
         lb_data = json.load(f)
-    with open('rds_02072023.json', 'r') as f:
+    with open('rds_data.json', 'r') as f:
         rds_data = json.load(f)
-    with open('vpc_peering_02072023.json', 'r') as f:
+    with open('vpc_peering_data.json', 'r') as f:
         peering_data = json.load(f)
 
 except json.JSONDecodeError as e:
