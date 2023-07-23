@@ -18,6 +18,9 @@ In order to make use of the data capture methods listed below, you'll need an IA
 
 We've kept components loosely coupled so that it can be built into any automation system; as we refine/mature this out, we'll make it easier to run. 
 
+## Blog
+https://www.linkedin.com/pulse/cyber-response-context-karan-sajnani 
+
 ## Data capture
 We're using the AWS API's - accessed via the boto3 SDK for python to pull in all the data. Data sources are pulled currently from the following boto3 functions (this could be out of date so please check by referencing the boto3 folder) 
 1.  Iterating through regions with  boto3.resource('ec2', region_name=region).instances.all()
