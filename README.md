@@ -8,6 +8,16 @@ The purpose of this repo is to keep up-to-date context on an AWS environment. Th
 ## Access required
 In order to make use of the data capture methods listed below, you'll need an IAM user with SecurityAudit and ViewOnlyAccess policies. 
 
+## How to Use
+It's a bit manual at the moment, but you'll have to do the following
+* Setup Neo4j - a docker container setup would be the easiest
+* Setup your .env with the creds for Neo4j
+* Create a virtualenv and install the requirements
+* Run all the scripts in the boto3 library and redirect the output into a .json file (this can be done on a separate machine - possibly in your AWS environment). Note that the scripts will have to have the above IAM credentials to work
+* Run update_intelligence_db.py. You'll need to change the filenames in the script to correspond to the .json files created in the earlier step
+
+It is a bit cumbersome, however we have intentionally kept it flexible - so that it can be easily incorporated into any automation system.
+
 ## Data capture
 We're using the AWS API's - accessed via the boto3 SDK for python to pull in all the data. Data sources are pulled currently from the following boto3 functions (this could be out of date so please check by referencing the boto3 folder) 
 1.  Iterating through regions with  boto3.resource('ec2', region_name=region).instances.all()
@@ -112,3 +122,7 @@ Shuffler + Wazuh can be combined with this to write complex corelated rules that
 
 ### To Do 
 The Target Group at the moment can only contain an EC2 instance - it needs to be expanded to cater for scenarios where a target group is backended by Lambdas or other AWS elements that can serve a Target Group
+
+## Contributing
+We welcome code contributions and ideas.
+
