@@ -9,14 +9,14 @@ The purpose of this repo is to keep up-to-date context on an AWS environment. Th
 In order to make use of the data capture methods listed below, you'll need an IAM user with SecurityAudit and ViewOnlyAccess policies. 
 
 ## How to Use
-It's a bit manual at the moment, but you'll have to do the following
+
 * Setup Neo4j - a docker container setup would be the easiest
 * Setup your .env with the creds for Neo4j
 * Create a virtualenv and install the requirements
-* Run all the scripts in the boto3 library and redirect the output into a .json file (this can be done on a separate machine - possibly in your AWS environment). Note that the scripts will have to have the above IAM credentials to work
-* Run update_intelligence_db.py. You'll need to change the filenames in the script to correspond to the .json files created in the earlier step
+* Run all the scripts in the boto3 folder and redirect the output into a .json file (this can be done on a separate machine - possibly in your AWS environment). Note that the scripts will have to have the above IAM credentials to work
+* Run update_intelligence_db.py in the Neo4j folder. You'll need to ensure that the files that you created in the previous step are in the same directory as the script, and ensure that the correct names are referenced at the bottom of this script.
 
-It is a bit cumbersome, however we have intentionally kept it flexible - so that it can be easily incorporated into any automation system.
+We've kept components loosely coupled so that it can be built into any automation system; as we refine/mature this out, we'll make it easier to run. 
 
 ## Data capture
 We're using the AWS API's - accessed via the boto3 SDK for python to pull in all the data. Data sources are pulled currently from the following boto3 functions (this could be out of date so please check by referencing the boto3 folder) 
