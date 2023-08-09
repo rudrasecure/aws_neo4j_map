@@ -12,6 +12,8 @@ def get_alb_details(region):
     alb_list = []
     for page in page_iterator:
         for alb in page['LoadBalancers']:
+            if alb['Type'] in ['gateway']:
+                continue
             alb_dict = {}
             alb_dict['LoadBalancerArn'] = alb['LoadBalancerArn']
             alb_dict['DNSName'] = alb['DNSName']
