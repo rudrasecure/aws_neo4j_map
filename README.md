@@ -118,6 +118,11 @@ MATCH (i:Instance {private_ip:"192.168.***.***"})-[b]-(sg:SecurityGroup)<-[a:ALL
 MATCH (n:Instance {private_ip:'192.168.***.***'})-[]-(t:TargetGroup)-[]-(lb:LoadBalancer) RETURN n,t,lb LIMIT 25
 ```
 
+### Run Neo4j in Docker Container with APOC
+```
+docker run -p 7474:7474 -p 7687:7687 -v $PWD/data_demo:/data -v $PWD/plugins:/plugins --name neo4j-apoc -e NEO4J_apoc_export_file_enabled=true -e NEO4J_apoc_import_file_enabled=true  -e NEO4J_dbms_security_procedures_unrestricted=apoc.\\\* -e NEO4J_apoc_import_file_use__neo4j__config=true -d neo4j
+```
+
 ### Putting it into practise
 We need to create these queries as a part of a python script that runs as a cron and write to a JSONL file. Wazuh can tail this file and import the logs.
 Shuffler + Wazuh can be combined with this to write complex corelated rules that alert upon a very complex combination of scenarios and gaps that  could be causes for security incidents.
