@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  neo4j-apoc:
+    image: neo4j
+    container_name: neo4j-apoc
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - ./data:/data
+      - ./plugins:/plugins
+    environment:
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_dbms_security_procedures_unrestricted=apoc.\\*
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+    restart: always

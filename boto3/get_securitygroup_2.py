@@ -59,5 +59,11 @@ def get_all_security_group_details():
 
     return all_security_group_details
 
-all_security_group_details = get_all_security_group_details()
-print(json.dumps(all_security_group_details))
+#all_security_group_details = get_all_security_group_details()
+#print(json.dumps(all_security_group_details))
+if __name__ == "__main__":
+    all_security_group_details = get_all_security_group_details()
+
+    # Save the details to a file named 'alb_data'
+    with open('security_group_data.json', 'w') as outfile:
+        json.dump(all_security_group_details, outfile)

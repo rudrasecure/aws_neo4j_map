@@ -61,5 +61,11 @@ def get_all_alb_details():
 
     return all_alb_details
 
-all_alb_details = get_all_alb_details()
-print(json.dumps(all_alb_details))
+#all_alb_details = get_all_alb_details()
+#print(json.dumps(all_alb_details))
+if __name__ == "__main__":
+    all_alb_details = get_all_alb_details()
+
+    # Save the details to a file named 'alb_data'
+    with open('alb_data.json', 'w') as outfile:
+        json.dump(all_alb_details, outfile)
