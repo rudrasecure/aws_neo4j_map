@@ -87,6 +87,7 @@ python3 update_intelligence_db.py
 ## D. Explore Database:
 Return to the browser and click on the "Database Information" tab in Neo4j.
 Explore "Node Labels" and "Relationship Types" to delve into the details.
+
 ![alt text](image-2.png)
 
 ### This sequence ensures a smooth setup and utilization of the Neo4j database with AWS data obtained through Boto3 scripts.
