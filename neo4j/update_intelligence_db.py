@@ -33,7 +33,7 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (v:VPC {id: instance.VPC})
             MERGE (su:Subnet {id: instance.`Subnet ID`})
-            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
+            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`, name: instance.Tags['Name']})
             MERGE (sn)-[:CONTAINS]->(i)
             MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
