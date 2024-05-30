@@ -1,0 +1,291 @@
+{
+    "ap-south-1": [
+        {
+            "DBInstanceIdentifier": "bc-mr-database",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t2.large",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "bc-mr-database.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-b6c468dc",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "cash-out",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.m5.xlarge",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "cash-out.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "cashout",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-39b57051",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ics",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ics.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0193c1d8d62be2cea",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "investment-engine",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t3.large",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "investment-engine.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-5746bc3f",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "notification",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "notification.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-5746bc3f",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "payment-engine-databse",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t2.medium",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "payment-engine-databse.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "paymentengine",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-39b57051",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "payworld-accounting",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.m5.2xlarge",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "payworld-accounting.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "payworld_accounting",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0b9d9425fe5c9941f",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "payworld-accounting-green-kfdkja",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t3.xlarge",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "payworld-accounting-green-kfdkja.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 2,
+            "DBName": "payworld_accounting",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0b9d9425fe5c9941f",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "payworld-insurance",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t2.small",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "payworld-insurance.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 2,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-39b57051",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "pw-recharge",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t2.medium",
+            "MasterUsername": "payworldrecharge",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "pw-recharge.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "payworld_recharge",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-05dd23e4c18fc9e2c",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "pw-travelling",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.t3.large",
+            "MasterUsername": "root",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "pw-travelling.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "payworld_travelling",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-ee98ce86",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgs-ho",
+            "DBInstanceStatus": "available",
+            "Engine": "mysql",
+            "EngineVersion": "8.0.36",
+            "DBInstanceClass": "db.m5.2xlarge",
+            "MasterUsername": "sgsho",
+            "VPCId": "vpc-c32f67aa",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgs-ho.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
+            "Port": 3306,
+            "BackupRetentionPeriod": 7,
+            "DBName": "sgsho",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-dc9d67b4",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
+    "eu-north-1": [],
+    "eu-west-3": [],
+    "eu-west-2": [],
+    "eu-west-1": [],
+    "ap-northeast-3": [],
+    "ap-northeast-2": [],
+    "ap-northeast-1": [],
+    "ca-central-1": [],
+    "sa-east-1": [],
+    "ap-southeast-1": [],
+    "ap-southeast-2": [],
+    "eu-central-1": [],
+    "us-east-1": [],
+    "us-east-2": [],
+    "us-west-1": [],
+    "us-west-2": []
+}

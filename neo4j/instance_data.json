@@ -1,0 +1,3647 @@
+{
+    "ap-south-1": [
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-26.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.26",
+            "External IP": "13.235.168.39",
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-977622fe",
+            "Instance ID": "i-078364e47b88b9f27",
+            "Security Groups": [
+                {
+                    "GroupName": "Payworld-Mon",
+                    "GroupId": "sg-e451ab8c"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "bhiwad_ssh",
+                    "GroupId": "sg-00924598ac0c36904"
+                }
+            ],
+            "Tags": {
+                "Name": "Zabbix-Monitor-Prod-123.26",
+                "inspector": "true",
+                "application": "common",
+                "InstanceType": "t2.medium",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "owner": "Infra",
+                "IPAddress": "192.168.123.26",
+                "ServiceType": "monitoring",
+                "Owner": "support"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-22.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.22",
+            "External IP": "35.154.16.167",
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-977622fe",
+            "Instance ID": "i-00213f75ec3c37903",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                }
+            ],
+            "Tags": {
+                "owner": "Infra",
+                "inspector": "true",
+                "IPAddress": "192.168.123.22",
+                "InstanceType": "t2.micro",
+                "Name": "Bastion-Host-Prod-123.22",
+                "application": "bastion",
+                "Backup": "",
+                "ServiceType": "Infra",
+                "Owner": "Infra Team"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-85.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.85",
+            "External IP": "65.2.175.163",
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-01e84050c59e8b9e6",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "PW-RECHARGE-SG",
+                    "GroupId": "sg-8d2f98e5"
+                }
+            ],
+            "Tags": {
+                "owner": "Lokesh",
+                "InstanceType": "t2.medium",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Name": "Utility-123.85",
+                "ServiceType": "utility",
+                "inspector": "true",
+                "IPAddress": "192.168.123.85",
+                "StopAtNight": "",
+                "application": "utility",
+                "Owner": "Lokesh"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-83.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.83",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-067664441b8a3540d",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "InstanceType": "t2.medium",
+                "IPAddress": "192.168.123.83",
+                "VolumeType": "GP3",
+                "owner": "Infra",
+                "Name": "Wordpress-Cache-Prod-123.83",
+                "ServiceType": "wordpress",
+                "inspector": "true",
+                "application": "mainsite",
+                "Backup": "",
+                "Owner": "dheeraj"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-88.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.88",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-04677aafccd6d6c39",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "IPAddress": "192.168.123.88",
+                "StopAtNight": "",
+                "inspector": "true",
+                "Backup": "",
+                "Owner": "dheeraj",
+                "InstanceType": "t2.medium",
+                "Name": "SGS-Cron-API-Prod-OldPayworld-123.88",
+                "application": "service-purchase",
+                "owner": "Kapil",
+                "ServiceType": "sgs",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-74.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.74",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-058bc32e29a3ed792",
+            "Security Groups": [
+                {
+                    "GroupName": "PW-Redis-Zone",
+                    "GroupId": "sg-4b986223"
+                }
+            ],
+            "Tags": {
+                "Name": "Redis-Prod-123.74",
+                "owner": "Amrit",
+                "inspector": "true",
+                "application": "redis",
+                "ServiceType": "redis",
+                "VolumeType": "GP3",
+                "IPAddress": "192.168.123.74",
+                "Backup": "",
+                "InstanceType": "t2.small"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-40.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.40",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0e5e60e131910d0f7",
+            "Security Groups": [
+                {
+                    "GroupName": "Pw-webpos-DB",
+                    "GroupId": "sg-13d73678"
+                },
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "ServiceType": "loandb",
+                "Name": "DB-Loan-CRM-143.40",
+                "InstanceType": "t2.large",
+                "inspector": "true",
+                "IPAddress": "192.168.143.40",
+                "VolumeType": "GP3",
+                "owner": "Lokesh",
+                "Owner": "Prshant-DBA",
+                "application": "webpos-database"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-56.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.56",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0c559cd0d80608753",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "Insurance-SG",
+                    "GroupId": "sg-d84cacb3"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "VolumeType": "GP3",
+                "Name": "Insurance-Prod-143.56",
+                "Owner": "Monika",
+                "application": "insurance",
+                "inspector": "true",
+                "IPAddress": "192.168.143.56",
+                "InstanceType": "t2.small",
+                "owner": "Prateek",
+                "ServiceType": "insurance"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-32.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.32",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0c2c1fefaf49b579d",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Owner": "dheeraj",
+                "IPAddress": "192.168.143.32",
+                "StopAtNight": "yes",
+                "inspector": "true",
+                "ServiceType": "webpos",
+                "Name": "Webpos-Beta-Old-143.32",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "InstanceType": "t2.medium",
+                "owner": "Sakshi",
+                "application": "webpos"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-15.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.15",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-03a7a8c86112de7ea",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "SGS-SG",
+                    "GroupId": "sg-7bef8c13"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Owner": "Amrit",
+                "IPAddress": "192.168.143.15",
+                "VolumeType": "GP3",
+                "ServiceType": "mutualfund",
+                "owner": "Prateek",
+                "Name": "Investment-Mutual-Fund-Prod-143.15",
+                "application": "mutual",
+                "inspector": "true",
+                "InstanceType": "t2.medium"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-28.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.28",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-01c1defb316766d45",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Sakshi",
+                "IPAddress": "192.168.143.28",
+                "inspector": "true",
+                "Backup": "",
+                "Owner": "dheeraj",
+                "ServiceType": "notification",
+                "Name": "Notification-Prod-143.28",
+                "InstanceType": "t2.large",
+                "VolumeType": "GP3",
+                "application": "notification"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-47.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.47",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0180d49889c4bd91f",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Payworld-Main-DB-SG",
+                    "GroupId": "sg-d96890b3"
+                }
+            ],
+            "Tags": {
+                "inspector": "true",
+                "owner": "Amrit",
+                "ServiceType": "master-db",
+                "InstanceType": "m4.2xlarge",
+                "IPAddress": "192.168.143.47",
+                "Owner": "Prshant-DBA",
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "application": "master-db",
+                "Name": "Accounting-DB-Old-143.47"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-52.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.52",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0c511b9737350f411",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "accounting",
+                "Owner": "amrit",
+                "owner": "Amrit",
+                "Backup": "yes",
+                "Name": "Accounting-API-Prod-143.52",
+                "VolumeType": "GP3",
+                "application": "new-accounting",
+                "IPAddress": "192.168.143.52",
+                "inspector": "true"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-31.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.31",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0833b731b0cba1d23",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Owner": "amrit",
+                "StopAtNight": "yes",
+                "Backup": "",
+                "inspector": "true",
+                "owner": "Amrit",
+                "ServiceType": "accounting",
+                "IPAddress": "192.168.143.31",
+                "Name": "Accounting-API-Prod-143.31",
+                "VolumeType": "GP3",
+                "application": "new-accounting"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-116.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.116",
+            "External IP": "43.204.230.82",
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0d7d66b34cd59aea5",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "PW-RECHARGE-SG",
+                    "GroupId": "sg-8d2f98e5"
+                }
+            ],
+            "Tags": {
+                "Name": "Utility-123.116",
+                "inspector": "true",
+                "Backup": "yes",
+                "application": "utility",
+                "owner": "Lokesh",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "Owner": "dheeraj",
+                "ServiceType": "utility",
+                "IPAddress": "192.168.123.116",
+                "InstanceType": "t2.medium",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-113.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.113",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-06365fcefa797caa0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "Pw-Mongo-SG",
+                    "GroupId": "sg-66cf270d"
+                }
+            ],
+            "Tags": {
+                "IPAddress": "192.168.143.113",
+                "Backup": "yes",
+                "ServiceType": "analyticsmongo",
+                "inspector": "true",
+                "VolumeType": "GP3",
+                "InstanceType": "t2.large",
+                "Owner": "Prashant-DBA",
+                "Name": "AirSearch-Mongo-Prod-143.113",
+                "application": "mongo-db",
+                "owner": "Function Apps"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-114.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.114",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0bbb89dc41d666312",
+            "Security Groups": [
+                {
+                    "GroupName": "BO-SG",
+                    "GroupId": "sg-71bedf1a"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "oldbackoffice",
+                "StopAtNight": "yes",
+                "application": "backoffice",
+                "IPAddress": "192.168.143.114",
+                "VolumeType": "GP3",
+                "owner": "Amrit",
+                "Name": "Payworld-Backoffice-Old-143.114",
+                "inspector": "true",
+                "InstanceType": "t2.medium",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-106.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.106",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-05ec3ac9ef5565897",
+            "Security Groups": [
+                {
+                    "GroupName": "BO-SG",
+                    "GroupId": "sg-71bedf1a"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                }
+            ],
+            "Tags": {
+                "owner": "Millan",
+                "ServiceType": "api",
+                "InstanceType": "t2.medium",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "IPAddress": "192.168.143.106",
+                "application": "api",
+                "inspector": "true",
+                "Name": "PW-apiportal-B"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-116.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.116",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0441af2fa27b8c2a5",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Owner": "Amrit",
+                "application": "pre-production-sgs",
+                "VolumeType": "GP3",
+                "inspector": "true",
+                "InstanceType": "t2.medium",
+                "owner": "Kapil",
+                "ServiceType": "sgs",
+                "IPAddress": "192.168.143.116",
+                "Name": "SGS-HO-Fieldx-Backend-Prod-Beta-143.116"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-74.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.74",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-03fed2524ae804657",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                },
+                {
+                    "GroupName": "SGS-SG",
+                    "GroupId": "sg-7bef8c13"
+                }
+            ],
+            "Tags": {
+                "InstanceType": "t2.small",
+                "owner": "Amrit",
+                "inspector": "true",
+                "Owner": "ALL Team",
+                "application": "redis",
+                "Name": "MR-Redis-Prod-143.74",
+                "ServiceType": "qmr",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "IPAddress": "192.168.143.74"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-68.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.68",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-073136a405e34ddb5",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Payworld-Main-DB-SG",
+                    "GroupId": "sg-d96890b3"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "IPAddress": "192.168.143.68",
+                "InstanceType": "t2.medium",
+                "VolumeType": "GP3",
+                "Name": "pw-app-mysql-log-1b",
+                "inspector": "true",
+                "ServiceType": "mysql",
+                "application": "mysql",
+                "Backup": "",
+                "owner": "Amrit",
+                "Payworld": "VASCAN"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-44.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.44",
+            "External IP": "13.232.245.177",
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-fc4ac5b1",
+            "Instance ID": "i-0e14c3e6de4fa09e2",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "m21-SG",
+                    "GroupId": "sg-068aa1d2ff017b419"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Payworld": "VASCAN",
+                "Backup": "",
+                "IPAddress": "192.168.123.44",
+                "ServiceType": "bank-api",
+                "owner": "Millan",
+                "Owner": "bank-api",
+                "Name": "m21-domain",
+                "InstanceType": "t2.small",
+                "application": "bank-api",
+                "inspector": "true"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-70.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.70",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0dc7ace61507a1669",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "IPAddress": "192.168.143.70",
+                "inspector": "true",
+                "owner": "Millan",
+                "ServiceType": "payment",
+                "Backup": "",
+                "InstanceType": "t2.medium",
+                "VolumeType": "GP3",
+                "Name": "Payment-Prod-Old-143.70",
+                "Owner": "millan",
+                "application": "payment"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-86.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.86",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0a2c05bad14816657",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Owner": "amrit",
+                "StopAtNight": "yes",
+                "Backup": "",
+                "owner": "Amrit",
+                "ServiceType": "accounting",
+                "VolumeType": "GP3",
+                "application": "new-accounting",
+                "Name": "Accounting-API-Prod-143.86",
+                "IPAddress": "192.168.143.86",
+                "inspector": "true"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-71.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.71",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-07318f305bce4b7cd",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "QrCode-VPSAPI-Prod-143.71",
+                "ServiceType": "qr, VPS-API",
+                "Owner": "millan",
+                "VolumeType": "GP3",
+                "owner": "Millan",
+                "IPAddress": "192.168.143.71",
+                "application": "qr, VPS-API",
+                "inspector": "true",
+                "Payworld": "VASCAN",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-5.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.5",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0ff6e3a4b21057837",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Owner": "Amrit",
+                "IPAddress": "192.168.143.5",
+                "Name": "MR-Frontend-Prod-143.5",
+                "ServiceType": "qmr",
+                "application": "QMR-Frontend",
+                "inspector": "true",
+                "Backup": "yes",
+                "owner": "Amrit"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-21.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.21",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0c479770eca8b4524",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                },
+                {
+                    "GroupName": "new-vps-application-ssl-access",
+                    "GroupId": "sg-0119c9c23ac22c740"
+                }
+            ],
+            "Tags": {
+                "Name": "PW-VPS",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "application": "VPS",
+                "ServiceType": "vps",
+                "owner": "Prateek",
+                "IPAddress": "192.168.143.21",
+                "Owner": "parveen",
+                "inspector": "true"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-20.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.20",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0cddb2f18db9edc0d",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Name": "MR-API-Prod-143.20",
+                "inspector": "true",
+                "owner": "Amrit",
+                "Backup": "yes",
+                "Owner": "Amrit",
+                "application": "QMR",
+                "ServiceType": "qmr"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-35.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.35",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0a886a0991e263338",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "whatsapp-bot-ai-Mysql",
+                    "GroupId": "sg-02ebcba16672c9fdc"
+                },
+                {
+                    "GroupName": "Cloud-internal-Network-All",
+                    "GroupId": "sg-8d2c7fe6"
+                }
+            ],
+            "Tags": {
+                "inspector": "true",
+                "Backup": "",
+                "Name": "Whatsapp- BOT-API-BO-143.35",
+                "owner": "Lokesh",
+                "owner  ": "Nitish",
+                "application": "whatsapp-bot-ai",
+                "Owner": "nitish",
+                "VolumeType": "GP3",
+                "ServiceType": "messaging"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-44.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.44",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-04ec9ac392c441965",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "Cloud-internal-Network-All",
+                    "GroupId": "sg-8d2c7fe6"
+                }
+            ],
+            "Tags": {
+                "inspector": "true",
+                "ServiceType": "messaging",
+                "VolumeType": "GP3",
+                "owner": "Lokesh",
+                "Backup": "",
+                "Name": "Messaging-143.44"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-13.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.13",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-03d53b5185919d2e2",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                },
+                {
+                    "GroupName": "SGS-SG",
+                    "GroupId": "sg-7bef8c13"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Name": "Notification-Prod-143.13",
+                "inspector": "true",
+                "application": "notification",
+                "owner": "Sakshi",
+                "StopAtNight": "yes",
+                "ServiceType": "notification",
+                "Backup": "",
+                "Owner": "dheeraj"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-41.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.41",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-09f9f5863994a62a6",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "ServiceType": "infra",
+                "inspector": "true",
+                "owner": "Infra",
+                "Name": "Private-Jump-Server-Prod-143.41"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-132.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.132",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-0bb5c4f314824914a",
+            "Instance ID": "i-0b2c5cb6ea54cab85",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "PW-MAINSITE-DB-ISOLATE",
+                    "GroupId": "sg-054885b9a45f14a58"
+                }
+            ],
+            "Tags": {
+                "application": "WP-Mainsite",
+                "owner": "Infra",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "Owner": "designbox",
+                "Backup": "yes",
+                " Backup": "yes",
+                "inspector": "true",
+                "Name": "Wordpress-Mainsite-Isolat-DB-Prod-123.132",
+                "ServiceType": "wordpressdb"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-10-15-1-245.ap-south-1.compute.internal",
+            "Internal IP": "10.15.1.245",
+            "External IP": null,
+            "VPC": "vpc-83840feb",
+            "State": "stopped",
+            "Subnet ID": "subnet-2c179b44",
+            "Instance ID": "i-09e08c8866861a5c1",
+            "Security Groups": [
+                {
+                    "GroupName": "syslog",
+                    "GroupId": "sg-0a61607e76978d990"
+                }
+            ],
+            "Tags": {
+                "Name": "Syslog-Test-Sophos-1.245",
+                "owner": "Infra",
+                "ServiceType": "infra",
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-39.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.39",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0137160d07fae762e",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "Cloud-internal-Network-All",
+                    "GroupId": "sg-8d2c7fe6"
+                },
+                {
+                    "GroupName": "ssh-payworld-office-only-group",
+                    "GroupId": "sg-02b554abb946677a3"
+                }
+            ],
+            "Tags": {
+                "Name": "Whatsapp-messaging-db-143.39",
+                "ServiceType": "messagingdb",
+                "VolumeType": "GP3",
+                "Backup": "yes",
+                " Backup": "",
+                "owner": "Lokesh"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-61.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.61",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0e2172f6eb89e5c7a",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Amrit",
+                "Backup": "",
+                "StopAtNight": "yes",
+                "Name": "Accounting-API-Prod-143.61",
+                "ServiceType": "accounting",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-43.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.43",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0de4469f9873b70a2",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Accounting-API-Prod-143.43",
+                "Payworld": "VASCAN",
+                "ServiceType": "accounting",
+                "Backup": "",
+                "owner": "Amrit",
+                "VolumeType": "GP3",
+                "Payworld1": "VASCAN1",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-142.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.142",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-0bb5c4f314824914a",
+            "Instance ID": "i-0a4fac2778cc34481",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "Payworld-Main-site-Isolate",
+                    "GroupId": "sg-08dbb48e376439550"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "urlshortner",
+                "Name": "URL-Shortner-Prod-123.142",
+                "Payworld1": "VASCAN1",
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "VolumeType": "GP3",
+                "owner": "Sakshi"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-70.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.70",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-06cbe536d7e789299",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Payworld": "VASCAN",
+                "Name": "Doc-Masking-Prod-123.70",
+                "owner": "Sakshi",
+                "Payworld1": "VASCAN1",
+                "ServiceType": "docmasking"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-73.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.73",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0688b9f11236f1370",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Kapil",
+                "ServiceType": "sgs",
+                "VolumeType": "GP3",
+                "Name": "SGS-Backend-Prod-Old-123.73",
+                "StopAtNight": "yes",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-58.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.58",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-06effc06353ba8a3f",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "Webpos-Prod-New-143.58",
+                "owner": "Sakshi",
+                "ServiceType": "webpos",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-26.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.26",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0a37ae3381af48060",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "owner": "Prateek",
+                "Backup": "",
+                "Name": "Travel-Rail-Prod-New-143.26",
+                "ServiceType": "travel",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-23.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.23",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-04b95419e9d9a2dc8",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "VolumeType": "GP3",
+                "ServiceType": "webpos",
+                "StopAtNight": "yes",
+                "Name": "Webpos-Prod-New-143.23",
+                "owner": "Sakshi"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-36.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.36",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-09f63b632632c78af",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Frontend-Prod-143.36",
+                "StopAtNight": "yes",
+                "Backup": "",
+                "VolumeType": "GP3",
+                "ServiceType": "cashout",
+                "owner": "Millan"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-18.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.18",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-08f2062bf33e477dd",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Millan",
+                "Backup": "",
+                "StopAtNight": "yes",
+                "Name": "Cashout-Prod-New-143.18",
+                "ServiceType": "cashout",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-30.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.30",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0296d15cb9c4ce977",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Backup": "",
+                "Name": "Cashout-Prod-New-143.30",
+                "VolumeType": "GP3",
+                "ServiceType": "cashout",
+                "owner": "Millan"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-94.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.94",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0b7c2405a98223e2f",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "SGS-Next-Gen-Backend-Prod-123.94",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "owner": "Kapil",
+                "ServiceType": "sgs"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-77.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.77",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-01577224a4bc7b2b7",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "owner": "Kapil",
+                "Name": "SGS-Next-Gen-Backend-Prod-123.77",
+                "ServiceType": "sgs",
+                "VolumeType": "GP3",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-82.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.82",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-00e7d66789f796049",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "SGS-Next-Gen-Backend-Prod-123.82",
+                "StopAtNight": "yes",
+                "ServiceType": "sgs",
+                "VolumeType": "GP3",
+                "owner": "Kapil",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-80.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.80",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-039c5965416c4ed3c",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "StopAtNight": "",
+                "ServiceType": "sgs",
+                "Name": "SGS-Next-Gen-Backend-Prod-123.80",
+                "owner": "Kapil",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-93.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.93",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0abc474272d463553",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Travel-Rail-Prod-New-123.93",
+                "StopAtNight": "yes",
+                "owner": "Prateek",
+                "Backup": "",
+                "VolumeType": "GP3",
+                "ServiceType": "travel"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-137.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.137",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-0bb5c4f314824914a",
+            "Instance ID": "i-017576a00a80d62d0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "Payworld-Main-site-Isolate",
+                    "GroupId": "sg-08dbb48e376439550"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "ServiceType": "wordpress",
+                "Name": "Wordpress-Mainsite-Isolat-Prod-123.137",
+                "VolumeType": "GP3",
+                "owner": "Infra"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-41.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.41",
+            "External IP": "13.127.71.70",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-37ce545f",
+            "Instance ID": "i-078eb868449d6ef04",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "owner": "pw-team",
+                "Backup": "",
+                "ServiceType": "qaserver",
+                "Name": "Development-QA-10.41",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-102.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.102",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0974db09fa0e93bc1",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "inspector": "true",
+                "IPAddress": "192.168.123.102",
+                "application": "ICS",
+                "owner": "Prateek",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "ServiceType": "ics",
+                "Name": "ICS-Prod-123.102",
+                "Owner": "parveen"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-118.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.118",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-027ea4038d4e63496",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "IPAddress": "192.168.143.118",
+                "Name": "API-Associate-Prod-Old-143.118",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "application": "aeps-apiassociate",
+                "inspector": "true",
+                "owner": "Millan",
+                "Owner": "millan",
+                "ServiceType": "aeps",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-77.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.77",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-02a97febcfe0e10ce",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Kapil",
+                "ServiceType": "sgs",
+                "VolumeType": "GP3",
+                "inspector": "true",
+                "Name": "Agent-API-Associate-Panel-Prod-Old-143.77",
+                "Owner": "Amrit",
+                "application": "Agent Panel",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-83.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.83",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-06ee8c184deb32b91",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Amrit",
+                "inspector": "true",
+                "ServiceType": "qmr",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Name": "MR-Frontend-Prod-143.83",
+                "StopAtNight": "yes",
+                "Owner": "amrit"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-80.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.80",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-082e3fa70f99b12d0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "MR-API-Prod-143.80",
+                "StopAtNight": "yes",
+                "Backup": "",
+                "ServiceType": "qmr",
+                "inspector": "true",
+                "owner": "Amrit",
+                "Owner": "Amrit",
+                "application": "QMR",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-104.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.104",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0bc8c13386ce6a374",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "qmr",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "Name": "MR-Frontend-Prod-143.104",
+                "owner": "Amrit",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-55.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.55",
+            "External IP": "13.201.129.245",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-00ea76df26da568f0",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "owner": "pw-team",
+                "Payworld": "VASCAN",
+                "Backup": "",
+                "ServiceType": "qaserver",
+                "Name": "Development-QA-10.55",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-84.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.84",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0f5eb35ced559f46e",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "owner": "Prateek",
+                "ServiceType": "travel",
+                "VolumeType": "GP3",
+                "Name": "Travel-Rail-Prod-New-143.84"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-76.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.76",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0d2712e057da53b56",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Prod-Old-143.76",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "Payworld1": "VASCAN1",
+                "Payworld": "VASCAN",
+                "ServiceType": "cashout",
+                "owner": "Millan",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-95.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.95",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0c40da1b56c97fcef",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Frontend-Prod-143.95",
+                "Payworld": "VASCAN",
+                "ServiceType": "cashout",
+                "VolumeType": "GP3",
+                "owner": "Millan",
+                "Backup": "yes",
+                "Payworld1": "VASCAN1",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-101.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.101",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-05cad7effd2f9bcf4",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Payworld": "VASCAN",
+                "Payworld1": "VASCAN1",
+                "owner": "Millan",
+                "VolumeType": "GP3",
+                "Backup": "yes",
+                "ServiceType": "cashout",
+                "Name": "Cashout-Prod-New-143.101"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-126.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.126",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0cfa971006bd484bf",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Millan",
+                "Payworld1": "VASCAN1",
+                "Backup": "",
+                "Name": "Payment-Prod-New143.126",
+                "Payworld": "VASCAN",
+                "ServiceType": "payment-engine",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-110.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.110",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-06caa41223c0818ca",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Millan",
+                "VolumeType": "GP3",
+                "ServiceType": "cashout",
+                "Backup": "",
+                "Name": "Cashout-Prod-Old-143.110"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-101.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.101",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-027147ee454b975fc",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Frontend-Prod-123.101",
+                "Backup": "",
+                "owner": "Millan",
+                "ServiceType": "cashout",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-79.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.79",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0cdff17613f0509f0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "ServiceType": "cashout",
+                "VolumeType": "GP3",
+                "StopAtNight": "yes",
+                "owner": "Millan",
+                "Name": "Cashout-Prod-New-143.79"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-117.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.117",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0d926ad46e757becf",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Prod-New-123.117",
+                "StopAtNight": "yes",
+                "Backup": "",
+                "ServiceType": "cashout",
+                "owner": "Millan",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-109.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.109",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0717ec23f308980e4",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Cashout-Prod-New-123.109",
+                "VolumeType": "GP3",
+                "ServiceType": "cashout",
+                "Backup": "",
+                "StopAtNight": "yes",
+                "owner": "Millan"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-122.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.122",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0f1f7255f4d32fd0c",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "ServiceType": "cashout",
+                "owner": "Millan",
+                "Name": "Cashout-Prod-New-123.122",
+                "StopAtNight": "yes",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-48.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.48",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-07e7534c580ebc8c2",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "PW-Redis-Zone",
+                    "GroupId": "sg-4b986223"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "redis",
+                "Backup": "",
+                "Name": "Redis-QR-Login-Prod-143.48",
+                "owner": "Sakshi"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-121.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.121",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-08202acc5313047b1",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "owner": "Sakshi",
+                "Name": "Pw-Mgmt-ikyc-Prod-123.121",
+                "ServiceType": "ikyc",
+                "Backup": "",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-52.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.52",
+            "External IP": "13.233.122.68",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-058f668bcd1248440",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "owner": "pw-team",
+                "Backup": "",
+                "VolumeType": "GP3",
+                "StopAtNight": "yes",
+                "ServiceType": "qaserver",
+                "Name": "Development-QA-10.52"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-56.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.56",
+            "External IP": "13.233.105.255",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-058434cc7d4cc6a06",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Name": "Redis-QA-10.56",
+                "ServiceType": "qaserver",
+                "StopAtNight": "yes",
+                "owner": "pw-team"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-103.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.103",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-066f6fceebf094dbc",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "API-Associates-Prod-New-143.103",
+                "ServiceType": "aeps",
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "owner": "Millan"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-40.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.40",
+            "External IP": "15.206.170.149",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-37ce545f",
+            "Instance ID": "i-0f7eafc9209dd82c1",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "Name": "Development-QA-10.40",
+                "owner": "pw-team",
+                "VolumeType": "GP3",
+                "StopAtNight": "yes",
+                "ServiceType": "qaserver",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-4.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.4",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-031f866b201b9bfd0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "owner": "Lokesh",
+                "Name": "New-Utility-Frontend-143.4",
+                "ServiceType": "utility",
+                "VolumeType": "GP3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-54.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.54",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-05524ff590c00ec51",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "ServiceType": "utility",
+                "owner": "Lokesh",
+                "VolumeType": "GP3",
+                "Backup": "",
+                "Name": "New-Utility-API-143.54"
+            }
+        },
+        {
+            "FQDN": "ec2-3-110-77-159.ap-south-1.compute.amazonaws.com",
+            "Hostname": "ip-10-15-1-238.ap-south-1.compute.internal",
+            "Internal IP": "10.15.1.238",
+            "External IP": "3.110.77.159",
+            "VPC": "vpc-83840feb",
+            "State": "running",
+            "Subnet ID": "subnet-2c179b44",
+            "Instance ID": "i-0456370ee17176f9f",
+            "Security Groups": [
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-UntrustedGroup-QU0MCXC09M8E",
+                    "GroupId": "sg-2426b94f"
+                },
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-TrustedNetworkGroup-1PLMVMO20GDYY",
+                    "GroupId": "sg-1f24bb74"
+                },
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-UTMSecurityGroup-9ZGGHJ49XKG1",
+                    "GroupId": "sg-4a23bc21"
+                }
+            ],
+            "Tags": {
+                "aws:cloudformation:stack-id": "arn:aws:cloudformation:ap-south-1:961229197606:stack/AWSMPWarmStandbyusingCloudFormation/244c2570-3251-11e8-928c-503a56826a9a",
+                "aws:autoscaling:groupName": "AWSMPWarmStandbyusingCloudFormation-UTMScalingGroup-1E0RHE6XJ3JVL",
+                "aws:ec2launchtemplate:id": "lt-0210c6fcb0dc5d550",
+                "owner": "Infra",
+                "aws:ec2launchtemplate:version": "1",
+                "aws:cloudformation:logical-id": "UTMScalingGroup",
+                "ServiceType": "firewall",
+                "aws:cloudformation:stack-name": "AWSMPWarmStandbyusingCloudFormation",
+                "Backup": "",
+                "Name": "HA-UTM-Sophos-Prod-1.238"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-124.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.124",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-05da0e6de5d72401a",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "VolumeType": "GP3",
+                "Backup": "",
+                "StopAtNight": "yes",
+                "owner": "Sakshi",
+                "Name": "Pw-Mgmt-ikyc-Prod-123.124",
+                "ServiceType": "ikyc"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-109.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.109",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0188034bddbc3d418",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Agent-Panel-Prod-New-143.109",
+                "ServiceType": "agent",
+                "owner": "Millan",
+                "VolumeType": "GP3",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "ec2-52-66-141-179.ap-south-1.compute.amazonaws.com",
+            "Hostname": "ip-10-15-2-198.ap-south-1.compute.internal",
+            "Internal IP": "10.15.2.198",
+            "External IP": "52.66.141.179",
+            "VPC": "vpc-83840feb",
+            "State": "running",
+            "Subnet ID": "subnet-db798597",
+            "Instance ID": "i-047cef0ab9b708c94",
+            "Security Groups": [
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-UntrustedGroup-QU0MCXC09M8E",
+                    "GroupId": "sg-2426b94f"
+                },
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-TrustedNetworkGroup-1PLMVMO20GDYY",
+                    "GroupId": "sg-1f24bb74"
+                },
+                {
+                    "GroupName": "AWSMPWarmStandbyusingCloudFormation-UTMSecurityGroup-9ZGGHJ49XKG1",
+                    "GroupId": "sg-4a23bc21"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "aws:cloudformation:stack-name": "AWSMPWarmStandbyusingCloudFormation",
+                "aws:autoscaling:groupName": "AWSMPWarmStandbyusingCloudFormation-UTMScalingGroup-1E0RHE6XJ3JVL",
+                "aws:cloudformation:logical-id": "UTMScalingGroup",
+                "Name": "HA-UTM-Sophos-Prod-2.198",
+                "aws:ec2launchtemplate:id": "lt-0210c6fcb0dc5d550",
+                "owner": "Infra",
+                "aws:ec2launchtemplate:version": "1",
+                "aws:cloudformation:stack-id": "arn:aws:cloudformation:ap-south-1:961229197606:stack/AWSMPWarmStandbyusingCloudFormation/244c2570-3251-11e8-928c-503a56826a9a",
+                "ServiceType": "firewall"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-61.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.61",
+            "External IP": "13.200.108.46",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-0eb474ccd0c632805",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "VolumeType": "GP3",
+                "owner": "pw-team",
+                "Name": "Development-QA-10.61",
+                "Backup": "",
+                "ServiceType": "qaserver"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-19.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.19",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-02a9bfde83f1a23aa",
+            "Security Groups": [
+                {
+                    "GroupName": "Rudra-SG",
+                    "GroupId": "sg-00833877fc6c12e51"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "owner": "Rudra",
+                "ServiceType": "soc",
+                "VolumeType": "GP3",
+                "Name": "Stratosphere-Suricata-Rudra-143.19"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-73.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.73",
+            "External IP": "15.206.49.188",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-0514827d5cc5ae872",
+            "Instance ID": "i-0cfff8e5eb779ef76",
+            "Security Groups": [
+                {
+                    "GroupName": "pw-rudra-sg-new",
+                    "GroupId": "sg-0a554bf366c9ca13a"
+                }
+            ],
+            "Tags": {
+                "owner": "Rudra",
+                "Name": "NW-Monitor-Testing-Rudra-10.73",
+                "VolumeType": "GP3",
+                "ServiceType": "soc",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-25.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.25",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-03a82cb12b17d42f7",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                }
+            ],
+            "Tags": {
+                "Name": "Rocky-Linux-OS"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-9.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.9",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-062934f04b9d1e838",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "PW-RECHARGE-SG",
+                    "GroupId": "sg-8d2f98e5"
+                }
+            ],
+            "Tags": {
+                "Name": "Paylite"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-71.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.71",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0b4267ab08490d8f6",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "",
+                "Backup": "",
+                "Name": "Travel-Rail-Prod-Old-123.71"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-7.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.7",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0e78d21591725d038",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Payment-Olp-Prod-143.7",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-37.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.37",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0b7acd0f5fe307b23",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "E-Collect-Prod-143.37",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-59.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.59",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-06697aa1bf1ce85ed",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "PW-RECHARGE-SG",
+                    "GroupId": "sg-8d2f98e5"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "Payworld-API-Old-143.59"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-42.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.42",
+            "External IP": "3.110.33.128",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-37ce545f",
+            "Instance ID": "i-0301ec284adad2613",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-ELB-SG",
+                    "GroupId": "sg-3c005b57"
+                },
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "Name": "Development-QA-10.42",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-122.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.122",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0c5f8949372d8fa5f",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "MR-Backoffice-143.122"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-125.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.125",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-2b4ac566",
+            "Instance ID": "i-0a7069f6e3935e8d2",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "bhiwad_ssh",
+                    "GroupId": "sg-00924598ac0c36904"
+                },
+                {
+                    "GroupName": "Loan-Engine-SG",
+                    "GroupId": "sg-9d63f1f5"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "Loan-Engine-123.125"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-119.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.119",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0bd6109bee5fc01fa",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "",
+                "Name": "SGS-HO-BO-Prod-143.119"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-124.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.124",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0db0726020905add6",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "121-cloud-SG",
+                    "GroupId": "sg-33a25d59"
+                }
+            ],
+            "Tags": {
+                "Name": "E-Collect-Static-Prod-143.124",
+                "Backup": ""
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-120.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.120",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-022a200e981f91f39",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "Name": "Travel-Air-Search-Prod-143.120"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-90.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.90",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-004a9601ebb3d3270",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Backup": "yes",
+                "Name": "Travel-Air-Bus-Hotel-Prod-143.90"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-93.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.93",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-05887dfd041bc5a1f",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "Travel-Air-Search-Prod-143.93"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-99.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.99",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0c278e4242234deca",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "rocky-mgmt-linux",
+                "Backup": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-117.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.117",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-0bf57c8a46aaf86a0",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                }
+            ],
+            "Tags": {
+                "Name": "Pw-Network-Monitoring-Prod"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-59.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.59",
+            "External IP": "13.234.83.96",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-017296bee4f5adeda",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-ELB-SG",
+                    "GroupId": "sg-3c005b57"
+                },
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "Name": "Pw-Nginx-ALB"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-75.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.75",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-094c8decbe2665f82",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Rudra-SG",
+                    "GroupId": "sg-00833877fc6c12e51"
+                }
+            ],
+            "Tags": {
+                "Name": "Wazuh-Manager-Rudra-IP"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-102.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.102",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-064dfbcf6eb1d1383",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "beta-travel-new-air-search-new"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-8.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.8",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0114f9d3ab63baa92",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "Accounting-API-Prod-143.8"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-17.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.17",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-02e4125390b4a30e8",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-2a"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-11.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.11",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0fec73fc83feb04a7",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-2"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-84.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.84",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-026d08e64623d10d2",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-1"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-38.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.38",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-08249ce8cd07f4aae",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-3"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-46.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.46",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0040e8d399fa4324a",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-3a"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-75.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.75",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-070e8c0aee7218f43",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "SGS-Next-Gen-Backend-Prod-1a",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-78.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.78",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0da12bd04e20f8ee9",
+            "Security Groups": [
+                {
+                    "GroupName": "PW-CRM",
+                    "GroupId": "sg-5746bc3f"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                }
+            ],
+            "Tags": {
+                "Name": "CRM-new"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-34.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.34",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0ec6a48ba389e43fe",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "Webpos-Prod-New-1a"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-24.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.24",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0c69eb8c9807f1630",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Webpos-Prod-New-Beta",
+                "Backup": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-37.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.37",
+            "External IP": "3.6.251.166",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-37ce545f",
+            "Instance ID": "i-0c4b120366b5ce88e",
+            "Security Groups": [
+                {
+                    "GroupName": "Testing-Env-SG",
+                    "GroupId": "sg-ec075c87"
+                }
+            ],
+            "Tags": {
+                "Name": "Development-QA-10.37",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-69.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.69",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0de40f247cec36f92",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "SGS-Next-Gen-Backend-Prod-new2",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-81.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.81",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0005dcb8f1db51380",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "SGS-Next-Gen-Backend-Prod-new1"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-72.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.72",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-0ebc074a4d258b8c2",
+            "Security Groups": [
+                {
+                    "GroupName": "PW-Redis-Zone",
+                    "GroupId": "sg-4b986223"
+                }
+            ],
+            "Tags": {
+                "Name": "Redis-Prod-SGS-Master-123.72"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-55.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.55",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0d3409f88924cdf31",
+            "Security Groups": [
+                {
+                    "GroupName": "PW-Redis-Zone",
+                    "GroupId": "sg-4b986223"
+                }
+            ],
+            "Tags": {
+                "Name": "Redis-Prod-SGS-Slave-143.55"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-123-91.ap-south-1.compute.internal",
+            "Internal IP": "192.168.123.91",
+            "External IP": "65.2.151.244",
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-d47622bd",
+            "Instance ID": "i-03f63d1bfb24aaed4",
+            "Security Groups": [
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "skilrock-ssh-office-private-network",
+                    "GroupId": "sg-89ff52e3"
+                },
+                {
+                    "GroupName": "PW-RECHARGE-SG",
+                    "GroupId": "sg-8d2f98e5"
+                }
+            ],
+            "Tags": {
+                "Name": "Utility-Services-A",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-10-58.ap-south-1.compute.internal",
+            "Internal IP": "192.168.10.58",
+            "External IP": "3.6.252.173",
+            "VPC": "vpc-ef006e87",
+            "State": "running",
+            "Subnet ID": "subnet-e0ed26ac",
+            "Instance ID": "i-0e9b5169adaf1258a",
+            "Security Groups": [
+                {
+                    "GroupName": "SG-May-2024",
+                    "GroupId": "sg-07161b0e54799873e"
+                }
+            ],
+            "Tags": {
+                "Name": "MAY-2024"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-82.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.82",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "stopped",
+            "Subnet ID": "subnet-8e909fc3",
+            "Instance ID": "i-09fe83c81eb35b76a",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "mgmt-test"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-60.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.60",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-05c8185cec23f9f5e",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "Name": "Notification-Prod-143.60",
+                "StopAtNight": "yes"
+            }
+        },
+        {
+            "FQDN": "",
+            "Hostname": "ip-192-168-143-57.ap-south-1.compute.internal",
+            "Internal IP": "192.168.143.57",
+            "External IP": null,
+            "VPC": "vpc-c32f67aa",
+            "State": "running",
+            "Subnet ID": "subnet-c9825ea1",
+            "Instance ID": "i-0d192e53bf03dd3d8",
+            "Security Groups": [
+                {
+                    "GroupName": "new-skilrock-Payworld-Office",
+                    "GroupId": "sg-0be5494061a2f9448"
+                },
+                {
+                    "GroupName": "Skilrock-Payworld-private-network",
+                    "GroupId": "sg-da2271b1"
+                },
+                {
+                    "GroupName": "new-loadblacer-access-SG",
+                    "GroupId": "sg-02ab97cde249a630d"
+                }
+            ],
+            "Tags": {
+                "StopAtNight": "yes",
+                "Name": "Notification-Prod-143.57"
+            }
+        }
+    ],
+    "eu-north-1": [],
+    "eu-west-3": [],
+    "eu-west-2": [],
+    "eu-west-1": [],
+    "ap-northeast-3": [],
+    "ap-northeast-2": [],
+    "ap-northeast-1": [],
+    "ca-central-1": [],
+    "sa-east-1": [],
+    "ap-southeast-1": [],
+    "ap-southeast-2": [],
+    "eu-central-1": [],
+    "us-east-1": [],
+    "us-east-2": [],
+    "us-west-1": [],
+    "us-west-2": []
+}

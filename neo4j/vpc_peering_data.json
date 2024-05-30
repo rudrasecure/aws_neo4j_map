@@ -1,0 +1,98 @@
+{
+    "ap-south-1": [
+        {
+            "PeeringConnectionId": "pcx-0845fc68f0c53ddc8",
+            "Status": "active",
+            "RequesterVPC": "vpc-c32f67aa",
+            "RequesterCidr": "192.168.123.0/24",
+            "AccepterVPC": "vpc-0fbb2be4f1c65402c",
+            "AccepterCidr": "192.168.42.0/24",
+            "Tags": {
+                "Name": "skillotto-payworld"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-03f13bf19c4c33e90",
+            "Status": "active",
+            "RequesterVPC": "vpc-ef006e87",
+            "RequesterCidr": "192.168.10.0/24",
+            "AccepterVPC": "vpc-c32f67aa",
+            "AccepterCidr": "192.168.123.0/24",
+            "Tags": {
+                "Name": "PW-Wazuh"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-02ccae81ad36d7905",
+            "Status": "active",
+            "RequesterVPC": "vpc-0f2123bb78313ae45",
+            "RequesterCidr": "10.160.0.0/16",
+            "AccepterVPC": "vpc-c32f67aa",
+            "AccepterCidr": "192.168.123.0/24",
+            "Tags": {
+                "Purpose": "For Sophos User Based VPN from Skilrock Demo AWS Environment",
+                "Name": "Sophos-QA-Skilrock-Demo-AWS"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-0a409582631b504f3",
+            "Status": "active",
+            "RequesterVPC": "vpc-c32f67aa",
+            "RequesterCidr": "192.168.123.0/24",
+            "AccepterVPC": "vpc-83840feb",
+            "AccepterCidr": "10.15.0.0/16",
+            "Tags": {
+                "Name": "UTM-SOPHOS"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-090607e7da596748b",
+            "Status": "active",
+            "RequesterVPC": "vpc-0f2123bb78313ae45",
+            "RequesterCidr": "10.160.0.0/16",
+            "AccepterVPC": "vpc-ef006e87",
+            "AccepterCidr": "192.168.10.0/24",
+            "Tags": {
+                "Name": "Sophos-QA-Skilrock-Demo-AWS"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-0b804b31ef32ba900",
+            "Status": "active",
+            "RequesterVPC": "vpc-0ed2d955a14993bf5",
+            "RequesterCidr": "192.168.144.0/24",
+            "AccepterVPC": "vpc-c32f67aa",
+            "AccepterCidr": "192.168.123.0/24",
+            "Tags": {
+                "Name": "Payworld-Replication"
+            }
+        },
+        {
+            "PeeringConnectionId": "pcx-09d568a39c415776c",
+            "Status": "active",
+            "RequesterVPC": "vpc-c32f67aa",
+            "RequesterCidr": "192.168.123.0/24",
+            "AccepterVPC": "vpc-03a16f61ad42a86ee",
+            "AccepterCidr": "192.168.15.0/24",
+            "Tags": {
+                "Name": "paycash-aws-account"
+            }
+        }
+    ],
+    "eu-north-1": [],
+    "eu-west-3": [],
+    "eu-west-2": [],
+    "eu-west-1": [],
+    "ap-northeast-3": [],
+    "ap-northeast-2": [],
+    "ap-northeast-1": [],
+    "ca-central-1": [],
+    "sa-east-1": [],
+    "ap-southeast-1": [],
+    "ap-southeast-2": [],
+    "eu-central-1": [],
+    "us-east-1": [],
+    "us-east-2": [],
+    "us-west-1": [],
+    "us-west-2": []
+}
