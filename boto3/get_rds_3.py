@@ -57,11 +57,5 @@ def get_all_rds_details():
 
     return all_rds_details
 
-#all_rds_details = get_all_rds_details()
-#print(json.dumps(all_rds_details))
-if __name__ == "__main__":
-    all_rds_details = get_all_rds_details()
-
-    # Save the details to a file named 'alb_data'
-    with open('rds_data.json', 'w') as outfile:
-        json.dump(all_rds_details, outfile)
+all_rds_details = get_all_rds_details()
+print(json.dumps(all_rds_details))

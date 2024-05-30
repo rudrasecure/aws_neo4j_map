@@ -13,9 +13,8 @@ In order to make use of the data capture methods listed below, you'll need an IA
 * Setup Neo4j - a docker container setup would be the easiest
 * Setup your .env with the creds for Neo4j
 * Create a virtualenv and install the requirements
-* Run all the scripts in the boto3 folder and the output will be saved as a .json file (this can be done on a separate machine - possibly in your AWS environment). Note that the scripts will have to have the above IAM credentials to work
-* Run update_intelligence_db.py in the Neo4j folder. You'll need to ensure that the files that you created in the previous step are in the same directory as the script.
-* Detailed installation instructions [here](Installation_steps.md)
+* Run all the scripts in the boto3 folder and redirect the output into a .json file (this can be done on a separate machine - possibly in your AWS environment). Note that the scripts will have to have the above IAM credentials to work
+* Run update_intelligence_db.py in the Neo4j folder. You'll need to ensure that the files that you created in the previous step are in the same directory as the script, and ensure that the correct names are referenced at the bottom of this script.
 
 We've kept components loosely coupled so that it can be built into any automation system; as we refine/mature this out, we'll make it easier to run. 
 

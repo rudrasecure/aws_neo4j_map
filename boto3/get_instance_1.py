@@ -50,11 +50,5 @@ def get_all_instance_details():
 
     return all_instance_details
 
-#all_instance_details = get_all_instance_details()
-#print(json.dumps(all_instance_details))
-if __name__ == "__main__":
-    all_instance_details = get_all_instance_details()
-
-    # Save the details to a file named 'alb_data'
-    with open('instance_data.json', 'w') as outfile:
-        json.dump(all_instance_details, outfile)
+all_instance_details = get_all_instance_details()
+print(json.dumps(all_instance_details))

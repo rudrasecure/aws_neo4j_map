@@ -39,11 +39,5 @@ def get_all_vpc_peering_details():
 
     return all_peering_details
 
-#all_peering_details = get_all_vpc_peering_details()
-#print(json.dumps(all_peering_details))
-if __name__ == "__main__":
-    all_peering_details = get_all_vpc_peering_details()
-
-    # Save the details to a file named 'alb_data'
-    with open('vpc_peering_data.json', 'w') as outfile:
-        json.dump(all_peering_details, outfile)
+all_peering_details = get_all_vpc_peering_details()
+print(json.dumps(all_peering_details))
