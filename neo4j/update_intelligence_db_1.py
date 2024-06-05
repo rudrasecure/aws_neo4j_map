@@ -23,7 +23,28 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
         # Create a single Snapshot node for this run and get its properties
         snapshot_result = session.run("CREATE (sn:Snapshot {timestamp: datetime(), version: $version}) RETURN ID(sn) AS snapshot_id", version=version)
         snapshot_id = snapshot_result.single()[0]
-
+        
+        vpc_cidr = []
+        for connections in peering_data.values():
+            for connection in connections:
+                vpc_cidr_map = {
+                'VpcId': connection['VpcId'],
+                'CidrBlock': connection['CidrBlock']
+                }
+                vpc_cidr.append(vpc_cidr_map)
+        
+            for vpc_data in vpc_cidr:
+                session.run("""
+                    UNWIND $connections AS connection
+                    UNWIND connection.PeeringConnections AS pc
+                    MERGE (v:VPC {id: $vpc_id})
+                    ON CREATE SET v.cidr = $cidr_block
+                    ON MATCH SET v.cidr = $cidr_block
+                    WITH v, connection
+                    UNWIND keys(connection.Tags) AS tag_key
+                    CALL apoc.create.setProperty(v, tag_key, connection.Tags[tag_key]) YIELD node
+                    RETURN v
+                """, vpc_id=vpc_data['VpcId'], cidr_block=vpc_data['CidrBlock'], connections=connections)
 
         for region, instances in instance_data.items():
             session.run("""
@@ -33,27 +54,26 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             UNWIND instance.`Security Groups` AS sg
             MATCH (s:SecurityGroup {id: sg.GroupId})
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
-            MERGE (v:VPC {id: instance.VPC})
+            MATCH (v:VPC {id: instance.VPC})
             MERGE (su:Subnet {id: instance.`Subnet ID`})
             MERGE (v)-[:CONTAINS]->(su)
             MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
             MERGE (sn)-[:CONTAINS]->(i)
             MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
-            MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(v)
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
             MERGE (sn)-[:CONTAINS]->(v)
             MERGE (sn)-[:CONTAINS]->(su)
             WITH sn, i, instance
             UNWIND instance.`Security Groups` AS sg
-            MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
+            MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName, description: COALESCE(sg.Description, 'None')})
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(s)
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, i, instance
             UNWIND keys(instance.Tags) AS tag_key
             CALL apoc.create.setProperty(i, tag_key, instance.Tags[tag_key]) YIELD node
             RETURN i
-            """, snapshot_id=snapshot_id, region=region, instances=instances)
+            """, snapshot_id=snapshot_id, region=region, instances=instances, vpc_cidr=vpc_cidr)
 
         for region, security_groups in security_group_data.items():
             session.run("""
@@ -152,16 +172,14 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
         for connections in peering_data.values():
             session.run("""
             UNWIND $connections AS connection
-            MERGE (rv:VPC {id: connection.RequesterVPC, cidr: connection.RequesterCidr})
-            MERGE (av:VPC {id: connection.AccepterVPC, cidr: connection.AccepterCidr})
-            MERGE (rv)-[p:PEERED_TO {id: connection.PeeringConnectionId, status: connection.Status, timestamp: datetime()}]->(av)
-            WITH p, connection, rv, av
-            UNWIND keys(connection.Tags) AS tag_key
-            CALL apoc.create.setProperty(rv, tag_key, connection.Tags[tag_key]) YIELD node
-            WITH p, connection, rv, av
-            UNWIND keys(connection.Tags) AS tag_key
-            CALL apoc.create.setProperty(av, tag_key, connection.Tags[tag_key]) YIELD node
-            RETURN rv,av
+            UNWIND connection.PeeringConnections AS pc
+            MATCH(rv:VPC {id:pc.RequesterVpcId})
+            MATCH (av:VPC {id: pc.AccepterVpcId})
+            MERGE (rv)-[p:PEERED_TO {id: COALESCE(pc.PeeringConnectionId,'None'), status: COALESCE(pc.Status,'None'), timestamp: datetime()}]->(av)
+            WITH pc,p
+            UNWIND keys(pc.Tags) AS tag_key
+            CALL apoc.create.setRelProperty(p, tag_key, pc.Tags[tag_key]) YIELD rel
+            RETURN p
             """, connections=connections)
 
 
@@ -176,7 +194,7 @@ try:
         lb_data = json.load(f)
     with open('rds_data.json', 'r') as f:
         rds_data = json.load(f)
-    with open('vpc_peering_data.json', 'r') as f:
+    with open('vpc_peering_data_new_1.json', 'r') as f:
         peering_data = json.load(f)
 
 except json.JSONDecodeError as e:
