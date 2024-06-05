@@ -13,7 +13,9 @@ def get_vpc_peering_details(region):
         peering_details = {
             'PeeringConnectionId': peering['VpcPeeringConnectionId'],
             'Status': peering['Status']['Code'],
+            'RequesterVpcId': peering['RequesterVpcInfo']['VpcId'],
             'RequesterCidr': peering['RequesterVpcInfo']['CidrBlock'],
+            'AccepterVpcId': peering['AccepterVpcInfo']['VpcId'],
             'AccepterCidr': peering['AccepterVpcInfo']['CidrBlock']
         }
     
@@ -27,7 +29,7 @@ def get_vpc_peering_details(region):
     
     return peering_details_map
 
-def get_all_vpcs_with_peering(region):
+def get_vpc_info(region):
     ec2 = boto3.client('ec2', region_name=region)
     vpc_details = ec2.describe_vpcs()
     
@@ -59,7 +61,7 @@ def get_all_vpc_details():
 
     for region in regions:
         region_name = region['RegionName']
-        vpc_details = get_all_vpcs_with_peering(region_name)
+        vpc_details = get_vpc_info(region_name)
         all_vpc_details[region_name] = vpc_details
 
     return all_vpc_details
