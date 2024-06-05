@@ -1,289 +1,760 @@
 {
+    "ap-south-2": [],
+    "af-south-1": [
+        {
+            "DBInstanceIdentifier": "adla-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "adla",
+            "VPCId": "vpc-0df2b23d27f2f9ea4",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "adla-db.c5b8zop8rwun.af-south-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-040a34f96a0e8c582",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "bankserv-poc-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "postgres",
+            "VPCId": "vpc-0e68616a2623dec71",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "bankserv-poc-db.c5b8zop8rwun.af-south-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-08ea44ed93431cbe9",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "cpt-tcib-stg-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "tcib_stg_db",
+            "VPCId": "vpc-ca5cb8a3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "cpt-tcib-stg-db.c5b8zop8rwun.af-south-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-008344a097f4440ec",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "synthesis-db",
+            "DBInstanceStatus": "available",
+            "Engine": "sqlserver-ex",
+            "EngineVersion": "15.00.4073.23.v1",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "synthesis",
+            "VPCId": "vpc-0e68616a2623dec71",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "synthesis-db.c5b8zop8rwun.af-south-1.rds.amazonaws.com",
+            "Port": 1433,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0515b5fec86c10c51",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "synthesis-prd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "sqlserver-ex",
+            "EngineVersion": "15.00.4073.23.v1",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "synthesis_prd",
+            "VPCId": "vpc-0df2b23d27f2f9ea4",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "synthesis-prd-db.c5b8zop8rwun.af-south-1.rds.amazonaws.com",
+            "Port": 1433,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0d88c07c58550459f",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
     "ap-south-1": [
         {
-            "DBInstanceIdentifier": "bc-mr-database",
+            "DBInstanceIdentifier": "mum-core-pe",
             "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t2.large",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": true,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "bc-mr-database.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-b6c468dc",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "cash-out",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.m5.xlarge",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "cash-out.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "DBName": "cashout",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-39b57051",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "ics",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t3.small",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": false,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": true,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "ics.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-0193c1d8d62be2cea",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "investment-engine",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t3.large",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": false,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "investment-engine.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-5746bc3f",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "notification",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
             "DBInstanceClass": "db.t3.medium",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-087a074ad470ad2cc",
             "MultiAZ": false,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "notification.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-5746bc3f",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "payment-engine-databse",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t2.medium",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "payment-engine-databse.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "DBName": "paymentengine",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-39b57051",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "payworld-accounting",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.m5.2xlarge",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "payworld-accounting.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "DBName": "payworld_accounting",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-0b9d9425fe5c9941f",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "payworld-accounting-green-kfdkja",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t3.xlarge",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "payworld-accounting-green-kfdkja.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 2,
-            "DBName": "payworld_accounting",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-0b9d9425fe5c9941f",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "payworld-insurance",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t2.small",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": false,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "payworld-insurance.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 2,
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-39b57051",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "pw-recharge",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t2.medium",
-            "MasterUsername": "payworldrecharge",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
             "PubliclyAccessible": false,
             "StorageEncrypted": true,
             "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "pw-recharge.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
+            "Endpoint": "mum-core-pe.cnk31htcopvc.ap-south-1.rds.amazonaws.com",
+            "Port": 5432,
             "BackupRetentionPeriod": 7,
-            "DBName": "payworld_recharge",
+            "DBName": "terratxndb",
             "VpcSecurityGroups": [
                 {
-                    "VpcSecurityGroupId": "sg-05dd23e4c18fc9e2c",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "pw-travelling",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.t3.large",
-            "MasterUsername": "root",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "pw-travelling.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "DBName": "payworld_travelling",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-ee98ce86",
-                    "Status": "active"
-                }
-            ]
-        },
-        {
-            "DBInstanceIdentifier": "sgs-ho",
-            "DBInstanceStatus": "available",
-            "Engine": "mysql",
-            "EngineVersion": "8.0.36",
-            "DBInstanceClass": "db.m5.2xlarge",
-            "MasterUsername": "sgsho",
-            "VPCId": "vpc-c32f67aa",
-            "MultiAZ": true,
-            "PubliclyAccessible": false,
-            "StorageEncrypted": false,
-            "IAMDatabaseAuthenticationEnabled": false,
-            "Endpoint": "sgs-ho.cpz0z8fyfokj.ap-south-1.rds.amazonaws.com",
-            "Port": 3306,
-            "BackupRetentionPeriod": 7,
-            "DBName": "sgsho",
-            "VpcSecurityGroups": [
-                {
-                    "VpcSecurityGroupId": "sg-dc9d67b4",
+                    "VpcSecurityGroupId": "sg-0c921a1cb2355133f",
                     "Status": "active"
                 }
             ]
         }
     ],
     "eu-north-1": [],
-    "eu-west-3": [],
+    "eu-west-3": [
+        {
+            "DBInstanceIdentifier": "congo-pay-prd",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "12.17",
+            "DBInstanceClass": "db.t3.micro",
+            "MasterUsername": "postgres",
+            "VPCId": "vpc-033c36b8439236701",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "congo-pay-prd.cxsyawjxkgba.eu-west-3.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0fb024b5bcffd7886",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "innov-prd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "innov_prd",
+            "VPCId": "vpc-033c36b8439236701",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "innov-prd-db.cxsyawjxkgba.eu-west-3.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0d1d92fe8c17decc5",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "pay-prd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "paymentdb",
+            "VPCId": "vpc-0e685c56db6c2c69d",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "pay-prd-db.cxsyawjxkgba.eu-west-3.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0a91fa04d5bc0e539",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
+    "eu-south-1": [],
     "eu-west-2": [],
-    "eu-west-1": [],
+    "eu-west-1": [
+        {
+            "DBInstanceIdentifier": "asap-prd",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "asap_prd",
+            "VPCId": "vpc-1246e977",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "asap-prd.crltosmy42xz.eu-west-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-054c711f481001e4e",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ccs-rrd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "neolotex_uat",
+            "VPCId": "vpc-1246e977",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ccs-rrd-db.crltosmy42xz.eu-west-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 0,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-27aa4341",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ire-prd-mz-visa-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "14.10",
+            "DBInstanceClass": "db.m6g.large",
+            "MasterUsername": "ire_prd_mz_visa",
+            "VPCId": "vpc-1246e977",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ire-prd-mz-visa-db.crltosmy42xz.eu-west-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0f4568667b6a3c0d7",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ire-prd-pr-db-core",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.m6g.8xlarge",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-1246e977",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ire-prd-pr-db-core.crltosmy42xz.eu-west-1.rds.amazonaws.com",
+            "Port": 25432,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-27aa4341",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "safaricom",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "postgres",
+            "VPCId": "vpc-1246e977",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "safaricom.crltosmy42xz.eu-west-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0296f0169517433b0",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
     "ap-northeast-3": [],
     "ap-northeast-2": [],
     "ap-northeast-1": [],
     "ca-central-1": [],
     "sa-east-1": [],
-    "ap-southeast-1": [],
+    "ap-southeast-1": [
+        {
+            "DBInstanceIdentifier": "bkash-read-replica-remitgw",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.r6g.xlarge",
+            "MasterUsername": "bkash_remitgw",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "bkash-read-replica-remitgw.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 0,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-782deb1e",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "bkash-remitgw",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.r6g.2xlarge",
+            "MasterUsername": "bkash_remitgw",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "bkash-remitgw.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-782deb1e",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ccs-prd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "neolotex_uat",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ccs-prd-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0d0a48a85b5dff2f7",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "dev-portal-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "dev-portal-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0a2bc94975e37c769",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "innov-uat-db",
+            "DBInstanceStatus": "stopped",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "innov_uat",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "innov-uat-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0abd61b1229beaa03",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ire-prd-pr-db-recon",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.7",
+            "DBInstanceClass": "db.m6g.2xlarge",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ire-prd-pr-db-recon.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 25433,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-005661c76f5c7e421",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "ire-prd-rr-db-core",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.m6g.8xlarge",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "ire-prd-rr-db-core.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 25432,
+            "BackupRetentionPeriod": 0,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-005661c76f5c7e421",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "neolotex-uat",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "neolotex_uat",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "neolotex-uat.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-04ab1fff0a8822ab7",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-boundary-vault-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "15.5",
+            "DBInstanceClass": "db.t3.large",
+            "MasterUsername": "boundary_admin",
+            "VPCId": "vpc-8135cae5",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-boundary-vault-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0291dfb2f06ef3902",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-frk-prd-mz-tops2-rr-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "12.17",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-frk-prd-mz-tops2-rr-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 25432,
+            "BackupRetentionPeriod": 0,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-068bbd6638a0091d7",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-pr-engage-asap-prd-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "asap_prd",
+            "VPCId": "vpc-00c8ec64",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-pr-engage-asap-prd-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-064e06654a3ad93a2",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-stg-core-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.m5.2xlarge",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-stg-core-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-01adc265",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-stg-core-db-new-1",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.m6g.large",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-stg-core-db-new-1.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-01adc265",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-stg-core-development-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-stg-core-development-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-089d4dfe694a3b0db",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sgp-stg-imt-qa-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.m5d.large",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": false,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sgp-stg-imt-qa-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "DBName": "terratxndb",
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-01adc265",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "smart-recon-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "12.17",
+            "DBInstanceClass": "db.t3.xlarge",
+            "MasterUsername": "smart_recon",
+            "VPCId": "vpc-8135cae5",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "smart-recon-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0d134b6db1e2cddac",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "sonarqube-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.small",
+            "MasterUsername": "sonarqube",
+            "VPCId": "vpc-056ae79379c6394c1",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "sonarqube-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0410d82db5c1de2df",
+                    "Status": "active"
+                }
+            ]
+        },
+        {
+            "DBInstanceIdentifier": "stg-ui-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "13.13",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "stg_ui",
+            "VPCId": "vpc-96000ff3",
+            "MultiAZ": false,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "stg-ui-db.c0krmkeqayod.ap-southeast-1.rds.amazonaws.com",
+            "Port": 5432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-0fa3e5f7d18938fbe",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
     "ap-southeast-2": [],
-    "eu-central-1": [],
+    "eu-central-1": [
+        {
+            "DBInstanceIdentifier": "frk-prd-mz-tops2-db",
+            "DBInstanceStatus": "available",
+            "Engine": "postgres",
+            "EngineVersion": "12.17",
+            "DBInstanceClass": "db.t3.medium",
+            "MasterUsername": "terra_admin",
+            "VPCId": "vpc-083ce53fc0de30771",
+            "MultiAZ": true,
+            "PubliclyAccessible": false,
+            "StorageEncrypted": true,
+            "IAMDatabaseAuthenticationEnabled": false,
+            "Endpoint": "frk-prd-mz-tops2-db.cnxxggsae6ha.eu-central-1.rds.amazonaws.com",
+            "Port": 25432,
+            "BackupRetentionPeriod": 7,
+            "VpcSecurityGroups": [
+                {
+                    "VpcSecurityGroupId": "sg-05b49a58d7247001e",
+                    "Status": "active"
+                }
+            ]
+        }
+    ],
     "us-east-1": [],
     "us-east-2": [],
     "us-west-1": [],

@@ -1,98 +1,2190 @@
 {
-    "ap-south-1": [
+    "ap-south-2": [
         {
-            "PeeringConnectionId": "pcx-0845fc68f0c53ddc8",
-            "Status": "active",
-            "RequesterVPC": "vpc-c32f67aa",
-            "RequesterCidr": "192.168.123.0/24",
-            "AccepterVPC": "vpc-0fbb2be4f1c65402c",
-            "AccepterCidr": "192.168.42.0/24",
+            "VpcId": "vpc-04aa49357d8304a88",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "af-south-1": [
+        {
+            "VpcId": "vpc-0df2b23d27f2f9ea4",
+            "CidrBlock": "10.36.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-08027a24b0c3fcfdb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ALDA-MZ-SGP-DR-DMZ-VPN-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0637c14c40a7e0dc5",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-MZ-IRE-IT-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0d8a3f5ba72a94e9d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-MZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f617643933938bf9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "AccepterCidr": "10.36.0.0/16",
+                    "Tags": {
+                        "Name": "ADLA-MZ-DMZ-Peer"
+                    }
+                }
+            ],
             "Tags": {
-                "Name": "skillotto-payworld"
+                "Name": "CPT-ADLA-PR-MZ-VPC",
+                "Platform": "ADLA"
             }
         },
         {
-            "PeeringConnectionId": "pcx-03f13bf19c4c33e90",
-            "Status": "active",
-            "RequesterVPC": "vpc-ef006e87",
-            "RequesterCidr": "192.168.10.0/24",
-            "AccepterVPC": "vpc-c32f67aa",
-            "AccepterCidr": "192.168.123.0/24",
+            "VpcId": "vpc-ca5cb8a3",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-08133061de6813721",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-SGP-PRD-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-022f2ebd994798022",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-IRE-IT-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c592ab7e52680bd8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-MZ-SGP-STG-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0244153833d2b3933",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-ca5cb8a3",
+                    "AccepterCidr": "172.31.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-MUM-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b2b01301ba0100bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0bdcf394b314ce58a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-PR-DMZ-Peer"
+                    }
+                }
+            ],
             "Tags": {
-                "Name": "PW-Wazuh"
+                "Name": "CPT-STG-VPC"
             }
         },
         {
-            "PeeringConnectionId": "pcx-02ccae81ad36d7905",
-            "Status": "active",
-            "RequesterVPC": "vpc-0f2123bb78313ae45",
-            "RequesterCidr": "10.160.0.0/16",
-            "AccepterVPC": "vpc-c32f67aa",
-            "AccepterCidr": "192.168.123.0/24",
+            "VpcId": "vpc-0e68616a2623dec71",
+            "CidrBlock": "10.31.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0087be6dd68b249e9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-MZ-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01eaab79ae8eddbb6",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-MZ-IRE-IT-DMZ-PRD-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a5737f49d46707be",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-058126df3bc67e10a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "MZ-DMZ-Peer"
+                    }
+                }
+            ],
             "Tags": {
-                "Purpose": "For Sophos User Based VPN from Skilrock Demo AWS Environment",
-                "Name": "Sophos-QA-Skilrock-Demo-AWS"
+                "Name": "CPT-TCIB-PR-MZ-VPC",
+                "Platform": "TCIB"
             }
         },
         {
-            "PeeringConnectionId": "pcx-0a409582631b504f3",
-            "Status": "active",
-            "RequesterVPC": "vpc-c32f67aa",
-            "RequesterCidr": "192.168.123.0/24",
-            "AccepterVPC": "vpc-83840feb",
-            "AccepterCidr": "10.15.0.0/16",
+            "VpcId": "vpc-05ce24a4db43a92d9",
+            "CidrBlock": "10.30.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0706ca26ac554b413",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-MUM-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-009168b3ed278996a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-DMZ-IRE-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0295ec53cd7eb33bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c0e263a688e99c25",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-PRD-DMZ-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-028385d280d17cd16",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-DMZ-IRE-IT-DMZ-PRD-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-02560c602739a4144",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-DMZ-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-058126df3bc67e10a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "MZ-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0bdcf394b314ce58a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-PR-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-00606440cfb7a63f5",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-DMZ-JMP"
+                    }
+                }
+            ],
             "Tags": {
-                "Name": "UTM-SOPHOS"
+                "Name": "CPT-TCIB-PR-DMZ-VPC",
+                "Platform": "TCIB"
             }
         },
         {
-            "PeeringConnectionId": "pcx-090607e7da596748b",
-            "Status": "active",
-            "RequesterVPC": "vpc-0f2123bb78313ae45",
-            "RequesterCidr": "10.160.0.0/16",
-            "AccepterVPC": "vpc-ef006e87",
-            "AccepterCidr": "192.168.10.0/24",
+            "VpcId": "vpc-04d243d06f9cb1736",
+            "CidrBlock": "10.35.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0b3b9791986622ba0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-WS-MUM-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b489edc851b6d1e6",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-04d243d06f9cb1736",
+                    "AccepterCidr": "10.35.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-PR-CPT-ADLA-PRD-DMZ-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f4858d976ab8e54c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ALDA-DMZ-SGP-DR-DMZ-VPN-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-03380e99e6392794f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-DMZ-IRE-IT-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08ee03ba64f529bff",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f617643933938bf9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "AccepterCidr": "10.36.0.0/16",
+                    "Tags": {
+                        "Name": "ADLA-MZ-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-00606440cfb7a63f5",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-05ce24a4db43a92d9",
+                    "AccepterCidr": "10.30.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-DMZ-JMP"
+                    }
+                }
+            ],
             "Tags": {
-                "Name": "Sophos-QA-Skilrock-Demo-AWS"
-            }
-        },
-        {
-            "PeeringConnectionId": "pcx-0b804b31ef32ba900",
-            "Status": "active",
-            "RequesterVPC": "vpc-0ed2d955a14993bf5",
-            "RequesterCidr": "192.168.144.0/24",
-            "AccepterVPC": "vpc-c32f67aa",
-            "AccepterCidr": "192.168.123.0/24",
-            "Tags": {
-                "Name": "Payworld-Replication"
-            }
-        },
-        {
-            "PeeringConnectionId": "pcx-09d568a39c415776c",
-            "Status": "active",
-            "RequesterVPC": "vpc-c32f67aa",
-            "RequesterCidr": "192.168.123.0/24",
-            "AccepterVPC": "vpc-03a16f61ad42a86ee",
-            "AccepterCidr": "192.168.15.0/24",
-            "Tags": {
-                "Name": "paycash-aws-account"
+                "Name": "CPT-ADLA-PR-DMZ-VPC",
+                "Platform": "ADLA"
             }
         }
     ],
-    "eu-north-1": [],
-    "eu-west-3": [],
-    "eu-west-2": [],
-    "eu-west-1": [],
-    "ap-northeast-3": [],
-    "ap-northeast-2": [],
-    "ap-northeast-1": [],
-    "ca-central-1": [],
-    "sa-east-1": [],
-    "ap-southeast-1": [],
-    "ap-southeast-2": [],
-    "eu-central-1": [],
-    "us-east-1": [],
-    "us-east-2": [],
-    "us-west-1": [],
-    "us-west-2": []
+    "ap-south-1": [
+        {
+            "VpcId": "vpc-09f6ab38e80bdf4cd",
+            "CidrBlock": "182.29.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0706ca26ac554b413",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-MUM-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b3b9791986622ba0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-WS-MUM-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a06f29c39e696834",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-MUM-WS-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0efee9fbcfe4c69cd",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-SGP-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0244153833d2b3933",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-ca5cb8a3",
+                    "AccepterCidr": "172.31.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-MUM-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01d0c70ad43d672c4",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-TKY-MUM-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0034a9bf111c5084f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-SGPJMP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-018aa8fe305afcb7a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-IRE-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e17609b501bd4a94",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-SGP-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0d563a24c431ed9a0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-087a074ad470ad2cc",
+                    "AccepterCidr": "172.49.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-PT-JMP-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "WorkSpace-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-c954b2a0",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        },
+        {
+            "VpcId": "vpc-087a074ad470ad2cc",
+            "CidrBlock": "172.49.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0c7a231442569cb35",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0761ba4b37e362b3a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-STG-PERFORMANCE-TESTING-SGP-PRD-PR-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0eef1f91b099807bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-SGP-JMP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0d563a24c431ed9a0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-087a074ad470ad2cc",
+                    "AccepterCidr": "172.49.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-PT-JMP-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "MUM-STG-PERFORMANCE-TESTING-VPC"
+            }
+        }
+    ],
+    "eu-north-1": [
+        {
+            "VpcId": "vpc-90b759f9",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "eu-west-3": [
+        {
+            "VpcId": "vpc-033c36b8439236701",
+            "CidrBlock": "172.33.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-07dae2ae605342e49",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-033c36b8439236701",
+                    "RequesterCidr": "172.33.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PR-MZ-IRE-PRD-PR-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b7f32b628c1882f8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-033c36b8439236701",
+                    "RequesterCidr": "172.33.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-SGP-WS-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-022776d322dab9eef",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-032dd61ffd0216df4",
+                    "RequesterCidr": "172.32.0.0/16",
+                    "AccepterVpcId": "vpc-033c36b8439236701",
+                    "AccepterCidr": "172.33.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-MZ-Peer"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "PRS-PRD-PR-MZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-0e685c56db6c2c69d",
+            "CidrBlock": "10.40.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-000ca08cfb85dba0b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-SGP-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e98995b31b4f30cf",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-MZ-SGP-PRD"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-09cea04767f1a8c76",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-IRE-IT-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b2cb7937c6c55cf2",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-IRE-DMZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "PRS-PRD-PR-PAY-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-c701f8ae",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        },
+        {
+            "VpcId": "vpc-032dd61ffd0216df4",
+            "CidrBlock": "172.32.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0063a08dd07d840dc",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-032dd61ffd0216df4",
+                    "RequesterCidr": "172.32.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-SGP-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-022776d322dab9eef",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-032dd61ffd0216df4",
+                    "RequesterCidr": "172.32.0.0/16",
+                    "AccepterVpcId": "vpc-033c36b8439236701",
+                    "AccepterCidr": "172.33.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-MZ-Peer"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "PRS-PRD-PR-DMZ-VPC"
+            }
+        }
+    ],
+    "eu-south-1": [
+        {
+            "VpcId": "vpc-0c930b8275edcd134",
+            "CidrBlock": "10.60.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": "MLN-PRD-PR-DMZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-0a6bc5c067b4d445c",
+            "CidrBlock": "10.61.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": "MLN-PRD-PR-MZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-0f4536f96fe2a5747",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "eu-west-2": [
+        {
+            "VpcId": "vpc-1b07ef72",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0548da5295246095d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1b07ef72",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "UK-IRE-PRD-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "Default"
+            }
+        },
+        {
+            "VpcId": "vpc-08be0d7a7369a65dc",
+            "CidrBlock": "10.70.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": "LN-IT-VPC-1"
+            }
+        }
+    ],
+    "eu-west-1": [
+        {
+            "VpcId": "vpc-030b70617bfc7d54a",
+            "CidrBlock": "10.15.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-022f2ebd994798022",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-IRE-IT-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-06e44703af437bfad",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-IRE-IT-DMZ-WAZUH-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-09cea04767f1a8c76",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-IRE-IT-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01eaab79ae8eddbb6",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-MZ-IRE-IT-DMZ-PRD-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08304fb382883cd68",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-GRE-IRE-IT-DMZ-WAZUH-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-03380e99e6392794f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-DMZ-IRE-IT-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-088aea746c752c788",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-PRD-DMZ-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0637c14c40a7e0dc5",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ADLA-MZ-IRE-IT-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08fe50d8e7569d917",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SGP-IRE-IT-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-033f45943d96e5371",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-PRD-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-028385d280d17cd16",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-DMZ-IRE-IT-DMZ-PRD-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f0c11abde341477c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-STG-DMZ-PEERING"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0bfb3d9d40302d572",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-IRE-PRD-DMZ-PEERING"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-006f60562ad057c3b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-IRE-PRD-MZ-PEERING"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "IRE-PRD-IT-DMZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-1246e977",
+            "CidrBlock": "10.19.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-009168b3ed278996a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-DMZ-IRE-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0084f2cf2f02745f4",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-IRE-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-04d69c40e55ba8e8f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1246e977",
+                    "RequesterCidr": "10.19.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-DMZ-IRE-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0577bb134f5f85a7e",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1246e977",
+                    "RequesterCidr": "10.19.0.0/16",
+                    "AccepterVpcId": "vpc-02e824cd0b50e12ca",
+                    "AccepterCidr": "10.10.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-PR-MZ-VRG-DMZ-SFTP-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c5143cc41ea0d293",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1246e977",
+                    "RequesterCidr": "10.19.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-MZ-SGP-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-044ebf6712a7e4c38",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-IRE-PRD-MZ-TXN-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-006f60562ad057c3b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-IRE-PRD-MZ-PEERING"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-54c3693d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-49cf642d",
+                    "RequesterCidr": "10.18.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-PR-DMZ-MZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "IRE-PRD-PR-MZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-49cf642d",
+            "CidrBlock": "10.18.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-026d1dd692ba979fd",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-8135cae5",
+                    "RequesterCidr": "10.28.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-BK-IRE-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c8020dd8b5da85b0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-IRE-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-07dae2ae605342e49",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-033c36b8439236701",
+                    "RequesterCidr": "172.33.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PR-MZ-IRE-PRD-PR-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e6fd2f315835b50c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-96000ff3",
+                    "RequesterCidr": "172.19.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-IT-IRE-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0548da5295246095d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1b07ef72",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "UK-IRE-PRD-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-097c7da536de34f20",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-3f824e46",
+                    "RequesterCidr": "10.0.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "TERRAPAY-PEEXIT-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-018aa8fe305afcb7a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-IRE-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b2cb7937c6c55cf2",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-IRE-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0bfb3d9d40302d572",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-IRE-PRD-DMZ-PEERING"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-54c3693d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-49cf642d",
+                    "RequesterCidr": "10.18.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-PR-DMZ-MZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "IRE-PRD-PR-DMZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-0b9fa36b61acc3041",
+            "CidrBlock": "10.17.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": "IRE-TCIB-PRD-PR-MZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-077f771488c6f3e6d",
+            "CidrBlock": "10.16.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": "IRE-TCIB-PRD-PR-DMZ-VPC"
+            }
+        }
+    ],
+    "ap-northeast-3": [
+        {
+            "VpcId": "vpc-b69267df",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "ap-northeast-2": [
+        {
+            "VpcId": "vpc-d5e301bc",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "ap-northeast-1": [
+        {
+            "VpcId": "vpc-2e09c54b",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        },
+        {
+            "VpcId": "vpc-05b4334e7704a5461",
+            "CidrBlock": "180.18.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-01bdec9150ae5c6cf",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "TKY-JMP-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b9a5545496fa7cfc",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-TKY-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01d0c70ad43d672c4",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-TKY-MUM-Peer"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "TKY-VPC-1"
+            }
+        }
+    ],
+    "ca-central-1": [
+        {
+            "VpcId": "vpc-011ce868",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "sa-east-1": [
+        {
+            "VpcId": "vpc-a575fdc0",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "ap-southeast-1": [
+        {
+            "VpcId": "vpc-96000ff3",
+            "CidrBlock": "172.19.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0eef1f91b099807bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-SGP-JMP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c592ab7e52680bd8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-MZ-SGP-STG-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c0e263a688e99c25",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-PRD-DMZ-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-07120e527b205939d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-02e824cd0b50e12ca",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "VRG-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0034a9bf111c5084f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-SGPJMP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-09ad0c95498e0261f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-96000ff3",
+                    "RequesterCidr": "172.19.0.0/16",
+                    "AccepterVpcId": "vpc-f5a96d91",
+                    "AccepterCidr": "10.0.0.0/16",
+                    "Tags": {
+                        "Name": "TerraPay - SimbaPay Test"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-02dd3b4c609f03bea",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00a083cedd6b2f05d",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "NCL-TP2-SGP-STG-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a1043727a2c9a554",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e90d556803755742",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "ORG-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01bdec9150ae5c6cf",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "TKY-JMP-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e6fd2f315835b50c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-96000ff3",
+                    "RequesterCidr": "172.19.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-IT-IRE-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f0c11abde341477c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-STG-DMZ-PEERING"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-02e447a705ef9afc8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-SGP-STG-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-15adc27c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-96000ff3",
+                    "RequesterCidr": "172.19.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "STG-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-422a632b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00c8ec64",
+                    "RequesterCidr": "10.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-DR-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-09ab968fed87f07a9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-JMP-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "GROUP": "STAGING",
+                "Name": "TERRA-STAGING-vpc"
+            }
+        },
+        {
+            "VpcId": "vpc-00c8ec64",
+            "CidrBlock": "10.29.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0c5143cc41ea0d293",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1246e977",
+                    "RequesterCidr": "10.19.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-MZ-IRE-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-033f45943d96e5371",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-PRD-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a53d74727daaf570",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-RPT"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-422a632b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00c8ec64",
+                    "RequesterCidr": "10.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-DR-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0478315632e4cf17b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-MZ-IRE-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-782b6211",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00c8ec64",
+                    "RequesterCidr": "10.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-DR-DMZ-MZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "SGP-PRD-PR-MZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-056ae79379c6394c1",
+            "CidrBlock": "172.29.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0cdbc65d0c387aef8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-SGP-WS"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0754133f8b4be6876",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e90d556803755742",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "ORG-SGP-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0295ec53cd7eb33bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0084f2cf2f02745f4",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-IRE-MZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-000ca08cfb85dba0b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-SGP-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c8020dd8b5da85b0",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-IRE-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08ee03ba64f529bff",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b2b01301ba0100bb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-STG-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-053a29a543e57d04e",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-02e824cd0b50e12ca",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "VRG-SGP-WS"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0626d73f2b76a871e",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-0ab55524635861764",
+                    "AccepterCidr": "10.20.0.0/16",
+                    "Tags": {
+                        "Name": "ORG-SGP-WS-Peer2"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0d8a3f5ba72a94e9d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-ALDA-MZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08fe50d8e7569d917",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SGP-IRE-IT-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0063a08dd07d840dc",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-032dd61ffd0216df4",
+                    "RequesterCidr": "172.32.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-SGP-WS-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c7a231442569cb35",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {}
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b9a5545496fa7cfc",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05b4334e7704a5461",
+                    "RequesterCidr": "180.18.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-TKY-SGP-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0efee9fbcfe4c69cd",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-SGP-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b7f32b628c1882f8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-033c36b8439236701",
+                    "RequesterCidr": "172.33.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-DMZ-SGP-WS-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0cfe128cfdd82d00c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00a083cedd6b2f05d",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CFN-WS-SGP-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a5737f49d46707be",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-SGP-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-02e447a705ef9afc8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-SGP-STG-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-016618e63a91a2571",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-0614a05cf3e541d5b",
+                    "AccepterCidr": "10.151.0.0/28",
+                    "Tags": {
+                        "Name": "WS-SGP-BK-GRE-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01427c401a08d534b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SGP-PRD-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0478315632e4cf17b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SG-MZ-IRE-MZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "WorkSpaces-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-0614a05cf3e541d5b",
+            "CidrBlock": "10.151.0.0/28",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-08304fb382883cd68",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-GRE-IRE-IT-DMZ-WAZUH-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a53d74727daaf570",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-00c8ec64",
+                    "AccepterCidr": "10.29.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-RPT"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-096b616bc7fe07e8d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-DMZ-EIG-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-016618e63a91a2571",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-0614a05cf3e541d5b",
+                    "AccepterCidr": "10.151.0.0/28",
+                    "Tags": {
+                        "Name": "WS-SGP-BK-GRE-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-09ab968fed87f07a9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-96000ff3",
+                    "AccepterCidr": "172.19.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-JMP-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "SGP-PRD-BK-GRE-DMZ-VPC"
+            }
+        },
+        {
+            "VpcId": "vpc-8135cae5",
+            "CidrBlock": "10.28.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0761ba4b37e362b3a",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-087a074ad470ad2cc",
+                    "RequesterCidr": "172.49.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "MUM-STG-PERFORMANCE-TESTING-SGP-PRD-PR-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-027a406bdc15bf5ac",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-PR-DMZ-SGP-PRD-DMZ-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08027a24b0c3fcfdb",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0df2b23d27f2f9ea4",
+                    "RequesterCidr": "10.36.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ALDA-MZ-SGP-DR-DMZ-VPN-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-026d1dd692ba979fd",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-8135cae5",
+                    "RequesterCidr": "10.28.0.0/16",
+                    "AccepterVpcId": "vpc-49cf642d",
+                    "AccepterCidr": "10.18.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-BK-IRE-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-04d69c40e55ba8e8f",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-1246e977",
+                    "RequesterCidr": "10.19.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-DMZ-IRE-MZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0f4858d976ab8e54c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-04d243d06f9cb1736",
+                    "RequesterCidr": "10.35.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-ALDA-DMZ-SGP-DR-DMZ-VPN-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-088aea746c752c788",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-030b70617bfc7d54a",
+                    "RequesterCidr": "10.15.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "IRE-PRD-IT-DMZ-SGP-PRD-DMZ-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-08133061de6813721",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-ca5cb8a3",
+                    "RequesterCidr": "172.31.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-STG-TCIB-SGP-PRD-DMZ"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0087be6dd68b249e9",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e68616a2623dec71",
+                    "RequesterCidr": "10.31.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-MZ-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e98995b31b4f30cf",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e685c56db6c2c69d",
+                    "RequesterCidr": "10.40.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "PRS-PRD-PAY-MZ-SGP-PRD"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0325f2fc8d9248f9d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0ab55524635861764",
+                    "RequesterCidr": "10.20.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "ORG-MZ-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0e17609b501bd4a94",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "RequesterCidr": "182.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "WS-MUM-SGP-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0c82cb566ed453264",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0e90d556803755742",
+                    "RequesterCidr": "10.10.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "ORG-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-02560c602739a4144",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-05ce24a4db43a92d9",
+                    "RequesterCidr": "10.30.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "CPT-TCIB-PRD-DMZ-SGP-PRD-DMZ-Peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-15adc27c",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-96000ff3",
+                    "RequesterCidr": "172.19.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "STG-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-096b616bc7fe07e8d",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-0614a05cf3e541d5b",
+                    "RequesterCidr": "10.151.0.0/28",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-BK-GRE-DMZ-EIG-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-01427c401a08d534b",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-056ae79379c6394c1",
+                    "RequesterCidr": "172.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "WS-SGP-PRD-DMZ-PEER"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-782b6211",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-00c8ec64",
+                    "RequesterCidr": "10.29.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "SGP-PRD-DR-DMZ-MZ-PEER"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "SGP-PRD-PR-DMZ-VPC"
+            }
+        }
+    ],
+    "ap-southeast-2": [
+        {
+            "VpcId": "vpc-286da94d",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "eu-central-1": [
+        {
+            "VpcId": "vpc-a1768ac8",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": [],
+            "Tags": {
+                "Name": ""
+            }
+        },
+        {
+            "VpcId": "vpc-083ce53fc0de30771",
+            "CidrBlock": "10.50.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [
+                {
+                    "PeeringConnectionId": "pcx-0cdbc65d0c387aef8",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-056ae79379c6394c1",
+                    "AccepterCidr": "172.29.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-SGP-WS"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-027a406bdc15bf5ac",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-8135cae5",
+                    "AccepterCidr": "10.28.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-PR-DMZ-SGP-PRD-DMZ-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0a06f29c39e696834",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-09f6ab38e80bdf4cd",
+                    "AccepterCidr": "182.29.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-MUM-WS-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-06e44703af437bfad",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-030b70617bfc7d54a",
+                    "AccepterCidr": "10.15.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-IRE-IT-DMZ-WAZUH-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-044ebf6712a7e4c38",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-1246e977",
+                    "AccepterCidr": "10.19.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-IRE-PRD-MZ-TXN-peer"
+                    }
+                },
+                {
+                    "PeeringConnectionId": "pcx-0b489edc851b6d1e6",
+                    "Status": "active",
+                    "RequesterVpcId": "vpc-083ce53fc0de30771",
+                    "RequesterCidr": "10.50.0.0/16",
+                    "AccepterVpcId": "vpc-04d243d06f9cb1736",
+                    "AccepterCidr": "10.35.0.0/16",
+                    "Tags": {
+                        "Name": "FRK-PRD-PR-CPT-ADLA-PRD-DMZ-peer"
+                    }
+                }
+            ],
+            "Tags": {
+                "Name": "FRK-PRD-PR-VPC"
+            }
+        }
+    ],
+    "us-east-1": [
+        {
+            "VpcId": "vpc-c22f52a7",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        },
+        {
+            "VpcId": "vpc-0bc6eab52883fcc8b",
+            "CidrBlock": "172.16.0.0/16",
+            "IsDefault": false,
+            "PeeringConnections": [],
+            "Tags": {
+                "AWSServiceAccount": "697148468905"
+            }
+        }
+    ],
+    "us-east-2": [
+        {
+            "VpcId": "vpc-b69871df",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "us-west-1": [
+        {
+            "VpcId": "vpc-8fff39ea",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ],
+    "us-west-2": [
+        {
+            "VpcId": "vpc-ab22e3ce",
+            "CidrBlock": "172.31.0.0/16",
+            "IsDefault": true,
+            "PeeringConnections": []
+        }
+    ]
 }

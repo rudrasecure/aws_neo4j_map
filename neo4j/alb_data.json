@@ -1,1426 +1,194 @@
 {
+    "ap-south-2": [],
+    "af-south-1": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:loadbalancer/app/CPT-TCIB-DMZ-EIG-ALB/31cf33d03c132022",
+            "DNSName": "internal-CPT-TCIB-DMZ-EIG-ALB-1509601842.af-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-05ce24a4db43a92d9",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-06-19T16:59:07.170000+00:00",
+            "SecurityGroups": [
+                "sg-0c0d0f884766bef60"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CPT-TCIB-DMZ-EIG-IN-HTTPS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-TCIB-DMZ-EIG-IN-HTTPS/43eb4f72d017d6a0",
+                    "Targets": [
+                        {
+                            "Target": "i-0d8f993392b276719",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "CPT-TCIB-DMZ-EIG-OUT-HTTPS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-TCIB-DMZ-EIG-OUT-HTTPS/8a9d0c9a6f0e8da5",
+                    "Targets": [
+                        {
+                            "Target": "i-0d8f993392b276719",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:loadbalancer/app/CPT-TCIB-MZ-TXN-ALB/b1d3ff059d171d7c",
+            "DNSName": "internal-CPT-TCIB-MZ-TXN-ALB-1500112225.af-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-0e68616a2623dec71",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-06-19T18:24:18.970000+00:00",
+            "SecurityGroups": [
+                "sg-0d4ec0aca157e45fc"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CPT-TCIB-MZ-RPT-TOPS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-TCIB-MZ-RPT-TOPS/aa1efaa49a45a0d2",
+                    "Targets": [
+                        {
+                            "Target": "i-06df43788d9df63b2",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "CPT-TCIB-TXN",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-TCIB-TXN/5448c14375b6e672",
+                    "Targets": [
+                        {
+                            "Target": "i-056b315e8a80c678f",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:loadbalancer/app/CPT-ADLA-PRD-ENGAGE-LB/34708fe4bc17cdd9",
+            "DNSName": "CPT-ADLA-PRD-ENGAGE-LB-822047711.af-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-04d243d06f9cb1736",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2022-07-06T12:22:34.020000+00:00",
+            "SecurityGroups": [
+                "sg-045190a8604f66f15",
+                "sg-030ba6cfba59d26a9"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CPT-ADLA-PRD-ENGAGE-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-ADLA-PRD-ENGAGE-TG/efa1f8adc6429281",
+                    "Targets": [
+                        {
+                            "Target": "i-0ffe7155624e0037c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "CPT-ADLA-PRD-ZA-TOPS-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-ADLA-PRD-ZA-TOPS-TG/4743f282a4f26c08",
+                    "Targets": [
+                        {
+                            "Target": "i-0ffe7155624e0037c",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:loadbalancer/app/CPT-ADLA-PRD-DMZ-EIG-ELB/d0ae82e401f3fafe",
+            "DNSName": "internal-CPT-ADLA-PRD-DMZ-EIG-ELB-1221738914.af-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-04d243d06f9cb1736",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2022-08-26T08:53:19.630000+00:00",
+            "SecurityGroups": [
+                "sg-0672b2b1e0719ca2b"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CPT-ADLA-PRD-DMZ-EIG-OUT-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-ADLA-PRD-DMZ-EIG-OUT-TG/dd235714d8c40c9c",
+                    "Targets": [
+                        {
+                            "Target": "i-0741928eefa0505ba",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "CPT-ADLA-PRD-EIGIN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-ADLA-PRD-EIGIN-TG/98658e153e03725f",
+                    "Targets": [
+                        {
+                            "Target": "i-0741928eefa0505ba",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:loadbalancer/app/CPT-ADLA-PRD-DMZ-MANADATE-ALB/99e1cca4f92fcdbc",
+            "DNSName": "CPT-ADLA-PRD-DMZ-MANADATE-ALB-978406842.af-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-04d243d06f9cb1736",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2023-08-03T13:38:57.970000+00:00",
+            "SecurityGroups": [
+                "sg-0077ea70ba03bd537",
+                "sg-030ba6cfba59d26a9"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CPT-ADLA-PRD-DMZ-MANADATE-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:af-south-1:687208537907:targetgroup/CPT-ADLA-PRD-DMZ-MANADATE-TG/e646fd97fb4617ed",
+                    "Targets": [
+                        {
+                            "Target": "i-027d518f9a3e520a7",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "ap-south-1": [
         {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-WEBPOS/70e26e4f0d0823ef",
-            "DNSName": "PW-WEBPOS-697327085.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:687208537907:loadbalancer/app/MUM-PRD-HashiCorp-Vault-LB/c9787ee068b5afa0",
+            "DNSName": "MUM-PRD-HashiCorp-Vault-LB-1322866760.ap-south-1.elb.amazonaws.com",
+            "VpcId": "vpc-087a074ad470ad2cc",
             "State": {
                 "Code": "active"
             },
             "Scheme": "internet-facing",
-            "CreatedTime": "2017-07-05T07:57:07.890000+00:00",
+            "CreatedTime": "2023-11-08T07:23:02.670000+00:00",
             "SecurityGroups": [
-                "sg-5cac5634"
+                "sg-0c26401814eabb84e"
             ],
             "TargetGroups": [
                 {
-                    "TargetGroupName": "Associate-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Associate-TG/759a2a3228d77df5",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "PW-WEBPOS-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-WEBPOS-TG/f04e2bf7bc432855",
+                    "TargetGroupName": "MUM-STG-HashiCorp-Vault-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:687208537907:targetgroup/MUM-STG-HashiCorp-Vault-TG/acdb68e1f2ad62a4",
                     "Targets": [
                         {
-                            "Target": "i-0da12bd04e20f8ee9",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-CRM/a6b9f59f6e013476",
-            "DNSName": "PW-CRM-680532164.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-07-06T08:05:29.790000+00:00",
-            "SecurityGroups": [
-                "sg-1847bd70"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "PW-CRM-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-CRM-TG/ab5018b8aa5f7ffc",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-UI/ec241e8802270829",
-            "DNSName": "PW-UI-1574811547.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-07-06T12:15:25.180000+00:00",
-            "SecurityGroups": [
-                "sg-ddad68b5"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "PW-UI-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-UI-TG/8578d6c22381a525",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "pw-analytics-function-app",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-analytics-function-app/3bea80e850237cd9",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-RECHARGE/e67a5027a524c95d",
-            "DNSName": "PW-RECHARGE-1956603591.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-08-23T09:52:14.720000+00:00",
-            "SecurityGroups": [
-                "sg-ba17a0d2"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "New-Utility-Frontend-new",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/New-Utility-Frontend-new/cd5624de54fbf753",
-                    "Targets": [
-                        {
-                            "Target": "i-031f866b201b9bfd0",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-RECHARGE-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-RECHARGE-TG/707fbcaac8e0a910",
-                    "Targets": [
-                        {
-                            "Target": "i-0d7d66b34cd59aea5",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-01e84050c59e8b9e6",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Utility-new",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Utility-new/bd371c0119f489fd",
-                    "Targets": [
-                        {
-                            "Target": "i-0d7d66b34cd59aea5",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-01e84050c59e8b9e6",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Utilitybbps",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Utilitybbps/3cc224bb8879bc4a",
-                    "Targets": [
-                        {
-                            "Target": "i-03f63d1bfb24aaed4",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "VPS-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/VPS-TG/5b3f48103044b3d1",
-                    "Targets": [
-                        {
-                            "Target": "i-0c479770eca8b4524",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "beta-api-recharge",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/beta-api-recharge/f1d2e4cc289920f2",
-                    "Targets": [
-                        {
-                            "Target": "i-01e84050c59e8b9e6",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "url-shortner-node-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/url-shortner-node-TG/fbd841360eb4a4b5",
-                    "Targets": [
-                        {
-                            "Target": "i-0a4fac2778cc34481",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "whatsapp-bot-ai-Tg",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/whatsapp-bot-ai-Tg/4cc81aab829388c2",
-                    "Targets": [
-                        {
-                            "Target": "i-0a886a0991e263338",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-MAINSITE-ILB/4c3c5d909c9eb957",
-            "DNSName": "internal-PW-MAINSITE-ILB-1290774658.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2017-09-07T07:37:21.650000+00:00",
-            "SecurityGroups": [
-                "sg-0390116b"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "PW-MAINSITE-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-TG/0d206ae8ce263a09",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-MAINSITE-WEBPOS-ILB/5be56aa9e8fb449a",
-            "DNSName": "internal-PW-MAINSITE-WEBPOS-ILB-865852834.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2017-09-07T07:40:16+00:00",
-            "SecurityGroups": [
-                "sg-8e9110e6"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "PW-MAINSITE-WEBPOS-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-WEBPOS-TG/204750de3d1a43f7",
-                    "Targets": [
-                        {
-                            "Target": "i-0c2c1fefaf49b579d",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/PW-MAINSITE-ELB/da2179a2ba38de00",
-            "DNSName": "PW-MAINSITE-ELB-32893379.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-09-07T07:56:35.190000+00:00",
-            "SecurityGroups": [
-                "sg-1f971677"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "Apis-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Apis-TG/2c0d170eb1193744",
-                    "Targets": [
-                        {
-                            "Target": "i-06697aa1bf1ce85ed",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Cashout-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Cashout-TG/bd5bf516dab2885c",
-                    "Targets": [
-                        {
-                            "Target": "i-06caa41223c0818ca",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0d2712e057da53b56",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Doc-Masking-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Doc-Masking-TG/46ec497a7c7ed611",
-                    "Targets": [
-                        {
-                            "Target": "i-06cbe536d7e789299",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Investment-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Investment-TG/7d9b724a60ecc383",
-                    "Targets": [
-                        {
-                            "Target": "i-03a7a8c86112de7ea",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "MGMT-SSO-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/MGMT-SSO-TG/d3a7ca741dca066a",
-                    "Targets": [
-                        {
-                            "Target": "i-0c278e4242234deca",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "NEXT-GEN-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/NEXT-GEN-TG/393efab4b742f277",
-                    "Targets": [
-                        {
-                            "Target": "i-039c5965416c4ed3c",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0040e8d399fa4324a",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0b7c2405a98223e2f",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-02e4125390b4a30e8",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0fec73fc83feb04a7",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-070e8c0aee7218f43",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0de40f247cec36f92",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-00e7d66789f796049",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-01577224a4bc7b2b7",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-026d08e64623d10d2",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0005dcb8f1db51380",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-08249ce8cd07f4aae",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Notification-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Notification-TG/ff5ffcd3bf1f2d9e",
-                    "Targets": [
-                        {
-                            "Target": "i-01c1defb316766d45",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-MAINSITE-ELB",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-ELB/0b886f340129d782",
-                    "Targets": [
-                        {
-                            "Target": "i-067664441b8a3540d",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-MAINSITE-JS-Test",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-JS-Test/e2b6d54221bc1b10",
-                    "Targets": [
-                        {
-                            "Target": "i-067664441b8a3540d",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-MAINSITE-LOGIN",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-LOGIN/b7a48765dd15950f",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "PW-MAINSITE-WP-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-MAINSITE-WP-TG/5a2a67c64ce6d57b",
-                    "Targets": [
-                        {
-                            "Target": "i-017576a00a80d62d0",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-WEBPOS-TG-NG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-WEBPOS-TG-NG/deeb9feb123fa7b8",
-                    "Targets": [
-                        {
-                            "Target": "i-0ec6a48ba389e43fe",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-06effc06353ba8a3f",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-04b95419e9d9a2dc8",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0c69eb8c9807f1630",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "PW-YBL-BC-MR-Bank-auditing",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/PW-YBL-BC-MR-Bank-auditing/2aefb0d53d7ed6f1",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "Payment-Engine-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Payment-Engine-TG/254a48130a875aaa",
-                    "Targets": [
-                        {
-                            "Target": "i-0dc7ace61507a1669",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Payment-Engine-new-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Payment-Engine-new-TG/255b31453089826b",
-                    "Targets": [
-                        {
-                            "Target": "i-0cfa971006bd484bf",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QMR",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QMR/e1b485d0e3b38c86",
-                    "Targets": [
-                        {
-                            "Target": "i-0ff6e3a4b21057837",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-06ee8c184deb32b91",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0bc8c13386ce6a374",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QMR-API-Beta-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QMR-API-Beta-TG/573c3a3affdffd68",
-                    "Targets": [
-                        {
-                            "Target": "i-0cddb2f18db9edc0d",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QMR-API-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QMR-API-TG/2a3b62fb00b20508",
-                    "Targets": [
-                        {
-                            "Target": "i-082e3fa70f99b12d0",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0cddb2f18db9edc0d",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QMR-Beta",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QMR-Beta/710a3c94a7facff9",
-                    "Targets": [
-                        {
-                            "Target": "i-0ff6e3a4b21057837",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Qmr-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Qmr-TG/d1b5f294b49f4588",
-                    "Targets": [
-                        {
-                            "Target": "i-03fed2524ae804657",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QrCode-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QrCode-TG/2a6a1682d5105068",
-                    "Targets": [
-                        {
-                            "Target": "i-07318f305bce4b7cd",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "RBL-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/RBL-TG/a8122929b36f2abd",
-                    "Targets": [
-                        {
-                            "Target": "i-0c5f8949372d8fa5f",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "SGS-New-Node",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/SGS-New-Node/291b29ab527588b2",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "Sentry-Cashout-Backend-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Sentry-Cashout-Backend-TG/6eed1db139e5f6fe",
-                    "Targets": [
-                        {
-                            "Target": "i-0717ec23f308980e4",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "YBL-BC-MR-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/YBL-BC-MR-TG/43dadb9ea6b8f300",
-                    "Targets": [
-                        {
-                            "Target": "i-0c5f8949372d8fa5f",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "aeps-apiassociate",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/aeps-apiassociate/bf220f1cbacb038c",
-                    "Targets": [
-                        {
-                            "Target": "i-027ea4038d4e63496",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "api-vps-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/api-vps-TG/a8d40152f130a711",
-                    "Targets": [
-                        {
-                            "Target": "i-0c479770eca8b4524",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "beta-webpos-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/beta-webpos-TG/f1b4ec9e380259b6",
-                    "Targets": [
-                        {
-                            "Target": "i-0c69eb8c9807f1630",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "cashout-backend-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/cashout-backend-TG/8e0a54d26ed108b4",
-                    "Targets": [
-                        {
-                            "Target": "i-08f2062bf33e477dd",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0296d15cb9c4ce977",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0717ec23f308980e4",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0d926ad46e757becf",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0f1f7255f4d32fd0c",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-05cad7effd2f9bcf4",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0cdff17613f0509f0",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "cashout-frontend-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/cashout-frontend-TG/4b37c4a4f65b25d5",
-                    "Targets": [
-                        {
-                            "Target": "i-0c40da1b56c97fcef",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-027147ee454b975fc",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-09f63b632632c78af",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "cashout-frontend-beta-143-95-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/cashout-frontend-beta-143-95-TG/1e65433a8ad23ba3",
-                    "Targets": [
-                        {
-                            "Target": "i-0c40da1b56c97fcef",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "cloud121-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/cloud121-TG/7a490c3dc371b667",
-                    "Targets": [
-                        {
-                            "Target": "i-0db0726020905add6",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "cloud126-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/cloud126-TG/716c26067aa7785d",
-                    "Targets": [
-                        {
-                            "Target": "i-0b7acd0f5fe307b23",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "designboxTest2",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/designboxTest2/3e9aa676f053a188",
-                    "Targets": [
-                        {
-                            "Target": "i-0c2c1fefaf49b579d",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "investment-new-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/investment-new-TG/61e6a6f3e2aaacca",
-                    "Targets": [
-                        {
-                            "Target": "i-0f5eb35ced559f46e",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "new-aeps-apiassociate",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/new-aeps-apiassociate/9c8420a012faf8b8",
-                    "Targets": [
-                        {
-                            "Target": "i-066f6fceebf094dbc",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "new-sgs-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/new-sgs-TG/426d58bbe20e8c6b",
-                    "Targets": [
-                        {
-                            "Target": "i-0ec6a48ba389e43fe",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-06effc06353ba8a3f",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-04b95419e9d9a2dc8",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0c69eb8c9807f1630",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "paylite",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/paylite/626cba30a56dab13",
-                    "Targets": [
-                        {
-                            "Target": "i-062934f04b9d1e838",
-                            "Health": "unused"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "payment-wallet-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/payment-wallet-TG/670b8a9d99e66ab4",
-                    "Targets": [
-                        {
-                            "Target": "i-0e78d21591725d038",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pw-ikyc-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-ikyc-TG/56ca8a53010faac2",
-                    "Targets": [
-                        {
-                            "Target": "i-05da0e6de5d72401a",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-08202acc5313047b1",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pw-mainsite-wp-test-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-mainsite-wp-test-TG/f115dd7da3cffd2a",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "pw-utility-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-utility-TG/32ded04f15c1b811",
-                    "Targets": [
-                        {
-                            "Target": "i-031f866b201b9bfd0",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pw-utility-api-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-utility-api-TG/078c53be5759cf98",
-                    "Targets": [
-                        {
-                            "Target": "i-05524ff590c00ec51",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pwmr-beta",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pwmr-beta/7cecc97c8ca6cf99",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "sg-mr-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/sg-mr-TG/c4e4f4116c39bbca",
-                    "Targets": [
-                        {
-                            "Target": "i-0441af2fa27b8c2a5",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "waf",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/waf/1c8b3a5a745bc435",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "webpos-pw-old-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/webpos-pw-old-TG/674fe48d503f5209",
-                    "Targets": [
-                        {
-                            "Target": "i-0c2c1fefaf49b579d",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "webpos-retailer-new-test",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/webpos-retailer-new-test/01415c68e9e84a1d",
-                    "Targets": [
-                        {
-                            "Target": "i-0c2c1fefaf49b579d",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/loan-engine/d698b0fb5e84ae5a",
-            "DNSName": "loan-engine-241721891.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-09-25T07:20:11.890000+00:00",
-            "SecurityGroups": [
-                "sg-7364f61b"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "ICS-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/ICS-TG/b2d7e663d014a415",
-                    "Targets": [
-                        {
-                            "Target": "i-0974db09fa0e93bc1",
-                            "Health": "unused"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Load-Engine-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Load-Engine-TG/c87c0f3b1eb109dd",
-                    "Targets": [
-                        {
-                            "Target": "i-0a7069f6e3935e8d2",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "paycash-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/paycash-TG/a453996f675fda35",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "psc-paycash-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/psc-paycash-TG/ffdb54b3baac575b",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/sgs-ho-elb/740528ce2200dc67",
-            "DNSName": "sgs-ho-elb-83156305.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-10-07T12:14:44.180000+00:00",
-            "SecurityGroups": [
-                "sg-b4ec8fdc"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "sgs-ho-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/sgs-ho-TG/d9f7a63c422b1708",
-                    "Targets": [
-                        {
-                            "Target": "i-04677aafccd6d6c39",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0688b9f11236f1370",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/pw-travel/d7d2630d7236923f",
-            "DNSName": "pw-travel-753218820.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-11-22T08:00:07.940000+00:00",
-            "SecurityGroups": [
-                "sg-eeedcb86"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "MR-Frontend-Prod-new",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/MR-Frontend-Prod-new/7b5e503eeab8f0e6",
-                    "Targets": [
-                        {
-                            "Target": "i-0ff6e3a4b21057837",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "QMR-NEW-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/QMR-NEW-TG/014f741b5cb907bf",
-                    "Targets": [
-                        {
-                            "Target": "i-0ff6e3a4b21057837",
-                            "Health": "unhealthy"
-                        },
-                        {
-                            "Target": "i-06ee8c184deb32b91",
-                            "Health": "unhealthy"
-                        },
-                        {
-                            "Target": "i-0bc8c13386ce6a374",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Rocky-test-Rail-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Rocky-test-Rail-TG/befec12b1ab129a4",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "TG-Travel-air-New",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/TG-Travel-air-New/b43079c5f96ac345",
-                    "Targets": [
-                        {
-                            "Target": "i-004a9601ebb3d3270",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "TG-Travil-Train1",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/TG-Travil-Train1/8bf5468b41f5a8f3",
-                    "Targets": [
-                        {
-                            "Target": "i-0b4267ab08490d8f6",
-                            "Health": "unused"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "TG-travel-air-search-New",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/TG-travel-air-search-New/89d2980c3349d6f1",
-                    "Targets": [
-                        {
-                            "Target": "i-022a200e981f91f39",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-05887dfd041bc5a1f",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "TRAVEL-New-Rail-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/TRAVEL-New-Rail-TG/405884d9155cdf3c",
-                    "Targets": [
-                        {
-                            "Target": "i-0f5eb35ced559f46e",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0a37ae3381af48060",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0abc474272d463553",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Travel-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Travel-TG/29c78af8d1328252",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "beta-air-search-7000-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/beta-air-search-7000-TG/5513f7325fa524a7",
-                    "Targets": [
-                        {
-                            "Target": "i-064dfbcf6eb1d1383",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "kubctl-openreplay-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/kubctl-openreplay-TG/171fb02248502052",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "travel-air-beta-8080",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/travel-air-beta-8080/3aec7db10175a88a",
-                    "Targets": [
-                        {
-                            "Target": "i-064dfbcf6eb1d1383",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "travel-air-search-beta-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/travel-air-search-beta-TG/f729efae6980821d",
-                    "Targets": [
-                        {
-                            "Target": "i-064dfbcf6eb1d1383",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/ho/735382f2b5b54e25",
-            "DNSName": "ho-618687420.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2017-12-13T07:53:30.370000+00:00",
-            "SecurityGroups": [
-                "sg-b4ec8fdc",
-                "sg-29dc2441"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "Agent-New-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Agent-New-TG/62ca62a055365d10",
-                    "Targets": [
-                        {
-                            "Target": "i-0188034bddbc3d418",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "ho-distributor-api-associates-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/ho-distributor-api-associates-TG/b3508e528708a878",
-                    "Targets": [
-                        {
-                            "Target": "i-02a97febcfe0e10ce",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "ho-tg",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/ho-tg/83952c609d7ff0e5",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/pw-travel-train/d6335c2d0b1b1f27",
-            "DNSName": "pw-travel-train-375734503.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2018-01-05T03:41:30.110000+00:00",
-            "SecurityGroups": [
-                "sg-eeedcb86"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "TG-Travil-Train",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/TG-Travil-Train/e89acc84f7b3a7b8",
-                    "Targets": []
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/payworld/a0d3dcfbd50cecba",
-            "DNSName": "payworld-996010536.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2018-01-13T11:18:47.310000+00:00",
-            "SecurityGroups": [
-                "sg-b249a9d9"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "BO-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/BO-TG/fd93acd4ae967288",
-                    "Targets": [
-                        {
-                            "Target": "i-0bbb89dc41d666312",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Insurance-Api-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Insurance-Api-TG/04b5de838783b059",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "Insurance-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Insurance-TG/b789ca5f4fc55032",
-                    "Targets": [
-                        {
-                            "Target": "i-0c559cd0d80608753",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Insurance-beta-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Insurance-beta-TG/b428346798b4d3ce",
-                    "Targets": [
-                        {
-                            "Target": "i-0c559cd0d80608753",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Insurance-blast-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Insurance-blast-TG/2cea8e3ea255e54f",
-                    "Targets": [
-                        {
-                            "Target": "i-0c559cd0d80608753",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "RedHat8-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/RedHat8-TG/2edbdf6a6d7e3c16",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "agentpos-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/agentpos-TG/3ed23f497214a627",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "apiportal-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/apiportal-TG/f7da0446c9b807f6",
-                    "Targets": [
-                        {
-                            "Target": "i-05ec3ac9ef5565897",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pw-message-node",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-message-node/d63e0a46b6e3d65f",
-                    "Targets": [
-                        {
-                            "Target": "i-04ec9ac392c441965",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "pw-messaging",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/pw-messaging/3fde3057acbe096c",
-                    "Targets": [
-                        {
-                            "Target": "i-04ec9ac392c441965",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/aws-test-env/d23f93dfaaac8666",
-            "DNSName": "aws-test-env-1028991318.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-ef006e87",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internet-facing",
-            "CreatedTime": "2018-05-09T11:17:18.750000+00:00",
-            "SecurityGroups": [
-                "sg-3c005b57"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "Test-Env-Payworld-134-24",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Test-Env-Payworld-134-24/38de34c023d90f75",
-                    "Targets": [
-                        {
-                            "Target": "i-0f7eafc9209dd82c1",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Test-Env-Payworld-134-42",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Test-Env-Payworld-134-42/edaf8bbb4d332590",
-                    "Targets": [
-                        {
-                            "Target": "i-0c4b120366b5ce88e",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Test-Env-Qa-Payworld",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Test-Env-Qa-Payworld/fc1977c4e3cf9941",
-                    "Targets": [
-                        {
-                            "Target": "i-058f668bcd1248440",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Testing-Env-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Testing-Env-TG/989a64a20b304388",
-                    "Targets": [
-                        {
-                            "Target": "i-078eb868449d6ef04",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "Testing-env-satya",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Testing-env-satya/fb8e81317f2f774f",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "glitchtip-8000",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/glitchtip-8000/806af9d77c7732c8",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "newPaymentEngine-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/newPaymentEngine-TG/f86f5a0700d58c11",
-                    "Targets": [
-                        {
-                            "Target": "i-078eb868449d6ef04",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "py-marker-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/py-marker-TG/291600cf889150e4",
-                    "Targets": [
-                        {
-                            "Target": "i-00ea76df26da568f0",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "qa-ubuntu-tg",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/qa-ubuntu-tg/9a2e7f6ec1c317ef",
-                    "Targets": [
-                        {
-                            "Target": "i-0eb474ccd0c632805",
-                            "Health": "unhealthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "test-env-node",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/test-env-node/82b647907c1b2b99",
-                    "Targets": [
-                        {
-                            "Target": "i-078eb868449d6ef04",
-                            "Health": "healthy"
-                        }
-                    ]
-                },
-                {
-                    "TargetGroupName": "test-travel-tours-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/test-travel-tours-TG/35b66e2760f4440d",
-                    "Targets": []
-                },
-                {
-                    "TargetGroupName": "testing-travel-air",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/testing-travel-air/1ae3a26e967b7b1f",
-                    "Targets": [
-                        {
-                            "Target": "i-078eb868449d6ef04",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/Api-Internal-LB/a90fd6207e630836",
-            "DNSName": "internal-Api-Internal-LB-1366525445.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2018-08-29T10:36:36.590000+00:00",
-            "SecurityGroups": [
-                "sg-06953d9164607c0a8"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "Internal-API-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Internal-API-TG/40aa081e19fdf13f",
-                    "Targets": [
-                        {
-                            "Target": "i-06697aa1bf1ce85ed",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/Sgs-internal-LB/85f9a89786aea24d",
-            "DNSName": "internal-Sgs-internal-LB-1681196189.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2018-08-29T11:10:06.790000+00:00",
-            "SecurityGroups": [
-                "sg-06953d9164607c0a8"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "Sgs-ho-Internal-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/Sgs-ho-Internal-TG/83460c09a51a64fa",
-                    "Targets": [
-                        {
-                            "Target": "i-04677aafccd6d6c39",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0688b9f11236f1370",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/m21-internal/c92d8bb961d062ea",
-            "DNSName": "internal-m21-internal-1590666619.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2018-09-20T14:33:46.130000+00:00",
-            "SecurityGroups": [
-                "sg-0ed0582c18953137b"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "m21-internal-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/m21-internal-TG/c50a9e85d97059d4",
-                    "Targets": [
-                        {
-                            "Target": "i-0db0726020905add6",
-                            "Health": "healthy"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:loadbalancer/app/two-Tier-Payworld-ILB/49c5460f3442c79b",
-            "DNSName": "internal-two-Tier-Payworld-ILB-208777924.ap-south-1.elb.amazonaws.com",
-            "VpcId": "vpc-c32f67aa",
-            "State": {
-                "Code": "active"
-            },
-            "Scheme": "internal",
-            "CreatedTime": "2019-03-07T10:07:17.650000+00:00",
-            "SecurityGroups": [
-                "sg-0242204e30b9a962d"
-            ],
-            "TargetGroups": [
-                {
-                    "TargetGroupName": "twoTierPayworld-TG",
-                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-south-1:961229197606:targetgroup/twoTierPayworld-TG/b6d0de36fdcf1dda",
-                    "Targets": [
-                        {
-                            "Target": "i-0e2172f6eb89e5c7a",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0c511b9737350f411",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0a2c05bad14816657",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0833b731b0cba1d23",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0de4469f9873b70a2",
-                            "Health": "healthy"
-                        },
-                        {
-                            "Target": "i-0114f9d3ab63baa92",
+                            "Target": "i-0700b0529bead972b",
                             "Health": "healthy"
                         }
                     ]
@@ -1429,17 +197,1007 @@
         }
     ],
     "eu-north-1": [],
-    "eu-west-3": [],
+    "eu-west-3": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:loadbalancer/app/CongoPay-DMZ-Web-ALB/e59f77edb0837e25",
+            "DNSName": "CongoPay-DMZ-Web-ALB-893893521.eu-west-3.elb.amazonaws.com",
+            "VpcId": "vpc-032dd61ffd0216df4",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2021-06-02T16:12:02.280000+00:00",
+            "SecurityGroups": [
+                "sg-0a4c6064585a5c963"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CongoPay-DMZ-Web-In",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:targetgroup/CongoPay-DMZ-Web-In/f4d814bc8343e1c0",
+                    "Targets": [
+                        {
+                            "Target": "i-01fae48a225bc905d",
+                            "Health": "unused"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:loadbalancer/app/PRS-PRD-PR-DMZ-PAY-EIG-ELB-A/dc0c720fd2ca395f",
+            "DNSName": "internal-PRS-PRD-PR-DMZ-PAY-EIG-ELB-A-420349934.eu-west-3.elb.amazonaws.com",
+            "VpcId": "vpc-0e685c56db6c2c69d",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-11-02T15:56:17.450000+00:00",
+            "SecurityGroups": [
+                "sg-0f7672c01392a1548"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "PRS-PRD-PR-DMZ-PAY-EIG-OUT-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:targetgroup/PRS-PRD-PR-DMZ-PAY-EIG-OUT-TG/4296c7909d04c7b2",
+                    "Targets": [
+                        {
+                            "Target": "i-05d5fce556ee0f6ae",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-050937080f38a53dc",
+                            "Health": "unused"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "PRS-PRD-PR-DMZ-PAY-EIG-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:targetgroup/PRS-PRD-PR-DMZ-PAY-EIG-TG/4ef418d52c0a939c",
+                    "Targets": [
+                        {
+                            "Target": "i-050937080f38a53dc",
+                            "Health": "unused"
+                        },
+                        {
+                            "Target": "i-05d5fce556ee0f6ae",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:loadbalancer/app/PRS-PRD-PR-MZ-PAY-TXN-ELB/cb15c64bea9a01f1",
+            "DNSName": "internal-PRS-PRD-PR-MZ-PAY-TXN-ELB-593665917.eu-west-3.elb.amazonaws.com",
+            "VpcId": "vpc-0e685c56db6c2c69d",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-11-03T14:10:16.990000+00:00",
+            "SecurityGroups": [
+                "sg-01993b939ff97ea34"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "PRS-PRD-PR-MZ-PAY-TXN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-3:687208537907:targetgroup/PRS-PRD-PR-MZ-PAY-TXN-TG/fb5c82262e863c19",
+                    "Targets": [
+                        {
+                            "Target": "i-0075656f981afa197",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "eu-south-1": [],
     "eu-west-2": [],
-    "eu-west-1": [],
+    "eu-west-1": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:loadbalancer/app/IRE-PRD-PR-EIG-ALB/ac10cb8bbaec68bb",
+            "DNSName": "internal-IRE-PRD-PR-EIG-ALB-123808923.eu-west-1.elb.amazonaws.com",
+            "VpcId": "vpc-49cf642d",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2018-08-01T09:15:21.240000+00:00",
+            "SecurityGroups": [
+                "sg-1cc1d57b"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "CORE-EIGOUT",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/CORE-EIGOUT/82c914cc1cdea266",
+                    "Targets": [
+                        {
+                            "Target": "i-080b22d8938e83ef6",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-EIG-IN-CALLBACKS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-EIG-IN-CALLBACKS/84098293c54fefde",
+                    "Targets": [
+                        {
+                            "Target": "i-0a9a139aeb0c9f19b",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-EIG-IN-HTTP",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-EIG-IN-HTTP/fe67bddd20e4457b",
+                    "Targets": [
+                        {
+                            "Target": "i-080b22d8938e83ef6",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-EIG-IN-HTTP-CALLBACKS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-EIG-IN-HTTP-CALLBACKS/f891d5bfa2481aec",
+                    "Targets": [
+                        {
+                            "Target": "i-0a9a139aeb0c9f19b",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-EIGIN",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-EIGIN/0b990cb111da646b",
+                    "Targets": [
+                        {
+                            "Target": "i-080b22d8938e83ef6",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-EIGIN-PILOT-HTTP",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-EIGIN-PILOT-HTTP/28932b64875a8e66",
+                    "Targets": []
+                },
+                {
+                    "TargetGroupName": "OUTSIDE-PILOT-EIGIN",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/OUTSIDE-PILOT-EIGIN/3b555d5c13e9a77b",
+                    "Targets": [
+                        {
+                            "Target": "i-0ed17c5c6c82024c8",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SAFARICOM-EIGIN",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/SAFARICOM-EIGIN/29622d892b6eb680",
+                    "Targets": [
+                        {
+                            "Target": "i-026040579399b8583",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:loadbalancer/app/IRE-PRD-PR-DMZ-ASAP-LB/898fe62e28b6f580",
+            "DNSName": "IRE-PRD-PR-DMZ-ASAP-LB-1397880259.eu-west-1.elb.amazonaws.com",
+            "VpcId": "vpc-49cf642d",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2021-12-06T15:26:24.330000+00:00",
+            "SecurityGroups": [
+                "sg-0a29e79fdd7acc3ad",
+                "sg-0e3d41ccf90bde8f1"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "IRE-PRD-ASAP",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-ASAP/8ec200577302e600",
+                    "Targets": [
+                        {
+                            "Target": "i-0523f5ba0e858d0be",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "New-TerraPay-Web",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/New-TerraPay-Web/27df077aa988bfae",
+                    "Targets": [
+                        {
+                            "Target": "i-09c9edc3792e64d1a",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:loadbalancer/app/IRE-PRD-VISA-MZ-TXN-ALB/639f0d30888fa911",
+            "DNSName": "internal-IRE-PRD-VISA-MZ-TXN-ALB-1523599466.eu-west-1.elb.amazonaws.com",
+            "VpcId": "vpc-1246e977",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2023-06-14T08:56:31.640000+00:00",
+            "SecurityGroups": [
+                "sg-016225b6c270ca618"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "IRE-PRD-MZ-Imt-Listener-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-MZ-Imt-Listener-TG/1505bf2013bcf8cc",
+                    "Targets": [
+                        {
+                            "Target": "i-0c2c68486ecffb97a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-MZ-VisaQuery-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-MZ-VisaQuery-TG/c80d0559feb0c479",
+                    "Targets": [
+                        {
+                            "Target": "i-0c2c68486ecffb97a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-VISA-MZ-IMT-TXN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-VISA-MZ-IMT-TXN-TG/e4efed8619261259",
+                    "Targets": [
+                        {
+                            "Target": "i-04331a2dd96fad39a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-VISA-MZ-Kafka1-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-VISA-MZ-Kafka1-TG/26d9bbf444d180d5",
+                    "Targets": [
+                        {
+                            "Target": "i-0800fd9709a83080a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-VISA-MZ-VisaCore-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-VISA-MZ-VisaCore-TG/1a5cfbd0f5718fa9",
+                    "Targets": [
+                        {
+                            "Target": "i-0a90e2a0087a57b24",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-VISA-VDA-Inbound-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-VISA-VDA-Inbound-TG/612a40c6e91db90c",
+                    "Targets": [
+                        {
+                            "Target": "i-05e3d2bc188949233",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "IRE-PRD-VISA-VDA-Outbound-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-west-1:687208537907:targetgroup/IRE-PRD-VISA-VDA-Outbound-TG/843bd4a09ca1bd89",
+                    "Targets": [
+                        {
+                            "Target": "i-05e3d2bc188949233",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "ap-northeast-3": [],
     "ap-northeast-2": [],
-    "ap-northeast-1": [],
+    "ap-northeast-1": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-northeast-1:687208537907:loadbalancer/app/TEST-TERRA-ALB/4be3a7757a096717",
+            "DNSName": "internal-TEST-TERRA-ALB-23246804.ap-northeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-05b4334e7704a5461",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2022-11-29T10:19:28.690000+00:00",
+            "SecurityGroups": [
+                "sg-06b2f49911d6ad320"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "Terra-ALB",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:687208537907:targetgroup/Terra-ALB/5a487f002dbe5865",
+                    "Targets": [
+                        {
+                            "Target": "i-0cd11d300ee2d4351",
+                            "Health": "unused"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-northeast-1:687208537907:loadbalancer/app/TOPS-LB-TKY-A/f00f5f7dd0ff3c53",
+            "DNSName": "internal-TOPS-LB-TKY-A-892662824.ap-northeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-05b4334e7704a5461",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2022-12-23T07:47:03.130000+00:00",
+            "SecurityGroups": [
+                "sg-06b2f49911d6ad320",
+                "sg-0c30506acc7565bf2"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "TOPS-TARGET-GROUP",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:687208537907:targetgroup/TOPS-TARGET-GROUP/6b93f3cb056cc527",
+                    "Targets": [
+                        {
+                            "Target": "i-04d14f41110d4967b",
+                            "Health": "unused"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "ca-central-1": [],
     "sa-east-1": [],
-    "ap-southeast-1": [],
+    "ap-southeast-1": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-ALB/6967a6b1c4c4ad9a",
+            "DNSName": "internal-SGP-PRD-ALB-1766387235.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-07-29T16:27:56.930000+00:00",
+            "SecurityGroups": [
+                "sg-09b27184f98b29654"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "JMPDOCS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/JMPDOCS/b455106fca4776a9",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "PartnerPortalNew",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/PartnerPortalNew/fb83099dd4c180a3",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-DEVPORTAL",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-DEVPORTAL/92a566b0f9f79feb",
+                    "Targets": []
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-MZ-Engage",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-MZ-Engage/441f21b5ad2864a4",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-MZ-Engage-B1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-MZ-Engage-B1/433f3abbdc056107",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-BK-DMZ-EIG-ALB/80bf5b7a7d507d30",
+            "DNSName": "internal-SGP-PRD-BK-DMZ-EIG-ALB-195131377.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-07-29T16:51:07.310000+00:00",
+            "SecurityGroups": [
+                "sg-0a62af1124c57eb9c"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-PRD-BK-DMZ-EIG-Bkash-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-BK-DMZ-EIG-Bkash-TG/353dd765d2fd3d9b",
+                    "Targets": [
+                        {
+                            "Target": "i-068d4dd8c3babc9ba",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-0899fd38ec0d04cbc",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-BK-Payoner-DMZ-EIGIN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-BK-Payoner-DMZ-EIGIN-TG/509f664bcffe5a26",
+                    "Targets": [
+                        {
+                            "Target": "i-07bad117df46d7882",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-BK-Payoner-DMZ-EIGOUT-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-BK-Payoner-DMZ-EIGOUT-TG/f1d09f4f54246ef4",
+                    "Targets": [
+                        {
+                            "Target": "i-07bad117df46d7882",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-PR-BK-DMZ-EIG-IN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-PR-BK-DMZ-EIG-IN-TG/5a427f1934b8ede4",
+                    "Targets": [
+                        {
+                            "Target": "i-0899fd38ec0d04cbc",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-068d4dd8c3babc9ba",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-PR-BK-DMZ-EIG-OUT-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-PR-BK-DMZ-EIG-OUT-TG/75b5e9d7087fda4e",
+                    "Targets": [
+                        {
+                            "Target": "i-068d4dd8c3babc9ba",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-0899fd38ec0d04cbc",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-DMZ-TOPS-ALB/64a24c88b157b02b",
+            "DNSName": "SGP-PRD-DMZ-TOPS-ALB-847021143.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2021-07-30T10:25:15.460000+00:00",
+            "SecurityGroups": [
+                "sg-0638a1d64f93d1f73",
+                "sg-02164aec69cbbff25"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "Neolotex-Fee-Module",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/Neolotex-Fee-Module/d128d3160bb1492f",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "Neolotex-Fee-Module-5001",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/Neolotex-Fee-Module-5001/d3725bbb7a27cc17",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "PRD-AutoPilot",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/PRD-AutoPilot/cab27e39313cfa9e",
+                    "Targets": [
+                        {
+                            "Target": "i-00c817187c349c69a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-CCS",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-CCS/7473fd1d12b8db4c",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-CCS5001",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-CCS5001/be3b43392ec2018a",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-TIP",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-TIP/82836302e00f86c9",
+                    "Targets": [
+                        {
+                            "Target": "i-0499e3177fce9178a",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "TOPs",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/TOPs/472aca6e4f4ccd94",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "qa-engage1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/qa-engage1/10f17d81251a822e",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "uatbetaengage",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/uatbetaengage/54c444d34615029a",
+                    "Targets": [
+                        {
+                            "Target": "i-047e629dc61d1c17c",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-BK-DMZ-TXN-ALB/18cb1bae66e66b79",
+            "DNSName": "internal-SGP-PRD-BK-DMZ-TXN-ALB-119485841.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-00c8ec64",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2021-08-03T19:18:58.150000+00:00",
+            "SecurityGroups": [
+                "sg-0a7568014474de28f"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-PRD-BK-Payoner-MZ-TXN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-BK-Payoner-MZ-TXN-TG/ebde113c40d8eee9",
+                    "Targets": [
+                        {
+                            "Target": "i-066e15faa4dcef8cc",
+                            "Health": "unhealthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-PR-BK-MZ-TXN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-PR-BK-MZ-TXN-TG/c7315f6372b57552",
+                    "Targets": [
+                        {
+                            "Target": "i-04e92d0dc07b190b2",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-06b9799f4e8f65821",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/TerraPay-Sonar-Qube-LB/dab64793c0728621",
+            "DNSName": "internal-TerraPay-Sonar-Qube-LB-2100735781.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-056ae79379c6394c1",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2023-01-25T11:20:22.770000+00:00",
+            "SecurityGroups": [
+                "sg-06f67696e22fb6bb1"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "TerraPay-Sonar-Qube-Community-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/TerraPay-Sonar-Qube-Community-TG/442ee75391df41fa",
+                    "Targets": [
+                        {
+                            "Target": "i-03dab9e97a23e2984",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "TerraPay-Sonar-Qube-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/TerraPay-Sonar-Qube-TG/5e860f04d050869d",
+                    "Targets": [
+                        {
+                            "Target": "i-0c1d420d51cb05218",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-IT-ALB/7e03138199edfd3a",
+            "DNSName": "SGP-PRD-IT-ALB-960110073.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2023-04-26T11:03:09.940000+00:00",
+            "SecurityGroups": [
+                "sg-0922f467257d65378",
+                "sg-02164aec69cbbff25"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "DASHBOARD-SUPERSET-TEST-1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/DASHBOARD-SUPERSET-TEST-1/47cabe0ef06b1810",
+                    "Targets": [
+                        {
+                            "Target": "i-09979a8c193dc737c",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "Smartrecon-TG1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/Smartrecon-TG1/e5973834445c1a49",
+                    "Targets": [
+                        {
+                            "Target": "i-0bc683f6f0967d8d2",
+                            "Health": "unhealthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-STG-IT-ALB/6f6df105f994428a",
+            "DNSName": "SGP-STG-IT-ALB-1125027386.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-96000ff3",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2023-05-11T10:27:20.140000+00:00",
+            "SecurityGroups": [
+                "sg-0cca6be5884d1fbb3"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-IT-CICD-Inetum-Autopilots-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-IT-CICD-Inetum-Autopilots-TG/28b622b35543400e",
+                    "Targets": [
+                        {
+                            "Target": "i-0d8e0c7e86b444f52",
+                            "Health": "unhealthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-QA-Grafana-TG1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-QA-Grafana-TG1/05eb7ad62bbec72c",
+                    "Targets": [
+                        {
+                            "Target": "i-0e0dcebaf726ea309",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-STG-Grafana",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-Grafana/35f88ca2243f88b3",
+                    "Targets": [
+                        {
+                            "Target": "i-0438cf4c8ec7b4c53",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-STG-Prometus",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-Prometus/26b34cb81bc02349",
+                    "Targets": [
+                        {
+                            "Target": "i-0438cf4c8ec7b4c53",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-STG-TOPS2",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-TOPS2/bfcfa6a85eecc5e2",
+                    "Targets": [
+                        {
+                            "Target": "i-03a6b6910231dd2c3",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-STG-UAT-Beta-TOPS2",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-UAT-Beta-TOPS2/96df1e10941acfe4",
+                    "Targets": [
+                        {
+                            "Target": "i-03bce9acff039f7ef",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-STG-pilot2-developers",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-pilot2-developers/4dc591f1e65bb0e0",
+                    "Targets": [
+                        {
+                            "Target": "i-08a2435bf245e8f36",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "UAT-BETA-Engage-Voucher",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/UAT-BETA-Engage-Voucher/c86450e7edfc54fa",
+                    "Targets": []
+                },
+                {
+                    "TargetGroupName": "UATTops2api",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/UATTops2api/c3d75195454c32d2",
+                    "Targets": []
+                },
+                {
+                    "TargetGroupName": "UATtops2",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/UATtops2/cb0d1fcc2dbbe783",
+                    "Targets": []
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-DR-MZ-EngagePlus-LB/b1725767d025751c",
+            "DNSName": "internal-SGP-PRD-DR-MZ-EngagePlus-LB-1211637077.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-00c8ec64",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2023-12-21T04:40:52.860000+00:00",
+            "SecurityGroups": [
+                "sg-0f514c87ce4499431"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-PRD-DR-MZ-Engage-API",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-MZ-Engage-API/3c4db470b6305e09",
+                    "Targets": [
+                        {
+                            "Target": "i-0674c2cf636faba90",
+                            "Health": "healthy"
+                        }
+                    ]
+                },
+                {
+                    "TargetGroupName": "SGP-PRD-DR-MZ-EngagePlus-API1",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-DR-MZ-EngagePlus-API1/7241a85bb4f9d189",
+                    "Targets": [
+                        {
+                            "Target": "i-0b3a5952ec0b53756",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-STG-IT-ALB-Public/964482217b0d78ce",
+            "DNSName": "SGP-STG-IT-ALB-Public-306750417.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-96000ff3",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internet-facing",
+            "CreatedTime": "2024-01-30T08:27:51.210000+00:00",
+            "SecurityGroups": [
+                "sg-06bb3ee391ef99339"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "DEV-PORTAL-V2-PRD",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/DEV-PORTAL-V2-PRD/a437b705a6bb3fcb",
+                    "Targets": [
+                        {
+                            "Target": "i-05392d5d77fb064d0",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-DMZ-HC-Boundary-BCN-LB/6bec72f0e93ac456",
+            "DNSName": "internal-SGP-DMZ-HC-Boundary-BCN-LB-304212034.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2024-02-05T05:26:22.480000+00:00",
+            "SecurityGroups": [
+                "sg-060b7d6e0559fedd9"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-DMZ-HC-Boundary-BCN-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-DMZ-HC-Boundary-BCN-TG/3f624f495c66f59e",
+                    "Targets": [
+                        {
+                            "Target": "i-0e860c130dc26597d",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-07bc178cd360d2075",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-STG-INT-Hashicorp-Vaulit-LB/730abc00b640290f",
+            "DNSName": "internal-SGP-STG-INT-Hashicorp-Vaulit-LB-2127218017.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-96000ff3",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2024-02-02T06:20:58.170000+00:00",
+            "SecurityGroups": [
+                "sg-059e349618ad6defc"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-STG-HashiCorp-Vault-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-STG-HashiCorp-Vault-TG/835f1e05ca767fde",
+                    "Targets": [
+                        {
+                            "Target": "i-065bcafea9244cdb9",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-0fe74eaa579b6bdc4",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:loadbalancer/app/SGP-PRD-INT-Hashicorp-Vaulit-LB/cfd122eeefa7fd64",
+            "DNSName": "internal-SGP-PRD-INT-Hashicorp-Vaulit-LB-1338774921.ap-southeast-1.elb.amazonaws.com",
+            "VpcId": "vpc-8135cae5",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2024-02-13T06:16:14.290000+00:00",
+            "SecurityGroups": [
+                "sg-08de2e89f0d7ded75"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "SGP-PRD-HashiCorp-Vault-TG",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:ap-southeast-1:687208537907:targetgroup/SGP-PRD-HashiCorp-Vault-TG/87fb6a69225e8707",
+                    "Targets": [
+                        {
+                            "Target": "i-0ac364a76a535ba0b",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-0936e862b2d3c9927",
+                            "Health": "healthy"
+                        },
+                        {
+                            "Target": "i-0538d42d84d83df22",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "ap-southeast-2": [],
-    "eu-central-1": [],
+    "eu-central-1": [
+        {
+            "LoadBalancerArn": "arn:aws:elasticloadbalancing:eu-central-1:687208537907:loadbalancer/app/FRK-PRD-PR-MZ-TOPS2-ALB/9a03fe66a7ea8362",
+            "DNSName": "internal-FRK-PRD-PR-MZ-TOPS2-ALB-2011913292.eu-central-1.elb.amazonaws.com",
+            "VpcId": "vpc-083ce53fc0de30771",
+            "State": {
+                "Code": "active"
+            },
+            "Scheme": "internal",
+            "CreatedTime": "2024-02-12T11:20:22.420000+00:00",
+            "SecurityGroups": [
+                "sg-03faf76f21420580a"
+            ],
+            "TargetGroups": [
+                {
+                    "TargetGroupName": "FRK-PRD-PR-MZ-TOPS2-GW-TG2",
+                    "TargetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:687208537907:targetgroup/FRK-PRD-PR-MZ-TOPS2-GW-TG2/3a848a3ff02b0668",
+                    "Targets": [
+                        {
+                            "Target": "i-003f3fa1649222cae",
+                            "Health": "healthy"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
     "us-east-1": [],
     "us-east-2": [],
     "us-west-1": [],
