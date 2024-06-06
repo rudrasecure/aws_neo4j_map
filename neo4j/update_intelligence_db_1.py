@@ -194,7 +194,7 @@ try:
         lb_data = json.load(f)
     with open('rds_data.json', 'r') as f:
         rds_data = json.load(f)
-    with open('vpc_peering_data_new_1.json', 'r') as f:
+    with open('vpc_peering.json', 'r') as f:
         peering_data = json.load(f)
 
 except json.JSONDecodeError as e:
