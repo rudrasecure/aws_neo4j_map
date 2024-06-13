@@ -51,10 +51,8 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             UNWIND $instances AS instance
             MERGE (r:Region {name: $region})
             WITH r, instance
-            UNWIND instance.`Security Groups` AS sg
-            MATCH (s:SecurityGroup {id: sg.GroupId})
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
-            MATCH (v:VPC {id: instance.VPC})
+            MERGE (v:VPC {id: instance.VPC})
             MERGE (su:Subnet {id: instance.`Subnet ID`})
             MERGE (v)-[:CONTAINS]->(su)
             MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
@@ -66,7 +64,7 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MERGE (sn)-[:CONTAINS]->(su)
             WITH sn, i, instance
             UNWIND instance.`Security Groups` AS sg
-            MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName, description: COALESCE(sg.Description, 'None')})
+            MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(s)
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, i, instance
@@ -82,6 +80,7 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             WITH r, sg
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
+            SET s.description = COALESCE(sg.Description, 'None')
             MERGE (r)-[:HAS_SECURITYGROUP {timestamp: datetime()}]->(s)
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, sg, s
@@ -194,7 +193,7 @@ try:
         lb_data = json.load(f)
     with open('rds_data.json', 'r') as f:
         rds_data = json.load(f)
-    with open('vpc_peering.json', 'r') as f:
+    with open('vpc_peering_data.json', 'r') as f:
         peering_data = json.load(f)
 
 except json.JSONDecodeError as e:
