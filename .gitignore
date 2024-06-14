@@ -166,3 +166,4 @@ data/
 neo4j/.env
 neo4j/update_intel_db.py
 neo4j/update_intelligence_db.py
+*.json

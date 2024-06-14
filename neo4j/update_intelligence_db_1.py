@@ -8,7 +8,7 @@ config = dotenv_values(".env")
 uri = f"neo4j://{config['NEO4J_HOST']}:7687"
 driver = GraphDatabase.driver(uri, auth=(config['NEO4J_USER'], config['NEO4J_PASS']))
 
-def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data):
+def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data, route_data):
     with driver.session() as session:
         # Check for the highest version number in the Snapshot nodes
         highest_version_result = session.run("MATCH (sn:Snapshot) RETURN max(sn.version) AS highest_version")
@@ -72,7 +72,34 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             CALL apoc.create.setProperty(i, tag_key, instance.Tags[tag_key]) YIELD node
             RETURN i
             """, snapshot_id=snapshot_id, region=region, instances=instances, vpc_cidr=vpc_cidr)
+        
+        for routes in route_data.values():
+            for route in routes:
+                subnet_id = route['SubnetId']
+                route_tables = route['RouteTables']
 
+                for route_table in route_tables:
+                    route_table_id = route_table["RouteTableId"]
+                    routes = route_table["Routes"]
+                    destination_cidrs = [route["DestinationCidrBlock"] for route in routes if "DestinationCidrBlock" in route]
+                    gateway_ids = [route.get("GatewayId") for route in routes if "GatewayId" in route]
+                    session.run("""
+                    UNWIND $route_table AS rt
+                    MERGE (su:Subnet {id: $subnet_id})
+                    ON CREATE SET
+                        su.routeTableId = $route_table_id,
+                        su.destinationCidrs = $destination_cidrs,
+                        su.gatewayIds = $gateway_ids
+                    ON MATCH SET
+                        su.routeTableId = $route_table_id,
+                        su.destinationCidrs = $destination_cidrs,
+                        su.gatewayIds = $gateway_ids
+                    WITH su, rt
+                    UNWIND keys(rt.Tags) AS tag_key
+                    CALL apoc.create.setProperty(su, tag_key, rt.Tags[tag_key]) YIELD node
+                    RETURN su
+                    """, route_table=route_table,subnet_id=subnet_id, route_table_id=route_table_id, destination_cidrs=destination_cidrs, gateway_ids=gateway_ids)
+        
         for region, security_groups in security_group_data.items():
             session.run("""
             UNWIND $security_groups AS sg
@@ -195,12 +222,14 @@ try:
         rds_data = json.load(f)
     with open('vpc_peering_data.json', 'r') as f:
         peering_data = json.load(f)
+    with open('route_data_new.json','r') as f:
+        route_data = json.load(f)
 
 except json.JSONDecodeError as e:
     print('Error in JSON decoding:', e)
     faulty_part = open('instances_15062023.json', 'r').read()[e.doc:e.pos]
     print('Faulty part:', faulty_part)
 
-add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data)
+add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data, route_data)
 
 driver.close()
