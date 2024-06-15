@@ -10,9 +10,9 @@ def get_route_tables_by_subnet(region):
 
     for subnet in subnets['Subnets']:
         subnet_id = subnet['SubnetId']
+        subnet_cidr = subnet['CidrBlock']
         route_tables = []
         
-        # Describe route tables associated with the subnet
         associated_route_tables = ec2.describe_route_tables(Filters=[{'Name': 'association.subnet-id', 'Values': [subnet_id]}])
         
         for route_table in associated_route_tables['RouteTables']:
@@ -25,6 +25,7 @@ def get_route_tables_by_subnet(region):
         
         subnet_data.append({
             'SubnetId': subnet_id,
+            'CidrBlock': subnet_cidr,
             'RouteTables': route_tables
         })
 

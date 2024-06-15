@@ -76,6 +76,7 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
         for routes in route_data.values():
             for route in routes:
                 subnet_id = route['SubnetId']
+                subnet_cidr = route['CidrBlock']
                 route_tables = route['RouteTables']
 
                 for route_table in route_tables:
@@ -84,22 +85,25 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
                     destination_cidrs = [route["DestinationCidrBlock"] for route in routes if "DestinationCidrBlock" in route]
                     gateway_ids = [route.get("GatewayId") for route in routes if "GatewayId" in route]
                     session.run("""
-                    UNWIND $route_table AS rt
-                    MERGE (su:Subnet {id: $subnet_id})
+                    MERGE (rt:RouteTable {id: $route_table_id})
                     ON CREATE SET
-                        su.routeTableId = $route_table_id,
-                        su.destinationCidrs = $destination_cidrs,
-                        su.gatewayIds = $gateway_ids
+                        rt.destinationCidrs = $destination_cidrs,
+                        rt.gatewayIds = $gateway_ids
                     ON MATCH SET
-                        su.routeTableId = $route_table_id,
-                        su.destinationCidrs = $destination_cidrs,
-                        su.gatewayIds = $gateway_ids
-                    WITH su, rt
-                    UNWIND keys(rt.Tags) AS tag_key
-                    CALL apoc.create.setProperty(su, tag_key, rt.Tags[tag_key]) YIELD node
-                    RETURN su
-                    """, route_table=route_table,subnet_id=subnet_id, route_table_id=route_table_id, destination_cidrs=destination_cidrs, gateway_ids=gateway_ids)
+                        rt.destinationCidrs = $destination_cidrs,
+                        rt.gatewayIds = $gateway_ids
+                    WITH rt, $subnet_id AS subnet_id, $subnet_cidr AS cidr
+                    MERGE (su:Subnet {id: subnet_id})
+                    SET su.CidrBlock = cidr
+                    MERGE (su)-[:HAS_ROUTE_TABLE]->(rt)
+                    WITH rt
+                    UNWIND $route_table AS rtable
+                    UNWIND keys(rtable.Tags) AS tag_key
+                    CALL apoc.create.setProperty(rt, tag_key, rtable.Tags[tag_key]) YIELD node
+                    RETURN rt
+                    """, route_table=route_table, subnet_id=subnet_id, subnet_cidr=subnet_cidr,route_table_id=route_table_id, destination_cidrs=destination_cidrs, gateway_ids=gateway_ids)
         
+            
         for region, security_groups in security_group_data.items():
             session.run("""
             UNWIND $security_groups AS sg
