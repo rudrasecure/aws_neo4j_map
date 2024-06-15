@@ -13,7 +13,7 @@ archive_folder = os.path.join(folder_b, 'archive')
 os.makedirs(archive_folder, exist_ok=True)
 
 # List of scripts to run from folder b
-scripts_folder_a = ['get_instance_1.py', 'get_securitygroup_2.py', 'get_rds_3.py', 'get_vpc_4.py', 'get_alb_5.py']
+scripts_folder_a = ['get_instance_1.py', 'get_securitygroup_2.py', 'get_rds_3.py', 'get_vpc_4.py', 'get_alb_5.py', 'get_route_6.py']
 
 # Run scripts from folder boto3
 for script in scripts_folder_a:
@@ -36,7 +36,8 @@ output_files = [
     'instance_data.json',
     'rds_data.json',
     'security_group_data.json',
-    'vpc_peering_data.json'
+    'vpc_peering_data.json',
+    'route_subnet_data.json'
 ]
 
 # Move the output files to the archive folder

@@ -222,7 +222,7 @@ try:
         rds_data = json.load(f)
     with open('vpc_peering_data.json', 'r') as f:
         peering_data = json.load(f)
-    with open('route_data_new.json','r') as f:
+    with open('route_subnet_data.json','r') as f:
         route_data = json.load(f)
 
 except json.JSONDecodeError as e:
