@@ -57,10 +57,10 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MERGE (v)-[:CONTAINS]->(su)
             MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
             MERGE (sn)-[:CONTAINS]->(i)
-            MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
             MERGE (sn)-[:CONTAINS]->(v)
+            MERGE (r)-[:CONTAINS]->(v)
             MERGE (sn)-[:CONTAINS]->(su)
             WITH sn, i, instance
             UNWIND instance.`Security Groups` AS sg
@@ -112,7 +112,6 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
             SET s.description = COALESCE(sg.Description, 'None')
-            MERGE (r)-[:HAS_SECURITYGROUP {timestamp: datetime()}]->(s)
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, sg, s
             UNWIND sg.InboundRules AS inbound
@@ -138,7 +137,6 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
                 MERGE (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name, scheme: $scheme, state: $state, created_time: datetime($created_time)})
                 MERGE (sn)-[:CONTAINS]->(l)
                 MERGE (l)-[:BELONGS_TO]->(v)
-                MERGE (r)-[:CONTAINS]->(l)
                 WITH l, sn
                 UNWIND $security_groups AS sg_id
                 MERGE (sg:SecurityGroup {id: sg_id})
@@ -190,7 +188,6 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             })
             MERGE (v:VPC {id: instance.VPCId})
             MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(v)
-            MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(r)
             MERGE (sn)-[:CONTAINS]->(db)
             WITH db, instance, sn
             UNWIND instance.VpcSecurityGroups AS vpc_sg
