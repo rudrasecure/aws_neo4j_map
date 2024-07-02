@@ -8,7 +8,7 @@ config = dotenv_values(".env")
 uri = f"neo4j://{config['NEO4J_HOST']}:7687"
 driver = GraphDatabase.driver(uri, auth=(config['NEO4J_USER'], config['NEO4J_PASS']))
 
-def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data):
+def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data, route_data):
     with driver.session() as session:
         # Check for the highest version number in the Snapshot nodes
         highest_version_result = session.run("MATCH (sn:Snapshot) RETURN max(sn.version) AS highest_version")
@@ -23,7 +23,28 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
         # Create a single Snapshot node for this run and get its properties
         snapshot_result = session.run("CREATE (sn:Snapshot {timestamp: datetime(), version: $version}) RETURN ID(sn) AS snapshot_id", version=version)
         snapshot_id = snapshot_result.single()[0]
-
+        
+        vpc_cidr = []
+        for connections in peering_data.values():
+            for connection in connections:
+                vpc_cidr_map = {
+                'VpcId': connection['VpcId'],
+                'CidrBlock': connection['CidrBlock']
+                }
+                vpc_cidr.append(vpc_cidr_map)
+        
+            for vpc_data in vpc_cidr:
+                session.run("""
+                    UNWIND $connections AS connection
+                    UNWIND connection.PeeringConnections AS pc
+                    MERGE (v:VPC {id: $vpc_id})
+                    ON CREATE SET v.cidr = $cidr_block
+                    ON MATCH SET v.cidr = $cidr_block
+                    WITH v, connection
+                    UNWIND keys(connection.Tags) AS tag_key
+                    CALL apoc.create.setProperty(v, tag_key, connection.Tags[tag_key]) YIELD node
+                    RETURN v
+                """, vpc_id=vpc_data['VpcId'], cidr_block=vpc_data['CidrBlock'], connections=connections)
 
         for region, instances in instance_data.items():
             session.run("""
@@ -33,13 +54,13 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (v:VPC {id: instance.VPC})
             MERGE (su:Subnet {id: instance.`Subnet ID`})
-            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`, name: COALESCE(instance.Tags['Name'], 'None')})
+            MERGE (v)-[:CONTAINS]->(su)
+            MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
             MERGE (sn)-[:CONTAINS]->(i)
-            MERGE (r)-[:CONTAINS {timestamp: datetime()}]->(i)
             MERGE (sn)-[:CONTAINS]->(r)
-            MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(v)
             MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
             MERGE (sn)-[:CONTAINS]->(v)
+            MERGE (r)-[:CONTAINS]->(v)
             MERGE (sn)-[:CONTAINS]->(su)
             WITH sn, i, instance
             UNWIND instance.`Security Groups` AS sg
@@ -48,12 +69,41 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, i, instance
             UNWIND keys(instance.Tags) AS tag_key
-            MERGE (t:Tag {name: tag_key, value: instance.Tags[tag_key]})
-            ON CREATE SET t.value = instance.Tags[tag_key]
-            MERGE (i)-[:TAGGED {timestamp: datetime()}]->(t)
-            MERGE (sn)-[:CONTAINS]->(t)
-            """, snapshot_id=snapshot_id, region=region, instances=instances)
+            CALL apoc.create.setProperty(i, tag_key, instance.Tags[tag_key]) YIELD node
+            RETURN i
+            """, snapshot_id=snapshot_id, region=region, instances=instances, vpc_cidr=vpc_cidr)
+        
+        for routes in route_data.values():
+            for route in routes:
+                subnet_id = route['SubnetId']
+                subnet_cidr = route['CidrBlock']
+                route_tables = route['RouteTables']
 
+                for route_table in route_tables:
+                    route_table_id = route_table["RouteTableId"]
+                    routes = route_table["Routes"]
+                    destination_cidrs = [route["DestinationCidrBlock"] for route in routes if "DestinationCidrBlock" in route]
+                    gateway_ids = [route.get("GatewayId") for route in routes if "GatewayId" in route]
+                    session.run("""
+                    MERGE (rt:RouteTable {id: $route_table_id})
+                    ON CREATE SET
+                        rt.destinationCidrs = $destination_cidrs,
+                        rt.gatewayIds = $gateway_ids
+                    ON MATCH SET
+                        rt.destinationCidrs = $destination_cidrs,
+                        rt.gatewayIds = $gateway_ids
+                    WITH rt, $subnet_id AS subnet_id, $subnet_cidr AS cidr
+                    MERGE (su:Subnet {id: subnet_id})
+                    SET su.CidrBlock = cidr
+                    MERGE (su)-[:HAS_ROUTE_TABLE]->(rt)
+                    WITH rt
+                    UNWIND $route_table AS rtable
+                    UNWIND keys(rtable.Tags) AS tag_key
+                    CALL apoc.create.setProperty(rt, tag_key, rtable.Tags[tag_key]) YIELD node
+                    RETURN rt
+                    """, route_table=route_table, subnet_id=subnet_id, subnet_cidr=subnet_cidr,route_table_id=route_table_id, destination_cidrs=destination_cidrs, gateway_ids=gateway_ids)
+        
+            
         for region, security_groups in security_group_data.items():
             session.run("""
             UNWIND $security_groups AS sg
@@ -61,7 +111,7 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             WITH r, sg
             MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
             MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
-            MERGE (r)-[:HAS_SECURITYGROUP {timestamp: datetime()}]->(s)
+            SET s.description = COALESCE(sg.Description, 'None')
             MERGE (sn)-[:CONTAINS]->(s)
             WITH sn, sg, s
             UNWIND sg.InboundRules AS inbound
@@ -87,7 +137,6 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
                 MERGE (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name, scheme: $scheme, state: $state, created_time: datetime($created_time)})
                 MERGE (sn)-[:CONTAINS]->(l)
                 MERGE (l)-[:BELONGS_TO]->(v)
-                MERGE (r)-[:CONTAINS]->(l)
                 WITH l, sn
                 UNWIND $security_groups AS sg_id
                 MERGE (sg:SecurityGroup {id: sg_id})
@@ -139,7 +188,6 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
             })
             MERGE (v:VPC {id: instance.VPCId})
             MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(v)
-            MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(r)
             MERGE (sn)-[:CONTAINS]->(db)
             WITH db, instance, sn
             UNWIND instance.VpcSecurityGroups AS vpc_sg
@@ -151,15 +199,15 @@ def add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, pee
         for connections in peering_data.values():
             session.run("""
             UNWIND $connections AS connection
-            MERGE (rv:VPC {id: connection.RequesterVPC})
-            MERGE (av:VPC {id: connection.AccepterVPC})
-            MERGE (rv)-[p:PEERED_TO {id: connection.PeeringConnectionId, status: connection.Status, timestamp: datetime()}]->(av)
-            WITH p, connection
-            UNWIND keys(connection.Tags) AS tag_key
-            SET p.tag_name=tag_key
-            SET p.tag_value=connection.Tags[tag_key]
+            UNWIND connection.PeeringConnections AS pc
+            MATCH(rv:VPC {id:pc.RequesterVpcId})
+            MATCH (av:VPC {id: pc.AccepterVpcId})
+            MERGE (rv)-[p:PEERED_TO {id: COALESCE(pc.PeeringConnectionId,'None'), status: COALESCE(pc.Status,'None'), timestamp: datetime()}]->(av)
+            WITH pc,p
+            UNWIND keys(pc.Tags) AS tag_key
+            CALL apoc.create.setRelProperty(p, tag_key, pc.Tags[tag_key]) YIELD rel
+            RETURN p
             """, connections=connections)
-
 
 
 
@@ -175,12 +223,14 @@ try:
         rds_data = json.load(f)
     with open('vpc_peering_data.json', 'r') as f:
         peering_data = json.load(f)
+    with open('route_subnet_data.json','r') as f:
+        route_data = json.load(f)
 
 except json.JSONDecodeError as e:
     print('Error in JSON decoding:', e)
     faulty_part = open('instances_15062023.json', 'r').read()[e.doc:e.pos]
     print('Faulty part:', faulty_part)
 
-add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data)
+add_data_to_neo4j(instance_data, security_group_data, lb_data, rds_data, peering_data, route_data)
 
 driver.close()
