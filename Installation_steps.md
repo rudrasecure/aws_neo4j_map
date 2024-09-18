@@ -46,13 +46,13 @@ docker run -p 7474:7474 -p 7687:7687 -v $PWD/data:/data -v $PWD/plugins:/plugins
 ### 2. Wait and Check Logs:
 Wait until Docker is up, and tail the logs to ensure the interface is available.
 
-![alt text](image-1.png)
+![alt text](images/output.png)
 
 ### 3. Access Neo4j Visualizer:
 Open your browser and navigate to: http://localhost:7474/
 Login using the default credentials (username: neo4j, password: neo4j).
 
-![alt text](image.png) 
+![alt text](images/db_login.png) 
 
 ### 4. Update Password:
 Follow the prompts to update the password. Note down the new password; it will be required later.
@@ -84,6 +84,6 @@ python3 update_intelligence_db.py
 Return to the browser and click on the "Database Information" tab in Neo4j.
 Explore "Node Labels" and "Relationship Types" to delve into the details.
 
-![alt text](image-2.png)
+![alt text](images/dashboard.png)
 
 ### This sequence ensures a smooth setup and utilization of the Neo4j database with AWS data obtained through Boto3 scripts.
