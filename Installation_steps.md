@@ -4,10 +4,6 @@
 
 *	python 3
 *	pip
-*	neo4j==5.9.0
-*	python-dotenv==1.0.0
-*	pytz==2023.3
-*	boto3
 *	AWS CLI
 *	Docker (for Neo4j, or Neo4j can be installed directly)
 *	IAM user with SecurityAudit and ViewOnlyAccess policies.
