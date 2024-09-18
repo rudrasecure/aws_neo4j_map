@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 import json
 import boto3
+from dotenv import dotenv_values
 
-def get_vpc_peering_details(region):
-    ec2 = boto3.client('ec2', region_name=region)
+
+config = dotenv_values(".env")
+
+session = boto3.Session(profile_name=config['AWS_PROFILE'])
+
+def get_vpc_peering_details(region,session):
+    
+    ec2 = session.client('ec2', region_name=region)
 
     peering_connections = ec2.describe_vpc_peering_connections()
 
@@ -29,11 +36,11 @@ def get_vpc_peering_details(region):
     
     return peering_details_map
 
-def get_vpc_info(region):
-    ec2 = boto3.client('ec2', region_name=region)
+def get_vpc_info(region,session):
+    ec2 = session.client('ec2', region_name=region)
     vpc_details = ec2.describe_vpcs()
     
-    peering_details = get_vpc_peering_details(region)
+    peering_details = get_vpc_peering_details(region,session)
     
     all_vpc_data = []
 
@@ -52,8 +59,9 @@ def get_vpc_info(region):
 
     return all_vpc_data
 
-def get_all_vpc_details():
-    ec2_client = boto3.client('ec2')
+def get_all_vpc_details(session):
+    session = boto3.Session(profile_name='terrapay')
+    ec2_client = session.client('ec2')
 
     regions = ec2_client.describe_regions()['Regions']
 
@@ -61,7 +69,7 @@ def get_all_vpc_details():
 
     for region in regions:
         region_name = region['RegionName']
-        vpc_details = get_vpc_info(region_name)
+        vpc_details = get_vpc_info(region_name,session)
         all_vpc_details[region_name] = vpc_details
 
     return all_vpc_details
@@ -69,7 +77,7 @@ def get_all_vpc_details():
 #all_peering_details = get_all_vpc_peering_details()
 #print(json.dumps(all_peering_details))
 if __name__ == "__main__":
-    all_peering_details = get_all_vpc_details()
+    all_peering_details = get_all_vpc_details(session)
 
     # Save the details to a file named 'alb_data'
     with open('vpc_peering_data.json', 'w') as outfile:
