@@ -10,7 +10,7 @@ from boto.get_rds_3 import RDS
 from boto.get_vpc_4 import VPC
 from boto.get_alb_5 import ALB
 from boto.get_route_6 import Route
-from neo4j.update_intelligence_db import UpdateDB
+from neo4j_map.update_intelligence_db import UpdateDB
 
 import boto3
 # Load environment variables
@@ -20,7 +20,7 @@ config = dotenv_values(".env")
 session = boto3.Session(profile_name=config['AWS_PROFILE'])
 
 # Define the paths
-folder_b = '../neo4j/'
+folder_b = './'
 archive_folder = os.path.join(folder_b, 'archive')
 
 # Create archive folder if it doesn't exist
