@@ -10,7 +10,7 @@ from boto.get_rds_3 import RDS
 from boto.get_vpc_4 import VPC
 from boto.get_alb_5 import ALB
 from boto.get_route_6 import Route
-import update_intelligence_db
+from neo4j.update_intelligence_db import UpdateDB
 
 import boto3
 # Load environment variables
@@ -48,7 +48,8 @@ def run_scripts():
 
 # Run the final script from folder neo4j
 def run_update_intelligence_db():
-    update_intelligence_db.main()
+    update_db = UpdateDB()
+    update_db.main()
 
 # Archive the output files
 def archive_files():
