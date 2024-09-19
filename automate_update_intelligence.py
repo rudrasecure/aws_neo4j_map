@@ -20,7 +20,7 @@ config = dotenv_values(".env")
 session = boto3.Session(profile_name=config['AWS_PROFILE'])
 
 # Define the paths
-folder_b = './neo4j_map/'
+folder_b = './'
 archive_folder = os.path.join(folder_b, 'archive')
 
 # Create archive folder if it doesn't exist
