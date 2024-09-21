@@ -1,0 +1,31 @@
+classes: {
+  vpc: {
+    label: VPC
+    icon: https://icons.terrastruct.com/aws%2F_Group%20Icons%2FVirtual-private-cloud-VPC_light-bg.svg
+    style: {
+      stroke: green
+      font-color: green
+      fill: white
+    }
+  }
+  ec2: {
+    #shape: image
+    icon: https://icons.terrastruct.com/aws%2FCompute%2FAmazon-EC2_light-bg.svg
+  }
+}
+
+{% for vpc in vpcs %}
+{{ vpc.vpc_id }}: "{{ vpc.vpc_id }} {{ vpc.vpc_cidr }}" {
+  class: vpc
+  {% for subnet in vpc.subnets %}
+  {{ subnet.subnet_id }}: "{{ subnet.subnet_id }}\n{{ subnet.subnet_cidr }}" {
+    class: subnet
+    {% for instance in subnet.instances %}
+    ec2_{{ instance.instance_id }}: "{{ instance.instance_name }}\n{{ instance.private_ip }}{% if instance.public_ip != 'None' %},{{ instance.public_ip }}{% endif %}" {
+      class: ec2
+    }
+    {% endfor %}
+  }
+  {% endfor %}
+}
+{% endfor %}
