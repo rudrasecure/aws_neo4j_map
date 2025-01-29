@@ -56,7 +56,12 @@ class UpdateDB:
                 MERGE (v:VPC {id: instance.VPC})
                 MERGE (su:Subnet {id: instance.`Subnet ID`})
                 MERGE (v)-[:CONTAINS]->(su)
-                MERGE (i:Instance {aws_hostname: instance.Hostname, private_ip: instance.`Internal IP`, public_ip: COALESCE(instance.`External IP`, 'None'), state: instance.State, id:instance.`Instance ID`})
+                MERGE (i:Instance {id: instance.`Instance ID`})
+                ON CREATE SET 
+                    i.aws_hostname = instance.Hostname,
+                    i.private_ip = instance.`Internal IP`,
+                    i.public_ip = COALESCE(instance.`External IP`, 'None'),
+                    i.state = instance.State                
                 MERGE (sn)-[:CONTAINS]->(i)
                 MERGE (sn)-[:CONTAINS]->(r)
                 MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
