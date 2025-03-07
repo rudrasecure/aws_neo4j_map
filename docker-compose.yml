@@ -3,7 +3,7 @@ version: '3.8'
 services:
   awsmapdb:
     env_file: ".env"
-    image: neo4j:5.20.0-enterprise 
+    image: neo4j:latest 
     container_name: awsmapdb
     ports:
       - "7474:7474"
