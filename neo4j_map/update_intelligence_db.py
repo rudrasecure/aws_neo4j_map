@@ -39,45 +39,92 @@ class UpdateDB:
                         UNWIND $connections AS connection
                         UNWIND connection.PeeringConnections AS pc
                         MERGE (v:VPC {id: $vpc_id})
-                        ON CREATE SET v.cidr = $cidr_block
-                        ON MATCH SET v.cidr = $cidr_block
+                        ON CREATE SET v.cidr = $cidr_block,
+                                     v.created_date = datetime(),
+                                     v.snapshot_version = $version
+                        ON MATCH SET v.cidr = $cidr_block,
+                                    v.modified_date = datetime(),
+                                    v.snapshot_version = $version
                         WITH v, connection
                         UNWIND keys(connection.Tags) AS tag_key
                         CALL apoc.create.setProperty(v, tag_key, connection.Tags[tag_key]) YIELD node
                         RETURN v
-                    """, vpc_id=vpc_data['VpcId'], cidr_block=vpc_data['CidrBlock'], connections=connections)
+                    """, vpc_id=vpc_data['VpcId'], cidr_block=vpc_data['CidrBlock'], connections=connections, version=version)
 
             for region, instances in instance_data.items():
                 session.run("""
                 UNWIND $instances AS instance
                 MERGE (r:Region {name: $region})
+                ON CREATE SET r.created_date = datetime(),
+                               r.snapshot_version = $version
+                ON MATCH SET r.modified_date = datetime(),
+                              r.snapshot_version = $version
                 WITH r, instance
                 MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
                 MERGE (v:VPC {id: instance.VPC})
+                ON CREATE SET v.created_date = datetime(),
+                               v.snapshot_version = $version
+                ON MATCH SET v.modified_date = datetime(),
+                              v.snapshot_version = $version
                 MERGE (su:Subnet {id: instance.`Subnet ID`})
-                MERGE (v)-[:CONTAINS]->(su)
+                ON CREATE SET su.created_date = datetime(),
+                                su.snapshot_version = $version
+                ON MATCH SET su.modified_date = datetime(),
+                              su.snapshot_version = $version
+                MERGE (v)-[vc:CONTAINS]->(su)
+                ON CREATE SET vc.created_date = datetime(),
+                               vc.snapshot_version = $version
+                ON MATCH SET vc.modified_date = datetime(),
+                              vc.snapshot_version = $version
                 MERGE (i:Instance {id: instance.`Instance ID`})
                 ON CREATE SET 
                     i.aws_hostname = instance.Hostname,
                     i.private_ip = instance.`Internal IP`,
                     i.public_ip = COALESCE(instance.`External IP`, 'None'),
-                    i.state = instance.State                
+                    i.state = instance.State,
+                    i.created_date = datetime(),
+                    i.snapshot_version = $version
+                ON MATCH SET
+                    i.aws_hostname = instance.Hostname,
+                    i.private_ip = instance.`Internal IP`,
+                    i.public_ip = COALESCE(instance.`External IP`, 'None'),
+                    i.state = instance.State,
+                    i.modified_date = datetime(),
+                    i.snapshot_version = $version
                 MERGE (sn)-[:CONTAINS]->(i)
                 MERGE (sn)-[:CONTAINS]->(r)
-                MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(su)
+                
+                // Use a unique relationship with created/modified dates
+                MERGE (i)-[rel:BELONGS_TO]->(su)
+                ON CREATE SET rel.created_date = datetime(),
+                               rel.snapshot_version = $version
+                ON MATCH SET rel.modified_date = datetime(),
+                              rel.snapshot_version = $version
+                
                 MERGE (sn)-[:CONTAINS]->(v)
                 MERGE (r)-[:CONTAINS]->(v)
                 MERGE (sn)-[:CONTAINS]->(su)
                 WITH sn, i, instance
                 UNWIND instance.`Security Groups` AS sg
                 MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
-                MERGE (i)-[:BELONGS_TO {timestamp: datetime()}]->(s)
+                ON CREATE SET s.created_date = datetime(),
+                               s.snapshot_version = $version
+                ON MATCH SET s.modified_date = datetime(),
+                              s.snapshot_version = $version
+                
+                // Use a unique relationship with created/modified dates
+                MERGE (i)-[sgRel:BELONGS_TO]->(s)
+                ON CREATE SET sgRel.created_date = datetime(),
+                               sgRel.snapshot_version = $version
+                ON MATCH SET sgRel.modified_date = datetime(),
+                              sgRel.snapshot_version = $version
+                
                 MERGE (sn)-[:CONTAINS]->(s)
                 WITH sn, i, instance
                 UNWIND keys(instance.Tags) AS tag_key
                 CALL apoc.create.setProperty(i, tag_key, instance.Tags[tag_key]) YIELD node
                 RETURN i
-                """, snapshot_id=snapshot_id, region=region, instances=instances, vpc_cidr=vpc_cidr)
+                """, snapshot_id=snapshot_id, region=region, instances=instances, vpc_cidr=vpc_cidr, version=version)
             
             for routes in route_data.values():
                 for route in routes:
@@ -94,69 +141,173 @@ class UpdateDB:
                         MERGE (rt:RouteTable {id: $route_table_id})
                         ON CREATE SET
                             rt.destinationCidrs = $destination_cidrs,
-                            rt.gatewayIds = $gateway_ids
+                            rt.gatewayIds = $gateway_ids,
+                            rt.created_date = datetime(),
+                            rt.snapshot_version = $version
                         ON MATCH SET
                             rt.destinationCidrs = $destination_cidrs,
-                            rt.gatewayIds = $gateway_ids
+                            rt.gatewayIds = $gateway_ids,
+                            rt.modified_date = datetime(),
+                            rt.snapshot_version = $version
                         WITH rt, $subnet_id AS subnet_id, $subnet_cidr AS cidr
                         MERGE (su:Subnet {id: subnet_id})
-                        SET su.CidrBlock = cidr
-                        MERGE (su)-[:HAS_ROUTE_TABLE]->(rt)
+                        SET su.CidrBlock = cidr,
+                            su.snapshot_version = $version
+                        MERGE (su)-[hrt:HAS_ROUTE_TABLE]->(rt)
+                        ON CREATE SET hrt.created_date = datetime(),
+                                       hrt.snapshot_version = $version
+                        ON MATCH SET hrt.modified_date = datetime(),
+                                      hrt.snapshot_version = $version
                         WITH rt
                         UNWIND $route_table AS rtable
                         UNWIND keys(rtable.Tags) AS tag_key
                         CALL apoc.create.setProperty(rt, tag_key, rtable.Tags[tag_key]) YIELD node
                         RETURN rt
-                        """, route_table=route_table, subnet_id=subnet_id, subnet_cidr=subnet_cidr,route_table_id=route_table_id, destination_cidrs=destination_cidrs, gateway_ids=gateway_ids)
+                        """, route_table=route_table, subnet_id=subnet_id, subnet_cidr=subnet_cidr, 
+                             route_table_id=route_table_id, destination_cidrs=destination_cidrs, 
+                             gateway_ids=gateway_ids, version=version)
             
                 
             for region, security_groups in security_group_data.items():
                 session.run("""
                 UNWIND $security_groups AS sg
                 MERGE (r:Region {name: $region})
+                ON CREATE SET r.created_date = datetime(),
+                               r.snapshot_version = $version
+                ON MATCH SET r.modified_date = datetime(),
+                              r.snapshot_version = $version
                 WITH r, sg
                 MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
                 MERGE (s:SecurityGroup {id: sg.GroupId, name: sg.GroupName})
-                SET s.description = COALESCE(sg.Description, 'None')
+                ON CREATE SET 
+                    s.description = COALESCE(sg.Description, 'None'),
+                    s.created_date = datetime(),
+                    s.snapshot_version = $version
+                ON MATCH SET 
+                    s.description = COALESCE(sg.Description, 'None'),
+                    s.modified_date = datetime(),
+                    s.snapshot_version = $version
                 MERGE (sn)-[:CONTAINS]->(s)
                 WITH sn, sg, s
                 UNWIND sg.InboundRules AS inbound
                 UNWIND inbound.IpRanges AS ip_range
-                MERGE (i:IPRange {cidr: ip_range.CidrIp, description: COALESCE(ip_range.Description, 'No description available')})
-                MERGE (i)-[:ALLOWED {timestamp: datetime(), protocol: inbound.IpProtocol, fromPort: COALESCE(inbound.FromPort, 'Not specified'), toPort: COALESCE(inbound.ToPort, 'Not specified')}]->(s)
+                MERGE (i:IPRange {cidr: ip_range.CidrIp})
+                ON CREATE SET 
+                    i.description = COALESCE(ip_range.Description, 'No description available'),
+                    i.created_date = datetime(),
+                    i.snapshot_version = $version
+                ON MATCH SET 
+                    i.description = COALESCE(ip_range.Description, 'No description available'),
+                    i.modified_date = datetime(),
+                    i.snapshot_version = $version
+                
+                // Use a composite key for the relationship based on protocol and ports
+                MERGE (i)-[inRel:ALLOWED_IN {
+                    protocol: inbound.IpProtocol, 
+                    fromPort: COALESCE(inbound.FromPort, 'Not specified'), 
+                    toPort: COALESCE(inbound.ToPort, 'Not specified')
+                }]->(s)
+                ON CREATE SET inRel.created_date = datetime(),
+                               inRel.snapshot_version = $version
+                ON MATCH SET inRel.modified_date = datetime(),
+                              inRel.snapshot_version = $version
+                
                 WITH sn, sg, s
                 UNWIND sg.OutboundRules AS outbound
                 UNWIND outbound.IpRanges AS ip_range
-                MERGE (o:IPRange {cidr: ip_range.CidrIp, description: COALESCE(ip_range.Description, 'No description available')})
-                MERGE (s)-[:ALLOWED {timestamp: datetime(), protocol: outbound.IpProtocol, fromPort: COALESCE(outbound.FromPort, 'Not specified'), toPort: COALESCE(outbound.ToPort, 'Not specified')}]->(o)
+                MERGE (o:IPRange {cidr: ip_range.CidrIp})
+                ON CREATE SET 
+                    o.description = COALESCE(ip_range.Description, 'No description available'),
+                    o.created_date = datetime(),
+                    o.snapshot_version = $version
+                ON MATCH SET 
+                    o.description = COALESCE(ip_range.Description, 'No description available'),
+                    o.modified_date = datetime(),
+                    o.snapshot_version = $version
+                
+                // Use a composite key for the relationship based on protocol and ports
+                MERGE (s)-[outRel:ALLOWED_OUT {
+                    protocol: outbound.IpProtocol, 
+                    fromPort: COALESCE(outbound.FromPort, 'Not specified'), 
+                    toPort: COALESCE(outbound.ToPort, 'Not specified')
+                }]->(o)
+                ON CREATE SET outRel.created_date = datetime(),
+                               outRel.snapshot_version = $version
+                ON MATCH SET outRel.modified_date = datetime(),
+                              outRel.snapshot_version = $version
+                
                 MERGE (sn)-[:CONTAINS]->(s)
-                """, snapshot_id=snapshot_id, region=region, security_groups=security_groups)
+                """, snapshot_id=snapshot_id, region=region, security_groups=security_groups, version=version)
 
-    #To DO : Make the adding of relation between tg_node and instance conditional. Only if the type is instance should this work. Else this will fail
             for region, load_balancers in lb_data.items():
                 for lb in load_balancers:
                     session.run("""
                     MERGE (r:Region {name: $region})
+                    ON CREATE SET r.created_date = datetime(),
+                                   r.snapshot_version = $version
+                    ON MATCH SET r.modified_date = datetime(),
+                                  r.snapshot_version = $version
                     MERGE (v:VPC {id: $vpc_id})
+                    ON CREATE SET v.created_date = datetime(),
+                                   v.snapshot_version = $version
+                    ON MATCH SET v.modified_date = datetime(),
+                                  v.snapshot_version = $version
                     WITH r, v
                     MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
-                    MERGE (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name, scheme: $scheme, state: $state, created_time: datetime($created_time)})
+                    MERGE (l:LoadBalancer {arn: $load_balancer_arn, dns_name: $dns_name})
+                    ON CREATE SET
+                        l.scheme = $scheme,
+                        l.state = $state,
+                        l.created_time = datetime($created_time),
+                        l.created_date = datetime(),
+                        l.snapshot_version = $version
+                    ON MATCH SET
+                        l.scheme = $scheme,
+                        l.state = $state,
+                        l.modified_date = datetime(),
+                        l.snapshot_version = $version
                     MERGE (sn)-[:CONTAINS]->(l)
-                    MERGE (l)-[:BELONGS_TO]->(v)
+                    MERGE (l)-[bt:BELONGS_TO]->(v)
+                    ON CREATE SET bt.created_date = datetime(),
+                                   bt.snapshot_version = $version
+                    ON MATCH SET bt.modified_date = datetime(),
+                                  bt.snapshot_version = $version
                     WITH l, sn
                     UNWIND $security_groups AS sg_id
                     MERGE (sg:SecurityGroup {id: sg_id})
-                    MERGE (l)-[:BELONGS_TO]->(sg)
+                    ON CREATE SET sg.created_date = datetime(),
+                                   sg.snapshot_version = $version
+                    ON MATCH SET sg.modified_date = datetime(),
+                                  sg.snapshot_version = $version
+                    MERGE (l)-[bts:BELONGS_TO]->(sg)
+                    ON CREATE SET bts.created_date = datetime(),
+                                   bts.snapshot_version = $version
+                    ON MATCH SET bts.modified_date = datetime(),
+                                  bts.snapshot_version = $version
                     MERGE (sn)-[:CONTAINS]->(sg)
                     WITH l, sn
                     UNWIND $target_groups AS tg
                     MERGE (tg_node:TargetGroup {name: tg.TargetGroupName, arn: tg.TargetGroupArn})
-                    MERGE (l)-[:CONTAINS]->(tg_node)
+                    ON CREATE SET tg_node.created_date = datetime(),
+                                   tg_node.snapshot_version = $version
+                    ON MATCH SET tg_node.modified_date = datetime(),
+                                  tg_node.snapshot_version = $version
+                    MERGE (l)-[cts:CONTAINS]->(tg_node)
+                    ON CREATE SET cts.created_date = datetime(),
+                                   cts.snapshot_version = $version
+                    ON MATCH SET cts.modified_date = datetime(),
+                                  cts.snapshot_version = $version
                     MERGE (sn)-[:CONTAINS]->(tg_node)
                     WITH tg, tg_node, sn
                     UNWIND tg.Targets AS target
-                    MATCH (i:Instance {id: target.Target}) 
-                    MERGE (tg_node)-[:CONTAINS]->(i)
+                    // Only create relationship if instance exists
+                    OPTIONAL MATCH (i:Instance {id: target.Target}) 
+                    WITH tg_node, i, sn WHERE i IS NOT NULL
+                    MERGE (tg_node)-[cti:CONTAINS]->(i)
+                    ON CREATE SET cti.created_date = datetime(),
+                                   cti.snapshot_version = $version
+                    ON MATCH SET cti.modified_date = datetime(),
+                                  cti.snapshot_version = $version
                     """, 
                     region=region, 
                     load_balancer_arn=lb['LoadBalancerArn'], 
@@ -175,32 +326,76 @@ class UpdateDB:
                 UNWIND $instances AS instance
                 MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
                 MERGE (r:Region {name: $region})
-                MERGE (db:RDSInstance {
-                    DBInstanceIdentifier: instance.DBInstanceIdentifier,
-                    DBInstanceStatus: instance.DBInstanceStatus,
-                    Engine: instance.Engine,
-                    EngineVersion: instance.EngineVersion,
-                    DBInstanceClass: instance.DBInstanceClass,
-                    MasterUsername: instance.MasterUsername,
-                    VPCId: instance.VPCId,
-                    MultiAZ: toBoolean(instance.MultiAZ),
-                    PubliclyAccessible: toBoolean(instance.PubliclyAccessible),
-                    StorageEncrypted: toBoolean(instance.StorageEncrypted),
-                    IAMDatabaseAuthenticationEnabled: toBoolean(instance.IAMDatabaseAuthenticationEnabled),
-                    Endpoint: instance.Endpoint,
-                    Port: instance.Port,
-                    BackupRetentionPeriod: instance.BackupRetentionPeriod,
-                    DBName: COALESCE(instance.DBName, 'Null')
-                })
+                ON CREATE SET r.created_date = datetime(),
+                               r.snapshot_version = $version
+                ON MATCH SET r.modified_date = datetime(),
+                              r.snapshot_version = $version
+                MERGE (db:RDSInstance {DBInstanceIdentifier: instance.DBInstanceIdentifier})
+                ON CREATE SET
+                    db.DBInstanceStatus = instance.DBInstanceStatus,
+                    db.Engine = instance.Engine,
+                    db.EngineVersion = instance.EngineVersion,
+                    db.DBInstanceClass = instance.DBInstanceClass,
+                    db.MasterUsername = instance.MasterUsername,
+                    db.VPCId = instance.VPCId,
+                    db.MultiAZ = toBoolean(instance.MultiAZ),
+                    db.PubliclyAccessible = toBoolean(instance.PubliclyAccessible),
+                    db.StorageEncrypted = toBoolean(instance.StorageEncrypted),
+                    db.IAMDatabaseAuthenticationEnabled = toBoolean(instance.IAMDatabaseAuthenticationEnabled),
+                    db.Endpoint = instance.Endpoint,
+                    db.Port = instance.Port,
+                    db.BackupRetentionPeriod = instance.BackupRetentionPeriod,
+                    db.DBName = COALESCE(instance.DBName, 'Null'),
+                    db.created_date = datetime(),
+                    db.snapshot_version = $version
+                ON MATCH SET
+                    db.DBInstanceStatus = instance.DBInstanceStatus,
+                    db.Engine = instance.Engine,
+                    db.EngineVersion = instance.EngineVersion,
+                    db.DBInstanceClass = instance.DBInstanceClass,
+                    db.MasterUsername = instance.MasterUsername,
+                    db.VPCId = instance.VPCId,
+                    db.MultiAZ = toBoolean(instance.MultiAZ),
+                    db.PubliclyAccessible = toBoolean(instance.PubliclyAccessible),
+                    db.StorageEncrypted = toBoolean(instance.StorageEncrypted),
+                    db.IAMDatabaseAuthenticationEnabled = toBoolean(instance.IAMDatabaseAuthenticationEnabled),
+                    db.Endpoint = instance.Endpoint,
+                    db.Port = instance.Port,
+                    db.BackupRetentionPeriod = instance.BackupRetentionPeriod,
+                    db.DBName = COALESCE(instance.DBName, 'Null'),
+                    db.modified_date = datetime(),
+                    db.snapshot_version = $version
                 MERGE (v:VPC {id: instance.VPCId})
-                MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(v)
+                ON CREATE SET v.created_date = datetime(),
+                               v.snapshot_version = $version
+                ON MATCH SET v.modified_date = datetime(),
+                              v.snapshot_version = $version
+                
+                // Use a unique relationship with created/modified dates
+                MERGE (db)-[vpcRel:BELONGS_TO]->(v)
+                ON CREATE SET vpcRel.created_date = datetime(),
+                               vpcRel.snapshot_version = $version
+                ON MATCH SET vpcRel.modified_date = datetime(),
+                              vpcRel.snapshot_version = $version
+                
                 MERGE (sn)-[:CONTAINS]->(db)
                 WITH db, instance, sn
                 UNWIND instance.VpcSecurityGroups AS vpc_sg
                 MERGE (sg:SecurityGroup {id: vpc_sg.VpcSecurityGroupId})
-                MERGE (db)-[:BELONGS_TO {timestamp: datetime()}]->(sg)
+                ON CREATE SET sg.created_date = datetime(),
+                               sg.snapshot_version = $version
+                ON MATCH SET sg.modified_date = datetime(),
+                              sg.snapshot_version = $version
+                
+                // Use a unique relationship with created/modified dates
+                MERGE (db)-[sgRel:BELONGS_TO]->(sg)
+                ON CREATE SET sgRel.created_date = datetime(),
+                               sgRel.snapshot_version = $version
+                ON MATCH SET sgRel.modified_date = datetime(),
+                              sgRel.snapshot_version = $version
+                
                 MERGE (sn)-[:CONTAINS]->(sg)
-                """, snapshot_id=snapshot_id, region=region, instances=instances)
+                """, snapshot_id=snapshot_id, region=region, instances=instances, version=version)
 
             for connections in peering_data.values():
                 session.run("""
@@ -208,14 +403,23 @@ class UpdateDB:
                 UNWIND connection.PeeringConnections AS pc
                 MATCH(rv:VPC {id:pc.RequesterVpcId})
                 MATCH (av:VPC {id: pc.AccepterVpcId})
-                MERGE (rv)-[p:PEERED_TO {id: COALESCE(pc.PeeringConnectionId,'None'), status: COALESCE(pc.Status,'None'), timestamp: datetime()}]->(av)
-                WITH pc,p
+                
+                // Use MERGE with a unique identifier (the peering connection ID)
+                MERGE (rv)-[p:PEERED_TO {id: COALESCE(pc.PeeringConnectionId,'None')}]->(av)
+                ON CREATE SET 
+                    p.status = COALESCE(pc.Status,'None'),
+                    p.created_date = datetime(),
+                    p.snapshot_version = $version
+                ON MATCH SET 
+                    p.status = COALESCE(pc.Status,'None'),
+                    p.modified_date = datetime(),
+                    p.snapshot_version = $version
+                
+                WITH pc, p
                 UNWIND keys(pc.Tags) AS tag_key
                 CALL apoc.create.setRelProperty(p, tag_key, pc.Tags[tag_key]) YIELD rel
                 RETURN p
-                """, connections=connections)
-
-
+                """, connections=connections, version=version)
 
     def main(self):
         try:
