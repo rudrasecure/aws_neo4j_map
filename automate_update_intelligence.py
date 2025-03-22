@@ -11,20 +11,11 @@ from boto.get_vpc_4 import VPC
 from boto.get_alb_5 import ALB
 from boto.get_route_6 import Route
 from neo4j_map.update_intelligence_db import UpdateDB
+from ItsPrompt.prompt import Prompt
 
 import boto3
 # Load environment variables
 config = dotenv_values(".env")
-
-# Create a session
-session = boto3.Session(profile_name=config['AWS_PROFILE'])
-
-# Define the paths
-folder_b = './'
-archive_folder = os.path.join(folder_b, 'archive')
-
-# Create archive folder if it doesn't exist
-os.makedirs(archive_folder, exist_ok=True)
 
 # Run the scripts from folder boto3 by calling their main methods
 def run_scripts():
@@ -47,8 +38,8 @@ def run_scripts():
     route_table.main()
 
 # Run the final script from folder neo4j
-def run_update_intelligence_db():
-    update_db = UpdateDB()
+def run_update_intelligence_db(db_name):
+    update_db = UpdateDB(db_name=db_name)
     update_db.main()
 
 # Archive the output files
@@ -76,6 +67,22 @@ def archive_files():
             print(f"Warning: {source_file} does not exist and will not be archived.")
 
 if __name__ == "__main__":
+    # Extract AWS profile options
+    aws_profiles = [value for key, value in config.items() if key.startswith("AWS_PROFILE")]
+
+    # Prompt user to select an AWS profile
+    selected_profile = Prompt.select("Select an AWS Profile:", aws_profiles)
+    
+    print("Selected profile: ", selected_profile)
+    # Create a session
+    session = boto3.Session(profile_name=selected_profile)
+
+    # Define the paths
+    folder_b = './'
+    archive_folder = os.path.join(folder_b, 'archive')
+
+    # Create archive folder if it doesn't exist
+    os.makedirs(archive_folder, exist_ok=True)
     run_scripts()  # Run all boto3 scripts
-    run_update_intelligence_db()  # Run the final neo4j script
+    run_update_intelligence_db(db_name=selected_profile)  # Run the final neo4j script
     archive_files()  # Archive the output files

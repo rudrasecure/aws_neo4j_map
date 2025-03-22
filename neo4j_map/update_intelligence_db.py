@@ -4,13 +4,25 @@ import json
 import datetime
 
 class UpdateDB:
-    def __init__(self):
+    def __init__(self,db_name):
         self.config = dotenv_values(".env")
-        self.uri = f"neo4j://{self.config['NEO4J_HOST']}:7687"
+        self.uri = f"neo4j://{self.config['NEO4J_HOST']}:{self.config['NEO4J_PORT']}"
         self.driver = GraphDatabase.driver(self.uri, auth=(self.config['NEO4J_USER'], self.config['NEO4J_PASS']))
+        self.db_name = f"db-{db_name}"
+
+    def create_database(self):
+        with self.driver.session() as session:
+            result = session.run("SHOW DATABASES")
+            db_exists = any(record["name"] == self.db_name for record in result)
+            
+            if not db_exists:
+                session.run(f"CREATE DATABASE `{self.db_name}`")
+                print(f"Created database: {self.db_name}")
+            else:
+                print(f"Database {self.db_name} already exists")
 
     def add_data_to_neo4j(self,instance_data, security_group_data, lb_data, rds_data, peering_data, route_data):
-        with self.driver.session() as session:
+        with self.driver.session(database=self.db_name) as session:
             # Check for the highest version number in the Snapshot nodes
             highest_version_result = session.run("MATCH (sn:Snapshot) RETURN max(sn.version) AS highest_version")
             highest_version = highest_version_result.single()[0]
@@ -441,6 +453,7 @@ class UpdateDB:
             faulty_part = open('instances_15062023.json', 'r').read()[e.doc:e.pos]
             print('Faulty part:', faulty_part)
 
+        self.create_database()
         self.add_data_to_neo4j(instance_data=instance_data, security_group_data=security_group_data, lb_data=lb_data, rds_data=rds_data, peering_data=peering_data, route_data=route_data)
 
         self.driver.close()
