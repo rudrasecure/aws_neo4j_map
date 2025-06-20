@@ -16,12 +16,12 @@ class VPC:
 
         for peering in peering_connections['VpcPeeringConnections']:
             peering_details = {
-                'PeeringConnectionId': peering['VpcPeeringConnectionId'],
-                'Status': peering['Status']['Code'],
-                'RequesterVpcId': peering['RequesterVpcInfo']['VpcId'],
-                'RequesterCidr': peering['RequesterVpcInfo']['CidrBlock'],
-                'AccepterVpcId': peering['AccepterVpcInfo']['VpcId'],
-                'AccepterCidr': peering['AccepterVpcInfo']['CidrBlock']
+                'PeeringConnectionId': peering.get('VpcPeeringConnectionId', 'NA'),
+                'Status': peering.get('Status', {}).get('Code', 'NA'),
+                'RequesterVpcId': peering.get('RequesterVpcInfo', {}).get('VpcId', 'NA'),
+                'RequesterCidr': peering.get('RequesterVpcInfo', {}).get('CidrBlock', 'NA'),
+                'AccepterVpcId': peering.get('AccepterVpcInfo', {}).get('VpcId', 'NA'),
+                'AccepterCidr': peering.get('AccepterVpcInfo', {}).get('CidrBlock', 'NA')
             }
         
             # Check if Tags key exists
