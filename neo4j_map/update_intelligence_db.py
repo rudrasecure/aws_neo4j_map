@@ -6,7 +6,7 @@ import datetime
 class UpdateDB:
     def __init__(self,db_name):
         self.config = dotenv_values(".env")
-        self.uri = f"neo4j://{self.config['NEO4J_HOST']}:{self.config['NEO4J_PORT']}"
+        self.uri = f"bolt://{self.config['NEO4J_HOST']}:{self.config['NEO4J_PORT']}"
         self.driver = GraphDatabase.driver(self.uri, auth=(self.config['NEO4J_USER'], self.config['NEO4J_PASS']))
         self.db_name = f"db-{db_name}"
 

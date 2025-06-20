@@ -1,9 +1,10 @@
 import os
 import shutil
+import argparse
 from datetime import datetime
 from dotenv import dotenv_values
 
-# Import the classes from each module
+import boto3
 from boto.get_instance_1 import Instance
 from boto.get_securitygroup_2 import SecurityGroup
 from boto.get_rds_3 import RDS
@@ -11,44 +12,31 @@ from boto.get_vpc_4 import VPC
 from boto.get_alb_5 import ALB
 from boto.get_route_6 import Route
 from neo4j_map.update_intelligence_db import UpdateDB
-from ItsPrompt.prompt import Prompt
 
-import boto3
 # Load environment variables
 config = dotenv_values(".env")
 
-# Run the scripts from folder boto3 by calling their main methods
-def run_scripts():
-    instance = Instance(session)
-    instance.main()
-    
-    security_group = SecurityGroup(session)
-    security_group.main()
-    
-    rds = RDS(session)
-    rds.main()
-    
-    vpc = VPC(session)
-    vpc.main()
-    
-    alb = ALB(session)
-    alb.main()
-    
-    route_table = Route(session)
-    route_table.main()
+# Define the paths
+folder_b = './'
+archive_folder = os.path.join(folder_b, 'archive')
+os.makedirs(archive_folder, exist_ok=True)
 
-# Run the final script from folder neo4j
+def run_scripts(session):
+    Instance(session).main()
+    SecurityGroup(session).main()
+    RDS(session).main()
+    VPC(session).main()
+    ALB(session).main()
+    Route(session).main()
+
 def run_update_intelligence_db(db_name):
-    update_db = UpdateDB(db_name=db_name)
-    update_db.main()
+    UpdateDB(db_name=db_name).main()
 
-# Archive the output files
-def archive_files():
+def archive_files(profile_name):
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    archive_subfolder = os.path.join(archive_folder, f"archive_{timestamp}")
+    archive_subfolder = os.path.join(archive_folder, f"{profile_name}_archive_{timestamp}")
     os.makedirs(archive_subfolder)
 
-    # Define the expected output files
     output_files = [
         'alb_data.json',
         'instance_data.json',
@@ -58,7 +46,6 @@ def archive_files():
         'route_subnet_data.json'
     ]
 
-    # Move the output files to the archive folder
     for output_file in output_files:
         source_file = os.path.join(folder_b, output_file)
         if os.path.exists(source_file):
@@ -66,23 +53,35 @@ def archive_files():
         else:
             print(f"Warning: {source_file} does not exist and will not be archived.")
 
+def get_aws_profiles():
+    return [value for key, value in config.items() if key.startswith("AWS_PROFILE")]
+
 if __name__ == "__main__":
-    # Extract AWS profile options
-    aws_profiles = [value for key, value in config.items() if key.startswith("AWS_PROFILE")]
+    parser = argparse.ArgumentParser(description="Run AWS data extraction and update intelligence DB.")
+    parser.add_argument("--profile", type=str, help="Run the script for a specific AWS profile.")
+    parser.add_argument("--available", action="store_true", help="Show available AWS profiles and exit.")
+    args = parser.parse_args()
 
-    # Prompt user to select an AWS profile
-    selected_profile = Prompt.select("Select an AWS Profile:", aws_profiles)
-    
-    print("Selected profile: ", selected_profile)
-    # Create a session
-    session = boto3.Session(profile_name=selected_profile)
+    aws_profiles = get_aws_profiles()
 
-    # Define the paths
-    folder_b = './'
-    archive_folder = os.path.join(folder_b, 'archive')
+    if args.available:
+        print("Available AWS profiles in .env:")
+        for profile in aws_profiles:
+            print(f" - {profile}")
+        exit(0)
 
-    # Create archive folder if it doesn't exist
-    os.makedirs(archive_folder, exist_ok=True)
-    run_scripts()  # Run all boto3 scripts
-    run_update_intelligence_db(db_name=selected_profile)  # Run the final neo4j script
-    archive_files()  # Archive the output files
+    if args.profile:
+        if args.profile not in aws_profiles:
+            print(f"Error: '{args.profile}' not found in .env AWS_PROFILE entries.")
+            exit(1)
+        profiles_to_run = [args.profile]
+    else:
+        profiles_to_run = aws_profiles
+
+    for profile in profiles_to_run:
+        print(f"\n--- Running for AWS profile: {profile} ---\n")
+        session = boto3.Session(profile_name=profile)
+
+        run_scripts(session)
+        run_update_intelligence_db(db_name=profile)
+        archive_files(profile)
