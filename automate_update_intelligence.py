@@ -60,6 +60,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run AWS data extraction and update intelligence DB.")
     parser.add_argument("--profile", type=str, help="Run the script for a specific AWS profile.")
     parser.add_argument("--available", action="store_true", help="Show available AWS profiles and exit.")
+    parser.add_argument("--all", action="store_true", help="Run the script for all available AWS profiles.")
     args = parser.parse_args()
 
     aws_profiles = get_aws_profiles()
@@ -70,14 +71,17 @@ if __name__ == "__main__":
             print(f" - {profile}")
         exit(0)
 
-    if args.profile:
+    elif args.profile:
         if args.profile not in aws_profiles:
             print(f"Error: '{args.profile}' not found in .env AWS_PROFILE entries.")
             exit(1)
         profiles_to_run = [args.profile]
-    else:
+    elif args.all:
         profiles_to_run = aws_profiles
-
+    else: 
+        parser.print_help()
+        exit(1)
+        
     for profile in profiles_to_run:
         print(f"\n--- Running for AWS profile: {profile} ---\n")
         session = boto3.Session(profile_name=profile)
