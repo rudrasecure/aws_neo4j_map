@@ -253,6 +253,7 @@ class UpdateDB:
 
             for region, load_balancers in lb_data.items():
                 for lb in load_balancers:
+                    # Create LoadBalancer, VPC, Region, and SecurityGroup relationships
                     session.run("""
                     MERGE (r:Region {name: $region})
                     ON CREATE SET r.created_date = datetime(),
@@ -297,41 +298,122 @@ class UpdateDB:
                     ON MATCH SET bts.modified_date = datetime(),
                                   bts.snapshot_version = $version
                     MERGE (sn)-[:CONTAINS]->(sg)
-                    WITH l, sn
-                    UNWIND $target_groups AS tg
-                    MERGE (tg_node:TargetGroup {name: tg.TargetGroupName, arn: tg.TargetGroupArn})
-                    ON CREATE SET tg_node.created_date = datetime(),
-                                   tg_node.snapshot_version = $version
-                    ON MATCH SET tg_node.modified_date = datetime(),
-                                  tg_node.snapshot_version = $version
-                    MERGE (l)-[cts:CONTAINS]->(tg_node)
-                    ON CREATE SET cts.created_date = datetime(),
-                                   cts.snapshot_version = $version
-                    ON MATCH SET cts.modified_date = datetime(),
-                                  cts.snapshot_version = $version
-                    MERGE (sn)-[:CONTAINS]->(tg_node)
-                    WITH tg, tg_node, sn
-                    UNWIND tg.Targets AS target
-                    // Only create relationship if instance exists
-                    OPTIONAL MATCH (i:Instance {id: target.Target}) 
-                    WITH tg_node, i, sn WHERE i IS NOT NULL
-                    MERGE (tg_node)-[cti:CONTAINS]->(i)
-                    ON CREATE SET cti.created_date = datetime(),
-                                   cti.snapshot_version = $version
-                    ON MATCH SET cti.modified_date = datetime(),
-                                  cti.snapshot_version = $version
-                    """, 
-                    region=region, 
-                    load_balancer_arn=lb['LoadBalancerArn'], 
-                    dns_name=lb['DNSName'], 
-                    vpc_id=lb['VpcId'], 
-                    state=lb['State']['Code'], 
-                    scheme=lb['Scheme'], 
-                    created_time=lb['CreatedTime'], 
-                    security_groups=lb['SecurityGroups'], 
-                    target_groups=lb['TargetGroups'], 
-                    snapshot_id=snapshot_id, 
+                    """,
+                    region=region,
+                    load_balancer_arn=lb['LoadBalancerArn'],
+                    dns_name=lb['DNSName'],
+                    vpc_id=lb['VpcId'],
+                    state=lb['State']['Code'],
+                    scheme=lb['Scheme'],
+                    created_time=lb['CreatedTime'],
+                    security_groups=lb['SecurityGroups'],
+                    snapshot_id=snapshot_id,
                     version=version)
+
+                    # Create Listeners and their relationships
+                    if 'Listeners' in lb:
+                        for listener in lb['Listeners']:
+                            session.run("""
+                            MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
+                            MATCH (l:LoadBalancer {arn: $load_balancer_arn})
+                            MERGE (listener:Listener {arn: $listener_arn})
+                            ON CREATE SET
+                                listener.port = $port,
+                                listener.protocol = $protocol,
+                                listener.ssl_policy = $ssl_policy,
+                                listener.created_date = datetime(),
+                                listener.snapshot_version = $version
+                            ON MATCH SET
+                                listener.port = $port,
+                                listener.protocol = $protocol,
+                                listener.ssl_policy = $ssl_policy,
+                                listener.modified_date = datetime(),
+                                listener.snapshot_version = $version
+                            MERGE (sn)-[:CONTAINS]->(listener)
+                            MERGE (l)-[has_listener:HAS_LISTENER]->(listener)
+                            ON CREATE SET has_listener.created_date = datetime(),
+                                           has_listener.snapshot_version = $version
+                            ON MATCH SET has_listener.modified_date = datetime(),
+                                          has_listener.snapshot_version = $version
+                            """,
+                            snapshot_id=snapshot_id,
+                            load_balancer_arn=lb['LoadBalancerArn'],
+                            listener_arn=listener['ListenerArn'],
+                            port=listener['Port'],
+                            protocol=listener['Protocol'],
+                            ssl_policy=listener.get('SslPolicy', 'None'),
+                            version=version)
+
+                            # Create Rules for each Listener with relationships to Target Groups
+                            if 'Rules' in listener:
+                                for rule in listener['Rules']:
+                                    # Extract target group ARNs from rule actions
+                                    target_group_arns = []
+                                    for action in rule.get('Actions', []):
+                                        if action.get('Type') == 'forward':
+                                            if 'TargetGroupArn' in action:
+                                                target_group_arns.append(action['TargetGroupArn'])
+                                            elif 'ForwardConfig' in action:
+                                                for tg_config in action['ForwardConfig'].get('TargetGroups', []):
+                                                    target_group_arns.append(tg_config['TargetGroupArn'])
+
+                                    # Create relationships from Listener to Target Groups via Rules
+                                    for tg_arn in target_group_arns:
+                                        session.run("""
+                                        MATCH (listener:Listener {arn: $listener_arn})
+                                        MERGE (tg:TargetGroup {arn: $target_group_arn})
+                                        ON CREATE SET tg.created_date = datetime(),
+                                                       tg.snapshot_version = $version
+                                        ON MATCH SET tg.modified_date = datetime(),
+                                                      tg.snapshot_version = $version
+                                        MERGE (listener)-[routes_to:ROUTES_TO {
+                                            rule_arn: $rule_arn,
+                                            priority: $priority,
+                                            is_default: $is_default,
+                                            conditions: $conditions,
+                                            actions: $actions
+                                        }]->(tg)
+                                        ON CREATE SET routes_to.created_date = datetime(),
+                                                       routes_to.snapshot_version = $version
+                                        ON MATCH SET routes_to.modified_date = datetime(),
+                                                      routes_to.snapshot_version = $version
+                                        """,
+                                        listener_arn=listener['ListenerArn'],
+                                        target_group_arn=tg_arn,
+                                        rule_arn=rule['RuleArn'],
+                                        priority=str(rule['Priority']),
+                                        is_default=rule['IsDefault'],
+                                        conditions=json.dumps(rule.get('Conditions', [])),
+                                        actions=json.dumps(rule.get('Actions', [])),
+                                        version=version)
+
+                    # Create TargetGroups and their relationships to instances
+                    for tg in lb['TargetGroups']:
+                        session.run("""
+                        MATCH (sn:Snapshot) WHERE ID(sn) = $snapshot_id
+                        MERGE (tg_node:TargetGroup {name: $target_group_name, arn: $target_group_arn})
+                        ON CREATE SET tg_node.created_date = datetime(),
+                                       tg_node.snapshot_version = $version
+                        ON MATCH SET tg_node.modified_date = datetime(),
+                                      tg_node.snapshot_version = $version
+                        MERGE (sn)-[:CONTAINS]->(tg_node)
+                        WITH tg_node, sn
+                        UNWIND $targets AS target
+                        // Only create relationship if instance exists
+                        OPTIONAL MATCH (i:Instance {id: target.Target})
+                        WITH tg_node, i, target, sn WHERE i IS NOT NULL
+                        MERGE (tg_node)-[cti:CONTAINS {health: target.Health}]->(i)
+                        ON CREATE SET cti.created_date = datetime(),
+                                       cti.snapshot_version = $version
+                        ON MATCH SET cti.health = target.Health,
+                                      cti.modified_date = datetime(),
+                                      cti.snapshot_version = $version
+                        """,
+                        snapshot_id=snapshot_id,
+                        target_group_name=tg['TargetGroupName'],
+                        target_group_arn=tg['TargetGroupArn'],
+                        targets=tg['Targets'],
+                        version=version)
 
             for region, instances in rds_data.items():
                 session.run("""
